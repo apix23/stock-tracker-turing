@@ -18,9 +18,10 @@ const SplashScreen = () => {
   }, [completed])
 
   return (
-    <div className="splash-screen">
-      <img src={logo} className="logo" alt="" />
-      <ProgressBar completed={completed} />
+    <div className="splash-screen-short">
+      <img src={logo} className={completed === 100 ? '' : 'logo'} alt="" />
+
+      {completed === 100 ? null : <ProgressBar completed={completed} />}
     </div>
   )
 }

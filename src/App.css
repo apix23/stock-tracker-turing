@@ -4,10 +4,15 @@
   --core-secondary: #ffffff;
   --core-secondary-2: #f1f2f2;
   --core-secondary-5: #828282;
+  --core-secondary-3: #eaebeb;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.app {
+  display: flex;
 }
