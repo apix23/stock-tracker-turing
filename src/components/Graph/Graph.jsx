@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, Text } from 'recharts'
 import './Graph.css'
+
+const CustomizedAxisTick = ({ x, y, payload }) => {
+  let tickValue = payload.value
+
+  if (payload.value % 2 !== 0) {
+    tickValue = '-'
+  }
+
+  return (
+    <Text y={y + 3.5} x={x} textAnchor="end" fill="#7f7f7f" fontSize={12} fontFamily="Roboto" dx={-2}>
+      {tickValue}
+    </Text>
+  )
+}
 
 const Graph = () => {
   const [liveData, setLiveData] = useState()
   const [yesterdayData, setYesterdayData] = useState()
-  const [yesterdayClose, setYesterdayClose] = useState()
+  const [yesterdayClose, setYesterdayClose] = useState('')
 
   useEffect(() => {
     fetch(
-      'https://sandbox.iexapis.com/stable/stock/aapl/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=10',
+      'https://sandbox.iexapis.com/stable/stock/aapl/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5',
     )
       .then((response) => response.json())
       .then((data) => setLiveData(data))
@@ -17,7 +31,7 @@ const Graph = () => {
 
   useEffect(() => {
     fetch(
-      'https://sandbox.iexapis.com/stable/stock/aapl/chart/date/20211020?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=10',
+      'https://sandbox.iexapis.com/stable/stock/aapl/chart/date/20211020?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5',
     )
       .then((response) => response.json())
       .then((data) => setYesterdayData(data))
@@ -33,17 +47,17 @@ const Graph = () => {
   return (
     <div className="chart">
       <LineChart width={1000} height={477}>
-        <CartesianGrid stroke="#eaebeb" strokeWidth={0.6} verticalFill={['#ededed90', '#ffffff00']} />
+        <CartesianGrid stroke="#eaebeb" strokeWidth={0.6} verticalFill={['#ededed80', '#ffffff00']} />
 
         <YAxis
           stroke="#eaebeb"
           tickSize={10}
-          tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
-          interval="preserveStartEnd"
-          tickCount={10}
+          tick={<CustomizedAxisTick />}
+          interval="preserveEnd"
+          tickCount={12}
           allowDecimals={false}
-          domain={['auto', 'auto']}
-          padding={{ top: 24 }}
+          domain={['dataMin-1', 'auto']}
+          padding={{ top: 18 }}
           dx={-5}
         />
 
@@ -60,7 +74,7 @@ const Graph = () => {
 
         <Tooltip contentStyle={{ fontSize: 14, borderColor: '#aaabd1', textAlign: 'center', fontFamily: 'Roboto' }} />
 
-        <ReferenceLine y={153} stroke="#aaabd1" strokeDasharray="5 3" />
+        <ReferenceLine y={yesterdayClose.open} stroke="#aaabd1" strokeDasharray="5 3" />
 
         <Line
           hide={false}
