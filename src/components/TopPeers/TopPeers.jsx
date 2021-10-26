@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { fetchPeers } from '../../services/peersService'
-import './TopPeers.css'
+import './topPeers.css'
 export const Peers = () => {
 
   const [peers, setPeers] = useState([]);
@@ -24,7 +24,7 @@ export const Peers = () => {
       <div className="peers-container">
         {peers.map((peer, i) => {
           return (
-            <button  onClick={null} className='peer' key={peer}>{peer}</button>
+            <button  onClick={null} className='peer' key={i}>{peer}</button>
           )
         })}
       </div>
