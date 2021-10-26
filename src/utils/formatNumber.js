@@ -1,12 +1,12 @@
-const shortenNumber = new Intl.NumberFormat('en-US', {
+const compactNumber = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
   useGrouping: false,
 })
 
-export function formatter(num) {
-  return shortenNumber
+export function formatNumber(num) {
+  return compactNumber
     .formatToParts(num)
     .map(({ type, value }) => {
       switch (type) {
