@@ -1,10 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@400;500&display=swap');
+
+.stats-wrapper {
+  width: 1071px;
+}
 
 .stats-container {
   display: flex;
   width: 1071px;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.stats-title {
+  display: block;
+  font-family: 'Merriweather', serif;
+  color: var(--core-primary-2);
+  font-size: 1em;
+  margin: 10px 36px;
 }
 
 .stats-section {
