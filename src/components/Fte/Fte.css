@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.fte {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+td {
+  font-family: 'Roboto';
+  font-size: 12px;
+  padding: 8px 20px;
+}
+
+td:last-child {
+  border: 0;
+}
+
+.name {
+  color: #7f7f7f;
+}
+
+.positiveChange {
+  font-weight: 500;
+  color: #00f200;
+  border-right: 1px solid #eaebeb;
+}
+
+.negativeChange {
+  font-weight: 500;
+  color: #f23441;
+  border-right: 1px solid #eaebeb;
+}
+
+span {
+  color: #4d4d4d;
+  font-weight: 500;
+}

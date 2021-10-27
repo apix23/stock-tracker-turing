@@ -1,0 +1,37 @@
+.peers-wrapper{
+  width: 351px;
+}
+
+.peers-title{
+  display: block;
+  font-family: 'Merriweather', serif;
+  color: var(--core-primary-2);
+  font-size: 1em;
+  margin: 24px 205px 15px 32px;
+}
+
+.peers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.peer {
+  background-color: transparent;
+  flex-basis: 18%;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 11px;
+  color: #6b6b6b;
+  padding: 4px;
+  margin: 2px;
+  border: 2px solid var(--core-secondary-4);
+  border-radius: 43px;
+  text-decoration: none;
+}
+
+.peer:hover {
+  background-color: var(--core-secondary-4);
+  cursor: pointer;
+}
