@@ -3,14 +3,21 @@ import './App.css'
 // import { KeyStats } from './components/KeyStats/KeyStats'
 // import { Peers } from './components/TopPeers/TopPeers';
 import SplashScreen from './components/SplashScreen'
+
+import Search from './components/Search'
+
 // import { Summary } from './components/Summary/Summary';
 // import Graph from './components/Graph/Graph'
 // import Fte from './components/Fte/Fte'
 
+
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <SplashScreen />
+
+      <Search />
+
       {/* <Summary /> */}
       {/* <KeyStats /> */}
       {/* <Peers /> */}

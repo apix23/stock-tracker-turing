@@ -1,14 +1,27 @@
 :root {
   --core-secondary-1: #f9fafa;
   --core-primary-2: #4d4d4d;
+  --core-primary-5: #828282;
   --core-secondary: #ffffff;
   --core-secondary-2: #f1f2f2;
-  --core-secondary-5: #828282;
+  --core-secondary-3: #eaebeb;
   --core-secondary-4: #d8d9d9;
+  --core-secondary-5: #828282;
+  --accent-primary: #aaabd1;
+
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+}
+
+.black {
+  color: #2b2b2b;
+  font-weight: 500;
 }
