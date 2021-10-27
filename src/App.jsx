@@ -5,6 +5,7 @@ import './App.css'
 import SplashScreen from './components/SplashScreen'
 // import { Summary } from './components/Summary/Summary';
 // import Graph from './components/Graph/Graph'
+// import Fte from './components/Fte/Fte'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       {/* <KeyStats /> */}
       {/* <Peers /> */}
       {/* <Graph /> */}
+      {/* <Fte /> */}
     </div>
   )
 }
