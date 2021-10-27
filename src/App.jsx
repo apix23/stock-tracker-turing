@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 // import { KeyStats } from './components/KeyStats/KeyStats'
 // import { Peers } from './components/TopPeers/TopPeers';
 import SplashScreen from './components/SplashScreen'
 
-import Search from './components/Search'
+import SearchScreen from './components/SearchScreen'
 
 // import { Summary } from './components/Summary/Summary';
 // import Graph from './components/Graph/Graph'
 // import Fte from './components/Fte/Fte'
 
-
 function App() {
-  return (
-    <div className="app">
-      <SplashScreen />
+  const [completed, setCompleted] = useState(0)
 
-      <Search />
+  useEffect(() => {
+    if (completed < 100) {
+      const intervalId = setInterval(() => {
+        setCompleted((prevState) => prevState + 1)
+      }, 10)
+      return () => {
+        clearInterval(intervalId)
+      }
+    }
+  }, [completed])
+  return (
+    <div className='app'>
+      <SplashScreen completed={completed} />
+
+      {completed === 100 && <SearchScreen />}
 
       {/* <Summary /> */}
       {/* <KeyStats /> */}

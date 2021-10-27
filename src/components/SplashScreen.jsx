@@ -3,23 +3,10 @@ import ProgressBar from './ProgressBar'
 import './SplashScreen.css'
 import logo from '../assets/images/ra-logo.png'
 
-const SplashScreen = () => {
-  const [completed, setCompleted] = useState(0)
-
-  useEffect(() => {
-    if (completed < 100) {
-      const intervalId = setInterval(() => {
-        setCompleted((prevState) => prevState + 1)
-      }, 10)
-      return () => {
-        clearInterval(intervalId)
-      }
-    }
-  }, [completed])
-
+const SplashScreen = ({ completed }) => {
   return (
-    <div className="splash-screen">
-      <img src={logo} className={completed === 100 ? '' : 'logo'} alt="" />
+    <div className={completed === 100 ? 'splash-screen-short' : 'splash-screen'}>
+      <img src={logo} className={completed === 100 ? '' : 'logo'} alt='' />
 
       {completed === 100 ? null : <ProgressBar completed={completed} />}
     </div>
