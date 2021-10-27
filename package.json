@@ -9,6 +9,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "dayjs": "^1.10.7",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
