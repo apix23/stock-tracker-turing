@@ -12,11 +12,13 @@ export const News = () => {
   useEffect(() => {
     let mounted = true
 
-    fetchNews().then((data) => {
-      if (mounted) {
-        setNews(data)
-      }
-    })
+    setTimeout(() => {
+      fetchNews().then((data) => {
+        if (mounted) {
+          setNews(data)
+        }
+      })
+    }, 200)
 
     return () => {
       mounted = false
@@ -33,7 +35,7 @@ export const News = () => {
             <div className='news-container' key={i}>
               <div className='news-headline'>{element.headline}</div>
               <div className='news-date'>
-                {dayjs(element.datetime).toNow(true)} - {element.source}
+                {dayjs(element.datetime).toNow(true)} ago - {element.source}
               </div>
             </div>
           )

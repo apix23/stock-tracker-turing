@@ -8,7 +8,7 @@ import SearchScreen from './components/SearchScreen'
 // import { News } from './components/News/News';
 
 // import { Summary } from './components/Summary/Summary';
-import Graph from './components/Graph/Graph'
+import Dashboard from './components/Dashboard'
 // import Fte from './components/Fte/Fte'
 
 function App() {
@@ -29,10 +29,8 @@ function App() {
     <div className='app'>
       <SplashScreen completed={completed} />
 
-
-      {completed === 100 && <SearchScreen setSelectedResult={setSelectedResult} />}
-
-
+      {completed === 100 && !selectedResult && <SearchScreen setSelectedResult={setSelectedResult} />}
+      {selectedResult && <Dashboard selectedResult={selectedResult} />}
       {/* <News /> */}
       {/* <Summary /> */}
       {/* <KeyStats /> */}

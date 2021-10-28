@@ -4,9 +4,9 @@ const newsURL = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/news/la
 
 export const fetchNews = async () => {
   try {
-    const newsData = await fetch(newsURL).then(res => res.json())
+    const newsData = await fetch(newsURL).then((res) => res.json())
     return newsData
-  } catch(err) {
+  } catch (err) {
     console.error(err)
   }
 }

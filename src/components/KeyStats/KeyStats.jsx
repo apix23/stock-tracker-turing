@@ -24,11 +24,14 @@ export const KeyStats = () => {
   useEffect(() => {
     let mounted = true
 
-    fetchStats().then((data) => {
-      if (mounted) {
-        setStats(data)
-      }
-    })
+    setTimeout(() => {
+      fetchStats().then((data) => {
+        if (mounted) {
+          setStats(data)
+        }
+      })
+    }, 300)
+
     return () => {
       mounted = false
     }
