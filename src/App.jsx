@@ -6,7 +6,7 @@ import SplashScreen from './components/SplashScreen'
 import SearchScreen from './components/SearchScreen'
 // import { News } from './components/News/News';
 // import { Summary } from './components/Summary/Summary';
-// import Graph from './components/Graph/Graph'
+import Graph from './components/Graph/Graph'
 // import Fte from './components/Fte/Fte'
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
       {/* <Summary /> */}
       {/* <KeyStats /> */}
       {/* <Peers /> */}
-      {/* <Graph /> */}
+      {/* <Graph StockSymbol='aapl' /> */}
       {/* <Fte /> */}
     </div>
   )
