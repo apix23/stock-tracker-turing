@@ -1,7 +1,7 @@
 import React from 'react'
 import './StockOption.css'
 
-const StockOption = ({ symbol, stockName, inputUser }) => {
+const StockOption = ({ symbol, stockName, inputUser, setSelectedResult }) => {
   const highlightMatch = (word, i) => {
     const regex = new RegExp(inputUser, 'gi')
     const textMatch = word.match(regex)
@@ -15,9 +15,10 @@ const StockOption = ({ symbol, stockName, inputUser }) => {
       </span>
     )
   }
+  const handleClick = () => setSelectedResult(symbol)
   return (
     <div>
-      <div className='stock-suggested'>
+      <div className='stock-suggested' onClick={handleClick}>
         {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
       </div>
     </div>
