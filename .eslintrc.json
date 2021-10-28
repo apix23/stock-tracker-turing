@@ -19,6 +19,6 @@
   "rules": {
     "prettier/prettier": "warn",
     "react/prop-types": "off"
-  },
-  "quotes": ["error", "single"]
+  }
+  
 }

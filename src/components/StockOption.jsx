@@ -2,22 +2,23 @@ import React from 'react'
 import './StockOption.css'
 
 const StockOption = ({ symbol, stockName, inputUser }) => {
-  const replacingForJsx = (str) => {
+  const highlightMatch = (word, i) => {
     const regex = new RegExp(inputUser, 'gi')
-    const str1 = str.match(regex) ? str.match(regex).toString() : ''
-    const str2 = str.substring(str1.length)
+    const textMatch = word.match(regex)
+    const strongText = textMatch ? textMatch.toString() : ''
+    const normalText = word.substring(strongText.length)
 
     return (
-      <span>
-        <strong className="black">{str1}</strong>
-        {str2}{' '}
+      <span key={i}>
+        <strong className='black'>{strongText}</strong>
+        {normalText}{' '}
       </span>
     )
   }
   return (
     <div>
-      <div className="stock-suggested">
-        {replacingForJsx(symbol)} - {stockName.split(' ').map(replacingForJsx)}
+      <div className='stock-suggested'>
+        {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
       </div>
     </div>
   )
