@@ -30,7 +30,6 @@ const Search = () => {
       <div className='search-wrapper'>
         <input type='text' onChange={handleInput} placeholder='Enter a stock, symbol or currency' />
         {stocks && stockSearch && <SuggestionPanel stocks={stocks} inputUser={stockSearch}></SuggestionPanel>}
-        <div className='test-a'>price</div>
       </div>
     </div>
   )

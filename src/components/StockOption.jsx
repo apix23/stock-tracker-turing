@@ -2,11 +2,11 @@ import React from 'react'
 import './StockOption.css'
 
 const StockOption = ({ symbol, stockName, inputUser }) => {
-  const highLithingWords = (str, i) => {
+  const highLithingWords = (word, i) => {
     const regex = new RegExp(inputUser, 'gi')
-    const textMatch = str.match(regex)
+    const textMatch = word.match(regex)
     const strongText = textMatch ? textMatch.toString() : ''
-    const normalText = str.substring(strongText.length)
+    const normalText = word.substring(strongText.length)
 
     return (
       <span key={i}>
