@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import ProgressBar from './ProgressBar'
 import './SplashScreen.css'
 import logo from '../assets/images/ra-logo.png'

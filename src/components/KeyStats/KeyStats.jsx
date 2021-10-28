@@ -35,7 +35,7 @@ export const KeyStats = () => {
   }, [])
 
   return (
-    <div className="stats-wrapper">
+    <div className='stats-wrapper'>
       <h2 className='stats-title'>Key Statistics</h2>
       <div className='stats-container'>
         <div className='stats-section'>
