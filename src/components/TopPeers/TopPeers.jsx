@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { fetchPeers } from '../../services/peersService'
-import './topPeers.css'
+import './TopPeers.css'
 export const Peers = () => {
   const [peers, setPeers] = useState([])
 
