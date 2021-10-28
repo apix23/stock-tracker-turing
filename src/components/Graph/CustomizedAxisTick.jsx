@@ -2,10 +2,10 @@ import React from 'react'
 import { Text } from 'recharts'
 
 const CustomizedAxisTick = ({ x, y, payload }) => {
-  let tickValue = payload.value
+  let tickValue = '-'
 
-  if (payload.value % 2 !== 0) {
-    tickValue = '-'
+  if (payload.value % 2 === 0) {
+    tickValue = payload.value
   }
 
   return (

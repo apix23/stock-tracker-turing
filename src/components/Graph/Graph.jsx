@@ -4,8 +4,8 @@ import CustomizedAxisTick from './CustomizedAxisTick'
 import './Graph.css'
 
 const Graph = ({ StockSymbol }) => {
-  const [liveData, setLiveData] = useState()
-  const [yesterdayData, setYesterdayData] = useState()
+  const [liveData, setLiveData] = useState('')
+  const [yesterdayData, setYesterdayData] = useState('')
   const [yesterdayClose, setYesterdayClose] = useState('')
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Graph = ({ StockSymbol }) => {
 
   useEffect(() => {
     fetch(
-      `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/chart/date/20211020?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
+      `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/chart/date/20211027?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
     )
       .then((response) => response.json())
       .then((data) => setYesterdayData(data))
@@ -41,13 +41,13 @@ const Graph = ({ StockSymbol }) => {
         <YAxis
           stroke='#eaebeb'
           tickSize={10}
-          tick={<CustomizedAxisTick />}
-          interval='preserveEnd'
           tickCount={12}
+          interval='preserveEndStart'
           allowDecimals={false}
           domain={['dataMin-1', 'auto']}
           padding={{ top: 18 }}
           dx={-5}
+          tick={<CustomizedAxisTick />}
         />
 
         <XAxis
