@@ -8,11 +8,13 @@ export const Summary = () => {
   useEffect(() => {
     let mounted = true
 
-    fetchSummary().then((data) => {
-      if (mounted) {
-        setSummary(data)
-      }
-    })
+    setTimeout(() => {
+      fetchSummary().then((data) => {
+        if (mounted) {
+          setSummary(data)
+        }
+      })
+    }, 100)
     return () => {
       mounted = false
     }

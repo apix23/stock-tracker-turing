@@ -5,7 +5,7 @@ const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${symbol}/company${um
 export const fetchSummary = async () => {
   try {
     const summaryData = await fetch(quoteUrl).then((res) => res.json())
-    
+
     return summaryData
   } catch (err) {
     console.error(err)

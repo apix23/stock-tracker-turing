@@ -8,4 +8,13 @@ module.exports = {
       },
     ],
   ],
+
+  plugins: [
+    [
+      'transform-runtime',
+      {
+        regenerator: true,
+      },
+    ],
+  ],
 }
