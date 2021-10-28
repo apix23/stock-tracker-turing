@@ -1,8 +1,8 @@
-.peers-wrapper{
-  width: 351px;
+.peers-wrapper {
+  width: 350px;
 }
 
-.peers-title{
+.peers-title {
   display: block;
   font-family: 'Merriweather', serif;
   color: var(--core-primary-2);
