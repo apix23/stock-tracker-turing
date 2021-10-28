@@ -59,6 +59,7 @@ const Graph = ({ StockSymbol }) => {
           data={yesterdayData}
           dataKey='label'
           dy={5}
+          textAnchor='beginning'
         />
 
         <Tooltip contentStyle={{ fontSize: 14, borderColor: '#aaabd1', textAlign: 'center', fontFamily: 'Roboto' }} />
