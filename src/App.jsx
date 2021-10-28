@@ -3,13 +3,16 @@ import './App.css'
 // import { KeyStats } from './components/KeyStats/KeyStats'
 // import { Peers } from './components/TopPeers/TopPeers';
 import SplashScreen from './components/SplashScreen'
+
 import SearchScreen from './components/SearchScreen'
 // import { News } from './components/News/News';
+
 // import { Summary } from './components/Summary/Summary';
 import Graph from './components/Graph/Graph'
 // import Fte from './components/Fte/Fte'
 
 function App() {
+  const [selectedResult, setSelectedResult] = useState('')
   const [completed, setCompleted] = useState(0)
 
   useEffect(() => {
@@ -26,7 +29,9 @@ function App() {
     <div className='app'>
       <SplashScreen completed={completed} />
 
-      {completed === 100 && <SearchScreen />}
+
+      {completed === 100 && <SearchScreen setSelectedResult={setSelectedResult} />}
+
 
       {/* <News /> */}
 
