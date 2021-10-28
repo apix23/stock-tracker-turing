@@ -4,7 +4,8 @@ import './App.css'
 // import { Peers } from './components/TopPeers/TopPeers';
 import SplashScreen from './components/SplashScreen'
 
-import Search from './components/Search'
+// import Search from './components/Search'
+// import { News } from './components/News/News';
 
 // import { Summary } from './components/Summary/Summary';
 // import Graph from './components/Graph/Graph'
@@ -16,7 +17,8 @@ function App() {
     <div className="app">
       <SplashScreen />
 
-      <Search />
+      {/* <Search /> */}
+      {/* <News /> */}
 
       {/* <Summary /> */}
       {/* <KeyStats /> */}
