@@ -3,3 +3,8 @@
 .recharts-wrapper .recharts-cartesian-grid-horizontal line:last-child {
   stroke-opacity: 0;
 }
+
+.chart {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}

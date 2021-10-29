@@ -1,6 +1,6 @@
 .news-wrapper {
-  min-width: 351px;
-  max-width: 351px;
+  min-width: 500px;
+  max-width: 500px;
 }
 
 .news-title {
@@ -20,10 +20,9 @@
 }
 
 .news-container {
-  width: 317px;
+  width: 500px;
   border-bottom: 1px solid var(--core-secondary-4);
   margin: 0 13px 11px 16px;
-  
 }
 
 .news-date {
