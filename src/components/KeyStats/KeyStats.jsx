@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './keyStats.css'
+import './KeyStats.css'
 import { fetchStats } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
 //
