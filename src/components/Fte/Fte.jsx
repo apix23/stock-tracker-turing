@@ -43,28 +43,28 @@ const Fte = () => {
   }, [])
 
   return (
-    <div className="fte">
+    <div className='fte'>
       <table>
         <tbody>
           <tr>
-            <td className="name">
-              <span>SPY</span> ${spy.indexPrice}
+            <td className='name'>
+              <span className='index-name'>SPY</span> ${spy.indexPrice}
             </td>
 
             <td className={spy.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
               {spy.indexChange > 0 ? '↑' : '↓'} {spy.indexChange} | {spy.indexPercentChange}%
             </td>
 
-            <td className="name">
-              <span>DIA</span> ${dia.indexPrice}
+            <td className='name'>
+              <span className='index-name'>DIA</span> ${dia.indexPrice}
             </td>
 
             <td className={dia.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
               {dia.indexChange > 0 ? '↑' : '↓'} {dia.indexChange} | {dia.indexPercentChange}%
             </td>
 
-            <td className="name">
-              <span>IWM</span> ${iwm.indexPrice}
+            <td className='name'>
+              <span className='index-name'>IWM</span> ${iwm.indexPrice}
             </td>
 
             <td className={iwm.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
