@@ -13,4 +13,7 @@
 
 .right-sidebar {
   background-color: var(--core-secondary-2);
+  display: flex;
+  flex-direction: column;
+  width: 520px;
 }

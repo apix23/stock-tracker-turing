@@ -35,7 +35,7 @@ const Graph = ({ StockSymbol }) => {
 
   return (
     <div className='chart'>
-      <LineChart width={1000} height={477}>
+      <LineChart width={1100} height={550}>
         <CartesianGrid stroke='#eaebeb' strokeWidth={0.6} verticalFill={['#ededed80', '#ffffff00']} />
 
         <YAxis
@@ -69,7 +69,7 @@ const Graph = ({ StockSymbol }) => {
         <Line
           hide={false}
           name='Open'
-          data={liveData}
+          data={yesterdayData}
           dataKey='open'
           stroke='#aaabd1'
           strokeWidth={2}
