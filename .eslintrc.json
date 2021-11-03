@@ -10,6 +10,7 @@
     "parser": "babel-eslint",
     "ecmaFeatures": {
       "jsx": true,
+      "ts": true,
       "modules": true
     },
     "ecmaVersion": 2020,
