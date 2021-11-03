@@ -3,11 +3,11 @@ import './news.css'
 import { fetchNews } from '../../services/newsService'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-
+import { NewsData } from '../../services/newsService'
 dayjs.extend(relativeTime)
 
-export const News = () => {
-  const [news, setNews] = useState([])
+export const News: React.FC = () => {
+  const [news, setNews] = useState<NewsData[] | undefined>([])
 
   useEffect(() => {
     let mounted = true
@@ -25,7 +25,6 @@ export const News = () => {
     }
   }, [])
 
-  console.log(news)
   return (
     <div className='news-wrapper'>
       <h3 className='news-title'>Latest News</h3>
