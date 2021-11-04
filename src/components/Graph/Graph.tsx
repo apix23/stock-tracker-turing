@@ -3,10 +3,23 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } 
 import CustomizedAxisTick from './CustomizedAxisTick'
 import './Graph.css'
 
-const Graph = ({ StockSymbol }) => {
-  const [liveData, setLiveData] = useState('')
-  const [yesterdayData, setYesterdayData] = useState('')
-  const [yesterdayClose, setYesterdayClose] = useState('')
+interface GraphData {
+  open: number
+  label: string
+}
+
+interface YesterdayTypes {
+  close: number
+}
+
+interface GraphProps {
+  StockSymbol: string
+}
+
+const Graph = ({ StockSymbol }: GraphProps) => {
+  const [liveData, setLiveData] = useState<GraphData[] | undefined>()
+  const [yesterdayData, setYesterdayData] = useState<GraphData[] | undefined>()
+  const [yesterdayClose, setYesterdayClose] = useState<YesterdayTypes | undefined>()
 
   useEffect(() => {
     fetch(
@@ -42,7 +55,7 @@ const Graph = ({ StockSymbol }) => {
           stroke='#eaebeb'
           tickSize={10}
           tickCount={12}
-          interval='preserveEndStart'
+          interval='preserveStartEnd'
           allowDecimals={false}
           domain={['dataMin-1', 'auto']}
           padding={{ top: 18 }}
@@ -56,7 +69,7 @@ const Graph = ({ StockSymbol }) => {
           tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
           interval={5}
           allowDuplicatedCategory={false}
-          data={yesterdayData}
+          // data={yesterdayData}
           dataKey='label'
           dy={5}
           textAnchor='beginning'
@@ -64,7 +77,7 @@ const Graph = ({ StockSymbol }) => {
 
         <Tooltip contentStyle={{ fontSize: 14, borderColor: '#aaabd1', textAlign: 'center', fontFamily: 'Roboto' }} />
 
-        <ReferenceLine y={yesterdayClose.close} stroke='#aaabd1' strokeDasharray='5 3' />
+        <ReferenceLine y={yesterdayClose?.close} stroke='#aaabd1' strokeDasharray='5 3' />
 
         <Line
           hide={false}
