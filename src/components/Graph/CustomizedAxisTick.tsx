@@ -1,8 +1,22 @@
 import React from 'react'
 import { Text } from 'recharts'
 
-const CustomizedAxisTick = ({ x, y, payload }) => {
-  let tickValue = '-'
+interface PayloadType {
+  value: number
+}
+
+export interface TickType {
+  x?: number
+  y?: number
+  payload?: PayloadType
+}
+
+const CustomizedAxisTick = ({ x, y, payload }: TickType) => {
+  let tickValue: number | string = '-'
+
+  if (!payload || !y || !x) {
+    return null
+  }
 
   if (payload.value % 2 === 0) {
     tickValue = payload.value

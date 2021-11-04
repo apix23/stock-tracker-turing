@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './Fte.css'
 
+interface IndexTypes {
+  indexPrice: number
+  indexChange: number
+  indexPercentChange: number
+}
+
 const Fte = () => {
-  const [spy, setSpy] = useState({})
-  const [dia, setDia] = useState({})
-  const [iwm, setIwm] = useState({})
+  const [spy, setSpy] = useState<IndexTypes | undefined>()
+  const [dia, setDia] = useState<IndexTypes | undefined>()
+  const [iwm, setIwm] = useState<IndexTypes | undefined>()
 
   useEffect(() => {
     fetch('https://sandbox.iexapis.com/stable/stock/SPY/quote/?token=Tpk_095b8e5990924d0c8c41c2209556da53')
@@ -41,6 +47,10 @@ const Fte = () => {
         }))
       })
   }, [])
+
+  if (!spy || !dia || !iwm) {
+    return null
+  }
 
   return (
     <div className='fte'>
