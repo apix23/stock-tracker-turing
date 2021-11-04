@@ -5,7 +5,7 @@ const compactNumber = new Intl.NumberFormat('en-US', {
   useGrouping: false,
 })
 
-export function formatNumber(num) {
+export function formatNumber(num?: number) {
   return compactNumber
     .formatToParts(num)
     .map(({ type, value }) => {

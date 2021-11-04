@@ -1,26 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './KeyStats.css'
-import { fetchStats } from '../../services/statsService'
+import { fetchStats, StatsType } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
-//
-export const KeyStats = () => {
-  const [stats, setStats] = useState({})
 
-  const {
-    high,
-    low,
-    open,
-    previousClose,
-    week52High,
-    week52Low,
-    marketCap,
-    peRatio,
-    dividendYield,
-    incomeNetPerWabsoSplitAdjusted,
-    isUSMarketOpen,
-    volume,
-    avgTotalVolume,
-  } = stats
+export const KeyStats = () => {
+  const [stats, setStats] = useState<StatsType | undefined | null>(null)
 
   useEffect(() => {
     let mounted = true
@@ -37,6 +21,26 @@ export const KeyStats = () => {
       mounted = false
     }
   }, [])
+
+  if (!stats) {
+    return null
+  }
+
+  const {
+    high,
+    low,
+    open,
+    previousClose,
+    week52High,
+    week52Low,
+    marketCap,
+    peRatio,
+    dividendYield,
+    incomeNetPerWabsoSplitAdjusted,
+    isUSMarketOpen,
+    volume,
+    avgTotalVolume,
+  } = stats
 
   return (
     <div className='stats-wrapper'>
@@ -89,7 +93,7 @@ export const KeyStats = () => {
           </div>
           <div className='stats-row'>
             Volume
-            <span>{formatNumber(volume) ?? '-'}</span>
+            <span>{volume ? formatNumber(volume) : '-'}</span>
           </div>
           <div className='stats-row'>
             Total Avg. Volume
