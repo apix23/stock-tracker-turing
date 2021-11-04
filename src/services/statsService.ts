@@ -2,11 +2,27 @@ const umitToken = `?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504`
 const quoteUrl = `https://sandbox.iexapis.com/stable/stock/aapl/quote${umitToken}`
 const epsUrl = `https://sandbox.iexapis.com/stable/time-series/FUNDAMENTAL_VALUATIONS/AAPL/${umitToken}`
 
+export interface StatsType {
+  high: number
+  low: number
+  open: number
+  previousClose: number
+  week52High: number
+  week52Low: number
+  marketCap: number
+  peRatio: number
+  dividendYield: number
+  incomeNetPerWabsoSplitAdjusted: number
+  isUSMarketOpen: boolean
+  volume: number
+  avgTotalVolume: number
+}
+
 export const fetchStats = async () => {
   try {
     const quoteData = await fetch(quoteUrl).then((res) => res.json())
     const epsData = await fetch(epsUrl).then((res) => res.json())
-    const statsData = { ...quoteData, ...epsData[0] }
+    const statsData: StatsType = { ...quoteData, ...epsData[0] }
     return statsData
   } catch (err) {
     console.error(err)

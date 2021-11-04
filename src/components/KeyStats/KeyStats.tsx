@@ -1,26 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './KeyStats.css'
-import { fetchStats } from '../../services/statsService'
+import { fetchStats, StatsType } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
 
-interface StatsObj {
-  high: string
-  low: string
-  open: string
-  previousClose: string
-  week52High: string
-  week52Low: string
-  marketCap: number
-  peRatio: string
-  dividendYield: number
-  incomeNetPerWabsoSplitAdjusted: number
-  isUSMarketOpen: boolean
-  volume: number
-  avgTotalVolume: number
-}
-
 export const KeyStats = () => {
-  const [stats, setStats] = useState<StatsObj | null>(null)
+  const [stats, setStats] = useState<StatsType | undefined | null>(null)
 
   useEffect(() => {
     let mounted = true

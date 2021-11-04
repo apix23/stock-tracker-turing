@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './news.css'
-import { fetchNews } from '../../services/newsService'
+import { fetchNews, NewsData } from '../../services/newsService'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { NewsData } from '../../services/newsService'
+
 dayjs.extend(relativeTime)
 
 export const News: React.FC = () => {

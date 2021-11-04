@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { fetchPeers } from '../../services/peersService'
 import './TopPeers.css'
 export const Peers = () => {
-  const [peers, setPeers] = useState([])
+  const [peers, setPeers] = useState<string[] | undefined>([])
 
   useEffect(() => {
     let mounted = true

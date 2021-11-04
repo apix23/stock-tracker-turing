@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './summary.css'
-import { fetchSummary } from '../../services/summaryService'
+import { fetchSummary, SummaryType } from '../../services/summaryService'
 
 export const Summary = () => {
-  const [summary, setSummary] = useState({})
+  const [summary, setSummary] = useState<SummaryType | undefined | null>(null)
 
   useEffect(() => {
     let mounted = true
