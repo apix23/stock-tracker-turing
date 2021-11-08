@@ -4,7 +4,7 @@ import { fetchStats, StatsType } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
 
 export const KeyStats = () => {
-  const [stats, setStats] = useState<StatsType | undefined | null>(null)
+  const [stats, setStats] = useState<StatsType>()
 
   useEffect(() => {
     let mounted = true

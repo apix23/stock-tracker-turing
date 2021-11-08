@@ -21,9 +21,9 @@ export const Peers = () => {
     <div className='peers-wrapper'>
       <h2 className='peers-title'>Top Peers</h2>
       <div className='peers-container'>
-        {peers.map((peer, i) => {
+        {peers?.map((peer, i) => {
           return (
-            <button onClick={null} className='peer' key={i}>
+            <button onClick={undefined} className='peer' key={i}>
               {peer}
             </button>
           )
