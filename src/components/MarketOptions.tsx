@@ -1,7 +1,15 @@
 import React from 'react'
 import StockOption from './StockOption'
+import { QueryMarket } from '../services/queryService'
 
-const MarketOptions = ({ market, stocks, inputUser, setSelectedResult, selectedResult }) => {
+interface MarketProps {
+  market: string
+  stocks: QueryMarket[]
+  inputUser: string
+  setSelectedResult: (symbol: string) => void
+}
+
+const MarketOptions = ({ market, stocks, inputUser, setSelectedResult }: MarketProps) => {
   return (
     <div>
       <div className='market-name'>{market}</div>
@@ -12,7 +20,6 @@ const MarketOptions = ({ market, stocks, inputUser, setSelectedResult, selectedR
           setSelectedResult={setSelectedResult}
           inputUser={inputUser}
           stockName={stock.name}
-          selectedResult={selectedResult}
         />
       ))}
     </div>
