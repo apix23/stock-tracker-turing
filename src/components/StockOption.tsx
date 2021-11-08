@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { FC } from 'react'
 import './StockOption.css'
 
-const StockOption = ({ symbol, stockName, inputUser, setSelectedResult }) => {
-  const highlightMatch = (word, i) => {
+interface StockProps {
+  symbol: string
+  stockName: string
+  inputUser: string
+  setSelectedResult: (symbol: string) => void
+}
+
+const StockOption: FC<StockProps> = ({ symbol, stockName, inputUser, setSelectedResult }) => {
+  const highlightMatch = (word: string, i = 0) => {
     const regex = new RegExp(inputUser, 'gi')
     const textMatch = word.match(regex)
     const strongText = textMatch ? textMatch.toString() : ''
