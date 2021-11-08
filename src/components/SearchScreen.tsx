@@ -12,20 +12,10 @@ const SearchScreen = ({ setSelectedResult }: SearchProps) => {
   const [stockSearch, setStockSearch] = useState('')
 
   useEffect(() => {
-    //   const URL = `https://sandbox.iexapis.com/stable/search/${stockSearch}/?token=Tpk_4171507c85734b4f824fe5b208d9c1e2`
     if (!stockSearch) {
       setStocks(null)
     } else {
       queryFetch(setStocks, stockSearch)
-      //     fetch(URL)
-      //       .then((response) => response.json())
-      //       .then((data) => {
-      //         setStocks(data)
-      //       })
-      //       .catch((error) => {
-      //         setStocks([])
-      //         console.log(error)
-      //       })
     }
   }, [stockSearch])
 
