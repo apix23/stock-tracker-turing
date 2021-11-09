@@ -6,11 +6,13 @@ import { Peers } from './TopPeers/TopPeers'
 import './dashboard.css'
 import { Summary } from './Summary/Summary'
 import Fte from './Fte/Fte'
+import LivePrice from './LivePrice/LivePrice'
 
 const Dashboard = ({ selectedResult }) => {
   return (
     <div className='dashboard'>
       <div className='main-section'>
+        <LivePrice StockSymbol={selectedResult} />
         <Graph StockSymbol={selectedResult} />
         <KeyStats />
         <Fte />

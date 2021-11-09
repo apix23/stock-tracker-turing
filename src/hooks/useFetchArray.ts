@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-const useFetch = (url) => {
-  const [data, setData] = useState()
-  const [error, setError] = useState()
+const useFetchArray = (url: string) => {
+  const [data, setData] = useState<object[]>()
+  const [error, setError] = useState<number>()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ const useFetch = (url) => {
     fetchData()
   }, [url])
 
-  return [data, error]
+  return [data, error] as const
 }
 
-export default useFetch
+export default useFetchArray

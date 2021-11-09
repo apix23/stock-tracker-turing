@@ -5,6 +5,7 @@
 }
 
 .chart {
-  padding-top: 100px;
-  padding-bottom: 50px;
+  display: flex;
+  width: 90%;
+  height: 75%;
 }

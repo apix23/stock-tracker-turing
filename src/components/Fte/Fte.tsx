@@ -1,55 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { IndexTypes, fetchSpyData, fetchDiaData, fetchIwmData } from '../../services/indexService'
 import './Fte.css'
 
-interface IndexTypes {
-  indexPrice: number
-  indexChange: number
-  indexPercentChange: number
-}
-
 const Fte = () => {
-  const [spy, setSpy] = useState<IndexTypes | undefined>()
-  const [dia, setDia] = useState<IndexTypes | undefined>()
-  const [iwm, setIwm] = useState<IndexTypes | undefined>()
+  const [spy, setSpy] = useState<IndexTypes>()
+  const [dia, setDia] = useState<IndexTypes>()
+  const [iwm, setIwm] = useState<IndexTypes>()
 
   useEffect(() => {
-    fetch('https://sandbox.iexapis.com/stable/stock/SPY/quote/?token=Tpk_095b8e5990924d0c8c41c2209556da53')
-      .then((response) => response.json())
-      .then((data) => {
-        setSpy(() => ({
-          indexPrice: data.latestPrice,
-          indexChange: data.change.toFixed(2),
-          indexPercentChange: data.changePercent.toFixed(2),
-        }))
-      })
-  }, [])
-
-  useEffect(() => {
-    fetch('https://sandbox.iexapis.com/stable/stock/DIA/quote/?token=Tpk_095b8e5990924d0c8c41c2209556da53')
-      .then((response) => response.json())
-      .then((data) => {
-        setDia(() => ({
-          indexPrice: data.latestPrice,
-          indexChange: data.change.toFixed(2),
-          indexPercentChange: data.changePercent.toFixed(2),
-        }))
-      })
-  }, [])
-
-  useEffect(() => {
-    fetch('https://sandbox.iexapis.com/stable/stock/IWM/quote/?token=Tpk_095b8e5990924d0c8c41c2209556da53')
-      .then((response) => response.json())
-      .then((data) => {
-        setIwm(() => ({
-          indexPrice: data.latestPrice,
-          indexChange: data.change.toFixed(2),
-          indexPercentChange: data.changePercent.toFixed(2),
-        }))
-      })
+    setTimeout(() => {
+      fetchSpyData().then((data) => setSpy(data))
+    }, 200)
+    fetchDiaData().then((data) => setDia(data))
+    fetchIwmData().then((data) => setIwm(data))
   }, [])
 
   if (!spy || !dia || !iwm) {
-    return null
+    return <div>Loading...</div>
   }
 
   return (
