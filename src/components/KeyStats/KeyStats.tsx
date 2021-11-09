@@ -43,7 +43,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
   } = stats
 
   return (
-    <div className='stats-wrapper'>
+    <div className='stats-wrapper' data-testid='statistics'>
       <h2 className='stats-title'>Key Statistics</h2>
       <div className='stats-container'>
         <div className='stats-section'>
