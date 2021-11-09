@@ -6,14 +6,18 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 
 dayjs.extend(relativeTime)
 
-export const News: React.FC = () => {
+interface NewsProps {
+  stockSymbol: string
+}
+
+export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
   const [news, setNews] = useState<NewsData[] | undefined>([])
 
   useEffect(() => {
     let mounted = true
 
     setTimeout(() => {
-      fetchNews().then((data) => {
+      fetchNews(stockSymbol).then((data) => {
         if (mounted) {
           setNews(data)
         }
@@ -23,7 +27,7 @@ export const News: React.FC = () => {
     return () => {
       mounted = false
     }
-  }, [])
+  }, [stockSymbol])
 
   return (
     <div className='news-wrapper'>
