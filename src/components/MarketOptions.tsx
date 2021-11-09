@@ -1,26 +1,14 @@
-import React from 'react'
-import StockOption from './StockOption'
-import { QueryMarket } from '../services/queryService'
+import React, { useContext } from 'react'
+import StockOption from './StockOption/StockOption'
+import { QueryContext } from '../context/QueryContext'
 
-interface MarketProps {
-  market: string
-  stocks: QueryMarket[]
-  inputUser: string
-  setSelectedResult: (symbol: string) => void
-}
-
-const MarketOptions = ({ market, stocks, inputUser, setSelectedResult }: MarketProps) => {
+const MarketOptions = ({ market }: { market: string }) => {
+  const { stocks } = useContext(QueryContext)
   return (
     <div>
       <div className='market-name'>{market}</div>
-      {stocks.map((stock, i) => (
-        <StockOption
-          key={i}
-          symbol={stock.symbol}
-          setSelectedResult={setSelectedResult}
-          inputUser={inputUser}
-          stockName={stock.name}
-        />
+      {stocks?.map((stock, i) => (
+        <StockOption key={i} symbol={stock.symbol} stockName={stock.name} />
       ))}
     </div>
   )

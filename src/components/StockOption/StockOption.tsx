@@ -1,16 +1,19 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import './StockOption.css'
+import { SetSymbolContext } from '../../context/SetSymbolContext'
+import { QueryContext } from '../../context/QueryContext'
 
 interface StockProps {
   symbol: string
   stockName: string
-  inputUser: string
-  setSelectedResult: (symbol: string) => void
 }
 
-const StockOption: FC<StockProps> = ({ symbol, stockName, inputUser, setSelectedResult }) => {
+const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
+  const { setSelectedResult } = useContext(SetSymbolContext)
+  const { stockSearch, setStockSearch } = useContext(QueryContext)
+
   const highlightMatch = (word: string, i = 0) => {
-    const regex = new RegExp(inputUser, 'gi')
+    const regex = new RegExp(stockSearch, 'gi')
     const textMatch = word.match(regex)
     const strongText = textMatch ? textMatch.toString() : ''
     const normalText = word.substring(strongText.length)
@@ -22,7 +25,10 @@ const StockOption: FC<StockProps> = ({ symbol, stockName, inputUser, setSelected
       </span>
     )
   }
-  const handleClick = () => setSelectedResult(symbol)
+  const handleClick = () => {
+    setSelectedResult(symbol)
+    setStockSearch('')
+  }
   return (
     <div>
       <div className='stock-suggested' onClick={handleClick}>

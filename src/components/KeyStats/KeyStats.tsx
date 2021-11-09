@@ -3,22 +3,24 @@ import './KeyStats.css'
 import { fetchStats, StatsType } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
 
-export const KeyStats = () => {
+export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
   const [stats, setStats] = useState<StatsType>()
 
   useEffect(() => {
     let mounted = true
 
-    fetchStats().then((data) => {
-      if (mounted) {
-        setStats(data)
-      }
-    })
+    setTimeout(() => {
+      fetchStats(stockSymbol).then((data) => {
+        if (mounted) {
+          setStats(data)
+        }
+      })
+    }, 300)
 
     return () => {
       mounted = false
     }
-  }, [])
+  }, [stockSymbol])
 
   if (!stats) {
     return null

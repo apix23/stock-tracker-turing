@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react'
 import './summary.css'
 import { fetchSummary, SummaryType } from '../../services/summaryService'
 
-export const Summary = () => {
+export const Summary = ({ stockSymbol }: { stockSymbol: string }) => {
   const [summary, setSummary] = useState<SummaryType>()
 
   useEffect(() => {
     let mounted = true
 
     setTimeout(() => {
-      fetchSummary().then((data) => {
+      fetchSummary(stockSymbol).then((data) => {
         if (mounted) {
           setSummary(data)
         }
@@ -18,7 +18,7 @@ export const Summary = () => {
     return () => {
       mounted = false
     }
-  }, [])
+  }, [stockSymbol])
 
   return (
     <div className='summary-container'>
