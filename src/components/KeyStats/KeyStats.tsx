@@ -9,13 +9,11 @@ export const KeyStats = () => {
   useEffect(() => {
     let mounted = true
 
-    setTimeout(() => {
-      fetchStats().then((data) => {
-        if (mounted) {
-          setStats(data)
-        }
-      })
-    }, 300)
+    fetchStats().then((data) => {
+      if (mounted) {
+        setStats(data)
+      }
+    })
 
     return () => {
       mounted = false
@@ -43,7 +41,7 @@ export const KeyStats = () => {
   } = stats
 
   return (
-    <div className='stats-wrapper'>
+    <div className='stats-wrapper' data-testid='statistics'>
       <h2 className='stats-title'>Key Statistics</h2>
       <div className='stats-container'>
         <div className='stats-section'>

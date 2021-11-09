@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 const umitToken = `?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504`
 const quoteUrl = `https://sandbox.iexapis.com/stable/stock/aapl/quote${umitToken}`
 const epsUrl = `https://sandbox.iexapis.com/stable/time-series/FUNDAMENTAL_VALUATIONS/AAPL/${umitToken}`
