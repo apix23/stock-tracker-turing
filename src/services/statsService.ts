@@ -1,6 +1,4 @@
 const umitToken = `?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504`
-const quoteUrl = `https://sandbox.iexapis.com/stable/stock/aapl/quote${umitToken}`
-const epsUrl = `https://sandbox.iexapis.com/stable/time-series/FUNDAMENTAL_VALUATIONS/AAPL/${umitToken}`
 
 export interface StatsType {
   high: number
@@ -18,7 +16,9 @@ export interface StatsType {
   avgTotalVolume: number
 }
 
-export const fetchStats = async () => {
+export const fetchStats = async (stockSymbol: string) => {
+  const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote${umitToken}`
+  const epsUrl = `https://sandbox.iexapis.com/stable/time-series/FUNDAMENTAL_VALUATIONS/${stockSymbol}/${umitToken}`
   try {
     const quoteData = await fetch(quoteUrl).then((res) => res.json())
     const epsData = await fetch(epsUrl).then((res) => res.json())

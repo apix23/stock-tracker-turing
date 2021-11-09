@@ -13,38 +13,38 @@ interface YesterdayTypes {
 }
 
 interface GraphProps {
-  StockSymbol: string
+  stockSymbol: string
 }
 
-const Graph = ({ StockSymbol }: GraphProps) => {
+const Graph = ({ stockSymbol }: GraphProps) => {
   const [liveData, setLiveData] = useState<GraphData[] | undefined>()
   const [yesterdayData, setYesterdayData] = useState<GraphData[] | undefined>()
   const [yesterdayClose, setYesterdayClose] = useState<YesterdayTypes | undefined>()
 
   useEffect(() => {
     fetch(
-      `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
+      `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
     )
       .then((response) => response.json())
       .then((data) => setLiveData(data))
-  }, [StockSymbol])
+  }, [stockSymbol])
 
   useEffect(() => {
     fetch(
-      `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/chart/date/20211027?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
+      `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211027?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
     )
       .then((response) => response.json())
       .then((data) => setYesterdayData(data))
-  }, [StockSymbol])
+  }, [stockSymbol])
 
   useEffect(() => {
     fetch(
-      `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`,
+      `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`,
     )
       .then((response) => response.json())
       .then((data) => setYesterdayClose(data))
     return () => {}
-  }, [StockSymbol])
+  }, [stockSymbol])
 
   return (
     <div className='chart'>

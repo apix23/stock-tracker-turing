@@ -10,22 +10,21 @@ import SearchBar from '../SearchBar'
 
 interface DashboardProps {
   symbol: string
-  setSelectedResult: (symbol: string) => void
 }
 
-const Dashboard: FC<DashboardProps> = ({ symbol, setSelectedResult }) => {
+const Dashboard: FC<DashboardProps> = ({ symbol }) => {
   return (
     <div className='dashboard'>
       <div className='main-section'>
         <SearchBar style={{ margin: '4vh' }} />
-        <Graph StockSymbol={symbol} />
-        <KeyStats />
+        <Graph stockSymbol={symbol} />
+        <KeyStats stockSymbol={symbol} />
         <Fte />
       </div>
       <div className='right-sidebar'>
-        <News />
-        <Summary />
-        <Peers />
+        <News stockSymbol={symbol} />
+        <Summary stockSymbol={symbol} />
+        <Peers stockSymbol={symbol} />
       </div>
     </div>
   )

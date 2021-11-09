@@ -25,7 +25,7 @@ function App() {
 
       <SetSymbolContext.Provider value={{ setSelectedResult }}>
         {completed === 100 && !selectedResult && <SearchScreen />}
-        {selectedResult && <Dashboard setSelectedResult={setSelectedResult} symbol={selectedResult} />}
+        {selectedResult && <Dashboard symbol={selectedResult} />}
       </SetSymbolContext.Provider>
     </div>
   )
