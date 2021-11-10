@@ -1,106 +1,78 @@
-import React, { useEffect, useState } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts'
+import React from 'react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts'
 import CustomizedAxisTick from './CustomizedAxisTick'
+import useFetchArray from '../../hooks/useFetchArray'
 import './Graph.css'
-
-interface GraphData {
-  open: number
-  label: string
-}
-
-interface YesterdayTypes {
-  close: number
-}
+import useFetchObject from '../../hooks/useFetchObject'
 
 interface GraphProps {
   stockSymbol: string
 }
 
 const Graph = ({ stockSymbol }: GraphProps) => {
-  const [liveData, setLiveData] = useState<GraphData[] | undefined>()
-  const [yesterdayData, setYesterdayData] = useState<GraphData[] | undefined>()
-  const [yesterdayClose, setYesterdayClose] = useState<YesterdayTypes | undefined>()
-
-  useEffect(() => {
-    fetch(
-      `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
-    )
-      .then((response) => response.json())
-      .then((data) => setLiveData(data))
-  }, [stockSymbol])
-
-  useEffect(() => {
-    fetch(
-      `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211027?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`,
-    )
-      .then((response) => response.json())
-      .then((data) => setYesterdayData(data))
-  }, [stockSymbol])
-
-  useEffect(() => {
-    fetch(
-      `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`,
-    )
-      .then((response) => response.json())
-      .then((data) => setYesterdayClose(data))
-    return () => {}
-  }, [stockSymbol])
+  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211108?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
+  const [liveData] = useFetchArray(liveDataUrl)
+  const [yesterdayData] = useFetchArray(yesterdayDataUrl)
+  const [yesterdayClose] = useFetchObject(yesterdayCloseUrl)
 
   return (
     <div className='chart'>
-      <LineChart width={1100} height={550}>
-        <CartesianGrid stroke='#eaebeb' strokeWidth={0.6} verticalFill={['#ededed80', '#ffffff00']} />
+      <ResponsiveContainer width='100%' height='100%'>
+        <LineChart>
+          <CartesianGrid stroke='#eaebeb' strokeWidth={0.6} verticalFill={['#ededed80', '#ffffff00']} />
 
-        <YAxis
-          stroke='#eaebeb'
-          tickSize={10}
-          tickCount={12}
-          interval='preserveStartEnd'
-          allowDecimals={false}
-          domain={['dataMin-1', 'auto']}
-          padding={{ top: 18 }}
-          dx={-5}
-          tick={<CustomizedAxisTick />}
-        />
+          <YAxis
+            stroke='#eaebeb'
+            tickSize={10}
+            tickCount={12}
+            interval='preserveStartEnd'
+            allowDecimals={false}
+            domain={['dataMin-1', 'auto']}
+            padding={{ top: 18 }}
+            dx={-5}
+            tick={<CustomizedAxisTick />}
+          />
 
-        <XAxis
-          stroke='#eaebeb'
-          tickSize={10}
-          tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
-          interval={5}
-          allowDuplicatedCategory={false}
-          // data={yesterdayData}
-          dataKey='label'
-          dy={5}
-          textAnchor='beginning'
-        />
+          <XAxis
+            stroke='#eaebeb'
+            tickSize={10}
+            tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
+            interval={5}
+            allowDuplicatedCategory={false}
+            dataKey='label'
+            dy={5}
+            textAnchor='beginning'
+          />
 
-        <Tooltip contentStyle={{ fontSize: 14, borderColor: '#aaabd1', textAlign: 'center', fontFamily: 'Roboto' }} />
+          <Tooltip contentStyle={{ fontSize: 14, borderColor: '#aaabd1', textAlign: 'center', fontFamily: 'Roboto' }} />
 
-        <ReferenceLine y={yesterdayClose?.close} stroke='#aaabd1' strokeDasharray='5 3' />
+          <ReferenceLine y={yesterdayClose?.close} stroke='#aaabd1' strokeDasharray='5 3' />
 
-        <Line
-          hide={false}
-          name='Open'
-          data={yesterdayData}
-          dataKey='open'
-          stroke='#aaabd1'
-          strokeWidth={2}
-          dot={false}
-          activeDot={{ r: 4 }}
-        />
+          <Line
+            hide={false}
+            name='Open'
+            data={liveData}
+            dataKey='open'
+            stroke='#aaabd1'
+            strokeWidth={2}
+            dot={false}
+            activeDot={{ r: 4 }}
+          />
 
-        <Line
-          hide={true}
-          name='Yesterday Open'
-          data={yesterdayData}
-          dataKey='open'
-          stroke='grey'
-          strokeWidth={2}
-          dot={false}
-          activeDot={{ r: 4 }}
-        />
-      </LineChart>
+          <Line
+            hide={true}
+            name='Yesterday Open'
+            data={yesterdayData}
+            dataKey='open'
+            stroke='grey'
+            strokeWidth={2}
+            dot={false}
+            activeDot={{ r: 4 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   )
 }

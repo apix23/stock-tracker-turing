@@ -2,8 +2,8 @@
 
 .liveContainer {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .livePrice {
