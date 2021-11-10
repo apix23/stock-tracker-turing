@@ -6,13 +6,13 @@ import './Graph.css'
 import useFetchObject from '../../hooks/useFetchObject'
 
 interface GraphProps {
-  StockSymbol: string
+  stockSymbol: string
 }
 
-const Graph = ({ StockSymbol }: GraphProps) => {
-  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/chart/date/20211108?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${StockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
+const Graph = ({ stockSymbol }: GraphProps) => {
+  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211108?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
   const [liveData] = useFetchArray(liveDataUrl)
   const [yesterdayData] = useFetchArray(yesterdayDataUrl)
   const [yesterdayClose] = useFetchObject(yesterdayCloseUrl)
