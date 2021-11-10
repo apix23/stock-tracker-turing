@@ -7,6 +7,7 @@ import './dashboard.css'
 import { Summary } from '../Summary/Summary'
 import Fte from '../Fte/Fte'
 import SearchBar from '../SearchBar'
+import LivePrice from '../LivePrice/LivePrice'
 
 interface DashboardProps {
   symbol: string
@@ -16,7 +17,8 @@ const Dashboard: FC<DashboardProps> = ({ symbol }) => {
   return (
     <div className='dashboard'>
       <div className='main-section'>
-        <SearchBar style={{ margin: '4vh' }} />
+        <SearchBar style={{ marginTop: '4vh' }} />
+        <LivePrice stockSymbol={symbol} />
         <Graph stockSymbol={symbol} />
         <KeyStats stockSymbol={symbol} />
         <Fte />

@@ -1,0 +1,42 @@
+.fte-loading {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.index-one {
+  animation: 0.8s ease -0.48s infinite normal none running index-animation;
+  will-change: transform;
+}
+
+.index-two {
+  animation: 0.8s ease -0.326154s infinite normal none running index-animation;
+  will-change: transform;
+}
+
+.index-three {
+  animation: 0.8s ease -0.172308s infinite normal none running index-animation;
+  will-change: transform;
+}
+
+.index-four {
+  animation: 0.8s ease -0.0184615s infinite normal none running index-animation;
+  will-change: transform;
+}
+
+@keyframes index-animation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, 25px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

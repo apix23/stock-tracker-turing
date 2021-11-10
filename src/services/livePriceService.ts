@@ -3,5 +3,3 @@ export interface realData {
   change: number
   changePercent: number
 }
-
-export const fetchLiveData = async (URL: string) => {}
