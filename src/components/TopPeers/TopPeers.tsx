@@ -6,12 +6,14 @@ import { SetSymbolContext } from '../../context/SetSymbolContext'
 export const Peers = ({ stockSymbol }: { stockSymbol: string }) => {
   const [peers, setPeers] = useState<string[] | undefined>([])
   const { setSelectedResult } = useContext(SetSymbolContext)
+
   useEffect(() => {
     let mounted = true
 
     fetchPeers(stockSymbol).then((data) => {
       if (mounted) {
         setPeers(data)
+        console.log(data)
       }
     })
     return () => {

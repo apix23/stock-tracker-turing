@@ -49,15 +49,15 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
         <div className='stats-section'>
           <div className='stats-row'>
             Open
-            <span>{isUSMarketOpen ? `$${open}` : '-'}</span>
+            <span>{open ? `$${open}` : '-'}</span>
           </div>
           <div className='stats-row'>
             High
-            <span>{isUSMarketOpen ? `$${high}` : '-'}</span>
+            <span>{high ? `$${high}` : '-'}</span>
           </div>
           <div className='stats-row'>
             Low
-            <span>{isUSMarketOpen ? `$${low}` : '-'}</span>
+            <span>{low ? `$${low}` : '-'}</span>
           </div>
           <div className='stats-row'>
             Previous Close
@@ -85,7 +85,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
         <div className='stats-section'>
           <div className='stats-row'>
             Dividend Yield
-            <span>{`${dividendYield?.toFixed(2)}%`}</span>
+            <span>{dividendYield ? `${dividendYield?.toFixed(2)}%` : '-'}</span>
           </div>
           <div className='stats-row'>
             Earnings Per Share
