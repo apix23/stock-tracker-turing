@@ -8,9 +8,7 @@ const Fte = () => {
   const [iwm, setIwm] = useState<IndexTypes>()
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchSpyData().then((data) => setSpy(data))
-    }, 200)
+    fetchSpyData().then((data) => setSpy(data))
     fetchDiaData().then((data) => setDia(data))
     fetchIwmData().then((data) => setIwm(data))
   }, [])
