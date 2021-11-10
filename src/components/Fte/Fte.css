@@ -4,10 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 18vh;
   padding-top: 10px;
   border-top: 1px solid #eaebeb;
-  width: 90%;
+  width: 100%;
 }
 
 td {
