@@ -1,6 +1,6 @@
 import { KeyStats } from './KeyStats'
 import React from 'react'
-import 'regenerator-runtime/runtime'
+import 'regenerator-runtime/runtime.js'
 import { render, screen } from '@testing-library/react'
 import { fetchStats } from '../../services/statsService'
 
@@ -26,7 +26,7 @@ const mockData = {
 
 it('should render Key Statistics', async () => {
   mockFetch.mockResolvedValue(mockData)
-  render(<KeyStats />)
-  await screen.findByText('Key Statistics')
-  await screen.findByText('100.00 B')
+  render(<KeyStats stockSymbol={'AAPL'} />)
+  screen.findByText('Key Statistics')
+  screen.findByText('100.00 B')
 })

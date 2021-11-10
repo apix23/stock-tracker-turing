@@ -29,7 +29,7 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string }) => {
       <a className='company-link' href='/'>
         {summary?.website}
       </a>
-      <p className='company-summary'>{summary?.description}</p>
+      <p className='company-summary'>{summary?.description ?? 'Description is not available'}</p>
     </div>
   )
 }
