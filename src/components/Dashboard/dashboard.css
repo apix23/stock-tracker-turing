@@ -4,6 +4,7 @@
   grid-template-columns: 3fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: 'mainSection sidebarRight';
+  background-color: var(--core-secondary-1);
 }
 
 .main-section {
