@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IndexTypes, fetchSpyData, fetchDiaData, fetchIwmData } from '../../services/indexService'
+import FteLoading from './FteLoading'
 import './Fte.css'
 
 const Fte = () => {
@@ -14,7 +15,7 @@ const Fte = () => {
   }, [])
 
   if (!spy || !dia || !iwm) {
-    return <div>Loading...</div>
+    return <FteLoading />
   }
 
   return (

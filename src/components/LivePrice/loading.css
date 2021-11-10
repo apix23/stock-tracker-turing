@@ -1,0 +1,33 @@
+.live-one {
+  animation: 0.8s ease -0.48s infinite normal none running live-animation;
+  will-change: transform;
+}
+
+.live-two {
+  animation: 0.8s ease -0.326154s infinite normal none running live-animation;
+  will-change: transform;
+}
+
+.live-three {
+  animation: 0.8s ease -0.172308s infinite normal none running live-animation;
+  will-change: transform;
+}
+
+.live-four {
+  animation: 0.8s ease -0.0184615s infinite normal none running live-animation;
+  will-change: transform;
+}
+
+@keyframes live-animation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, 20px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

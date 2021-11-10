@@ -2,8 +2,9 @@ import React from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts'
 import CustomizedAxisTick from './CustomizedAxisTick'
 import useFetchArray from '../../hooks/useFetchArray'
-import './Graph.css'
 import useFetchObject from '../../hooks/useFetchObject'
+import GraphLoading from './GraphLoading'
+import './Graph.css'
 
 interface GraphProps {
   stockSymbol: string
@@ -16,6 +17,10 @@ const Graph = ({ stockSymbol }: GraphProps) => {
   const [liveData] = useFetchArray(liveDataUrl)
   const [yesterdayData] = useFetchArray(yesterdayDataUrl)
   const [yesterdayClose] = useFetchObject(yesterdayCloseUrl)
+
+  if (!liveData) {
+    return <GraphLoading />
+  }
 
   return (
     <div className='chart'>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { realData } from '../../services/livePriceService'
+import LivePriceLoading from './LivePriceLoading'
 import './LivePrice.css'
 
 interface LivePriceProps {
@@ -35,13 +36,13 @@ const LivePrice = ({ stockSymbol }: LivePriceProps) => {
     }
   }, [stockSymbol])
 
-  if (!change) {
-    return <div>Loading...</div>
+  if (!livePrice || !change) {
+    return <LivePriceLoading />
   }
 
   return (
     <div className='liveContainer'>
-      <div className='livePrice'>${livePrice}</div>
+      <div className='livePrice'>${livePrice?.toFixed(2)}</div>
       <div className={change > 0 ? 'priceChangePositive' : 'priceChangeNegative'}>
         {change > 0 ? '↑' : '↓'} {change?.toFixed(2)} | {changePercent?.toFixed(2)}%
       </div>
