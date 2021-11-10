@@ -18,12 +18,12 @@ export interface StatsType {
 }
 
 export const fetchStats = async (stockSymbol: string) => {
-  const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote${umitToken}`
+  const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote/${umitToken}`
   const epsUrl = `https://sandbox.iexapis.com/stable/time-series/FUNDAMENTAL_VALUATIONS/${stockSymbol}/${umitToken}`
   try {
     const quoteData = await fetch(quoteUrl).then((res) => res.json())
     const epsData = await fetch(epsUrl).then((res) => res.json())
-    const statsData: StatsType = { ...quoteData, ...epsData[0] }
+    const statsData: StatsType = { ...epsData[0], ...quoteData }
     return statsData
   } catch (err) {
     console.error(err)
