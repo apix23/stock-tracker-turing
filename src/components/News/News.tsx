@@ -37,7 +37,7 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
           return (
             <div className='news-container' key={i}>
               <div className='news-headline'>{element.headline}</div>
-              <div className='news-date'>
+              <div className='news-date' data-testid='days-ago'>
                 {dayjs(element.datetime).toNow(true)} ago - {element.source}
               </div>
             </div>
