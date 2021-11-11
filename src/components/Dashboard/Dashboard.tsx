@@ -17,8 +17,10 @@ const Dashboard: FC<DashboardProps> = ({ symbol }) => {
   return (
     <div className='dashboard'>
       <div className='main-section'>
-        <SearchBar style={{ marginTop: '4vh' }} />
-        <LivePrice stockSymbol={symbol} />
+        <div className='search-live'>
+          <SearchBar style={{ marginTop: '4vh' }} />
+          <LivePrice stockSymbol={symbol} />
+        </div>
         <Graph stockSymbol={symbol} />
         <KeyStats stockSymbol={symbol} />
         <Fte />

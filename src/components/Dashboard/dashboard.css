@@ -24,3 +24,10 @@
   align-items: center;
   background-color: var(--core-secondary-2);
 }
+
+.search-live {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+}
