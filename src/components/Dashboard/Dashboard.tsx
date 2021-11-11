@@ -11,14 +11,15 @@ import LivePrice from '../LivePrice/LivePrice'
 
 interface DashboardProps {
   symbol: string
+  stockName: string
 }
 
-const Dashboard: FC<DashboardProps> = ({ symbol }) => {
+const Dashboard: FC<DashboardProps> = ({ symbol , stockName}) => {
   return (
     <div className='dashboard'>
       <div className='main-section'>
         <div className='search-live'>
-          <SearchBar style={{ marginTop: '4vh' }} />
+          <SearchBar currentResult={`${symbol} - ${stockName}`} style={{ marginTop: '4vh' }} />
           <LivePrice stockSymbol={symbol} />
         </div>
         <Graph stockSymbol={symbol} />

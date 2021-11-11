@@ -13,7 +13,6 @@ export const Peers = ({ stockSymbol }: { stockSymbol: string }) => {
     fetchPeers(stockSymbol).then((data) => {
       if (mounted) {
         setPeers(data)
-        console.log(data)
       }
     })
     return () => {
