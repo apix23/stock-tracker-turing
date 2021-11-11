@@ -1,5 +1,6 @@
 .peers-wrapper {
-  width: 351px;
+  width: 95%;
+  padding: 20px 25px 0 25px;
 }
 
 .peers-title {
@@ -7,19 +8,19 @@
   font-family: 'Merriweather', serif;
   color: var(--core-primary-2);
   font-size: 1em;
-  margin: 24px 205px 15px 32px;
 }
 
 .peers-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 10px;
+  align-items: center;
+  padding: 15px;
 }
 
 .peer {
   background-color: transparent;
-  flex-basis: 18%;
+  flex-basis: 16%;
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 11px;

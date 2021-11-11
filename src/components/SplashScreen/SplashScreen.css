@@ -14,11 +14,12 @@
 }
 
 .splash-screen-short {
+  padding-top: 4vh;
   background-color: var(--core-secondary-2);
-  width: 180px;
+  min-width: 180px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }

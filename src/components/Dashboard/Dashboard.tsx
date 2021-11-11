@@ -14,7 +14,7 @@ interface DashboardProps {
   stockName: string
 }
 
-const Dashboard: FC<DashboardProps> = ({ symbol , stockName}) => {
+const Dashboard: FC<DashboardProps> = ({ symbol, stockName }) => {
   return (
     <div className='dashboard'>
       <div className='main-section'>

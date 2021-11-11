@@ -1,31 +1,31 @@
 .summary-container {
-  width: 490px;
+  width: 95%;
+  padding: 0 25px 40px 25px;
+  border-bottom: 1px solid var(--core-secondary-4);
 }
 
 .summary-title {
   font-family: 'Merriweather', serif;
   font-weight: 500;
   font-size: 16px;
-  margin: 24px 0 9px 32px;
+  padding-bottom: 10px;
 }
 
 .company-name {
   font-size: 13px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  margin: 0 0 4px 32px;
+  padding-bottom: 10px;
 }
 
 .company-link {
   display: inline-block;
   font-size: 11px;
   font-family: 'Roboto', sans-serif;
-  margin-left: 32px;
-  margin-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .company-summary {
   font-size: 12px;
   font-family: 'Roboto', sans-serif;
-  margin-left: 32px;
 }

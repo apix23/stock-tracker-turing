@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './KeyStats.css'
 import { fetchStats, StatsType } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
+import KeyStatsLoading from './KeyStatsLoading'
 
 export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
   const [stats, setStats] = useState<StatsType>()
@@ -15,7 +16,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
           setStats(data)
         }
       })
-    }, 300)
+    }, 200)
 
     return () => {
       mounted = false
@@ -23,7 +24,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
   }, [stockSymbol])
 
   if (!stats) {
-    return null
+    return <KeyStatsLoading />
   }
 
   const {

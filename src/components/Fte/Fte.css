@@ -4,16 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 18vh;
-  padding-top: 10px;
-  border-top: 1px solid #eaebeb;
+  border-top: 1px solid var(--core-secondary-3);
   width: 100%;
+  padding: 8px 0px;
 }
 
 td {
   font-family: 'Roboto';
   font-size: 12px;
-  padding: 8px 20px;
+  padding: 10px 20px;
 }
 
 td:last-child {
@@ -27,13 +26,13 @@ td:last-child {
 .positiveChange {
   font-weight: 500;
   color: #00f200;
-  border-right: 1px solid #eaebeb;
+  border-right: 1px solid var(--core-secondary-3);
 }
 
 .negativeChange {
   font-weight: 500;
   color: #f23441;
-  border-right: 1px solid #eaebeb;
+  border-right: 1px solid var(--core-secondary-3);
 }
 
 .index-name {
@@ -41,14 +40,13 @@ td:last-child {
   font-weight: 500;
 }
 
-.fte-fail {
+.fte-error {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 18vh;
   padding-top: 10px;
-  border-top: 1px solid #eaebeb;
+  border-top: 1px solid var(--core-secondary-3);
   width: 100%;
   font-family: Roboto;
-  font-size: 1vw;
+  font-size: 0.9vw;
 }

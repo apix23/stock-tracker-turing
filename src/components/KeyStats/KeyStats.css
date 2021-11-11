@@ -1,10 +1,11 @@
 .stats-wrapper {
-  width: 1070px;
+  width: 90%;
+  height: 31%;
+  padding-top: 30px;
 }
 
 .stats-container {
   display: flex;
-  width: 1071px;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -14,16 +15,16 @@
   font-family: 'Merriweather', serif;
   color: var(--core-primary-2);
   font-size: 1em;
-  margin: 10px 36px;
+  padding-bottom: 20px;
 }
 
 .stats-section {
-  width: 351px;
+  width: 350px;
 }
 
-.stats-section:first-of-type {
+/* .stats-section:first-of-type {
   margin-left: 32px;
-}
+} */
 
 .stats-section:last-of-type {
   margin-right: 32px;
@@ -36,8 +37,8 @@
 .stats-row {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--core-secondary-1);
-  padding: 8px 5px;
+  border-bottom: 1px solid var(--core-secondary-3);
+  padding: 8px 0px;
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
