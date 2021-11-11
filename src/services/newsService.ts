@@ -5,6 +5,7 @@ export interface NewsData {
   headline: string
   datetime: number
   source: string
+  url: string
 }
 
 export const fetchNews = async (stockSymbol: string) => {

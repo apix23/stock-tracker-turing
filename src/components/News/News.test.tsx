@@ -11,17 +11,20 @@ const mockData = [
   {
     headline: 'Headline 1',
     datetime: Date.now() - 61000,
-    source: 'anywhere.com',
+    source: 'Anywhere',
+    url: 'anywhere.com',
   },
   {
     headline: 'Headline 2',
     datetime: Date.now() - 121000,
-    source: 'everywhere.com',
+    source: 'Everywhere',
+    url: 'everywhere.com',
   },
   {
     headline: 'Headline 3',
     datetime: Date.now() - 361000,
-    source: 'nowhere.com',
+    source: 'Nowhere',
+    url: 'nowhere.com',
   },
 ]
 
