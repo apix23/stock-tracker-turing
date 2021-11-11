@@ -40,3 +40,15 @@ td:last-child {
   color: #4d4d4d;
   font-weight: 500;
 }
+
+.fte-fail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18vh;
+  padding-top: 10px;
+  border-top: 1px solid #eaebeb;
+  width: 100%;
+  font-family: Roboto;
+  font-size: 1vw;
+}

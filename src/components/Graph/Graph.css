@@ -10,3 +10,14 @@
   height: 55%;
   padding-right: 50px;
 }
+
+.loading-fail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 3vw;
+  width: 95%;
+  height: 55%;
+  border: 2px solid var(--core-secondary-3);
+}

@@ -4,46 +4,65 @@ const diaUrl = `https://sandbox.iexapis.com/stable/stock/DIA/quote/?token=${toke
 const iwmUrl = `https://sandbox.iexapis.com/stable/stock/IWM/quote/?token=${token}`
 
 export interface IndexTypes {
+  error: boolean
   indexPrice: number
   indexChange: number
   indexPercentChange: number
 }
 
 export const fetchSpyData = async () => {
-  try {
-    const spyData = await fetch(spyUrl).then((data) => data.json())
+  const response = await fetch(spyUrl)
+  if (!response.ok) {
     return {
-      indexPrice: spyData.latestPrice,
-      indexChange: spyData.change.toFixed(2),
-      indexPercentChange: spyData.changePercent.toFixed(2),
+      error: true,
+      indexPrice: 0,
+      indexChange: 0,
+      indexPercentChange: 0,
     }
-  } catch (error) {
-    console.error(error)
+  }
+  const data = await response.json()
+  return {
+    error: false,
+    indexPrice: data.latestPrice.toFixed(2),
+    indexChange: data.change.toFixed(2),
+    indexPercentChange: data.changePercent.toFixed(2),
   }
 }
 
 export const fetchDiaData = async () => {
-  try {
-    const diaData = await fetch(diaUrl).then((data) => data.json())
+  const response = await fetch(diaUrl)
+  if (!response.ok) {
     return {
-      indexPrice: diaData.latestPrice,
-      indexChange: diaData.change.toFixed(2),
-      indexPercentChange: diaData.changePercent.toFixed(2),
+      error: true,
+      indexPrice: 0,
+      indexChange: 0,
+      indexPercentChange: 0,
     }
-  } catch (error) {
-    console.error(error)
+  }
+  const data = await response.json()
+  return {
+    error: false,
+    indexPrice: data.latestPrice.toFixed(2),
+    indexChange: data.change.toFixed(2),
+    indexPercentChange: data.changePercent.toFixed(2),
   }
 }
 
 export const fetchIwmData = async () => {
-  try {
-    const iwmData = await fetch(iwmUrl).then((data) => data.json())
+  const response = await fetch(iwmUrl)
+  if (!response.ok) {
     return {
-      indexPrice: iwmData.latestPrice,
-      indexChange: iwmData.change.toFixed(2),
-      indexPercentChange: iwmData.changePercent.toFixed(2),
+      error: true,
+      indexPrice: 0,
+      indexChange: 0,
+      indexPercentChange: 0,
     }
-  } catch (error) {
-    console.error(error)
+  }
+  const data = await response.json()
+  return {
+    error: false,
+    indexPrice: data.latestPrice.toFixed(2),
+    indexChange: data.change.toFixed(2),
+    indexPercentChange: data.changePercent.toFixed(2),
   }
 }

@@ -20,6 +20,7 @@ const useFetchArray = (url: string) => {
       }
       const data = await response.json()
       setData(filterZero(data))
+      setError(0)
     }
 
     fetchData()
