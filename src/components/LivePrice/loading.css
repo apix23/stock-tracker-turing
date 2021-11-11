@@ -1,3 +1,13 @@
+.live-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+  width: 265px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--core-secondary-3);
+}
+
 .live-one {
   animation: 0.8s ease -0.48s infinite normal none running live-animation;
   will-change: transform;

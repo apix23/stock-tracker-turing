@@ -5,7 +5,6 @@ import SearchScreen from './components/SearchScreen/SearchScreen'
 import Dashboard from './components/Dashboard/Dashboard'
 import { SetSymbolContext, SymbolType } from './context/SetSymbolContext'
 
-
 function App() {
   const [selectedResult, setSelectedResult] = useState<SymbolType>()
   const [completed, setCompleted] = useState(0)
@@ -26,7 +25,7 @@ function App() {
 
       <SetSymbolContext.Provider value={{ setSelectedResult }}>
         {completed === 100 && !selectedResult && <SearchScreen />}
-        {selectedResult && <Dashboard symbol={selectedResult.symbol} stockName={selectedResult.stockName}/>}
+        {selectedResult && <Dashboard symbol={selectedResult.symbol} stockName={selectedResult.stockName} />}
       </SetSymbolContext.Provider>
     </div>
   )
