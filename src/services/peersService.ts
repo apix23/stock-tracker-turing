@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime.js'
 const umitToken = `&token=sandbox_c5rtke2ad3ibf61ruc9g`
 
 export const fetchPeers = async (stockSymbol: string) => {

@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime.js'
 const umitToken = `?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504`
 
 export interface SummaryType {
