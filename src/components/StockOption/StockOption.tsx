@@ -26,7 +26,7 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
     )
   }
   const handleClick = () => {
-    setSelectedResult({symbol, stockName})
+    setSelectedResult({ symbol, stockName })
     setStockSearch(`${symbol} - ${stockName}`)
   }
   return (

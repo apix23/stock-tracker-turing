@@ -36,8 +36,10 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
         news.map((element, i) => {
           return (
             <div className='news-container' key={i}>
-              <div className='news-headline'>{element.headline}</div>
-              <div className='news-date'>
+              <div className='news-headline'>
+                <a href={element.url}>{element.headline}</a>
+              </div>
+              <div className='news-date' data-testid='days-ago'>
                 {dayjs(element.datetime).toNow(true)} ago - {element.source}
               </div>
             </div>

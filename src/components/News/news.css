@@ -10,13 +10,15 @@
   margin: 44px 0 9px 32px;
 }
 
-.news-headline {
+.news-headline,
+.news-headline > a {
   font-family: 'Merriweather', serif;
   font-size: 13px;
   font-weight: normal;
   color: var(--core-primary-2);
   line-height: 1.54;
   margin: 0 32px 0 16px;
+  text-decoration: none;
 }
 
 .news-container {

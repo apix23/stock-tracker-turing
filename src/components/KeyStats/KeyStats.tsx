@@ -67,7 +67,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
         <div className='stats-section'>
           <div className='stats-row'>
             Day Range
-            <span>{isUSMarketOpen ? `$${high} - ${low}` : '-'}</span>
+            <span>{high ? `$${high} - ${low}` : '-'}</span>
           </div>
           <div className='stats-row'>
             52 Week Range
@@ -89,7 +89,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
           </div>
           <div className='stats-row'>
             Earnings Per Share
-            <span>{`${incomeNetPerWabsoSplitAdjusted?.toFixed(2)}`}</span>
+            <span>{incomeNetPerWabsoSplitAdjusted ? `${incomeNetPerWabsoSplitAdjusted?.toFixed(2)}` : '-'}</span>
           </div>
           <div className='stats-row'>
             Volume
@@ -97,7 +97,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
           </div>
           <div className='stats-row'>
             Total Avg. Volume
-            <span>{formatNumber(avgTotalVolume)}</span>
+            <span>{avgTotalVolume ? formatNumber(avgTotalVolume) : '-'}</span>
           </div>
         </div>
       </div>
