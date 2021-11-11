@@ -26,7 +26,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
     <div className='chart'>
       <ResponsiveContainer width='100%' height='100%'>
         <LineChart>
-          <CartesianGrid stroke='#eaebeb' strokeWidth={0.6} verticalFill={['#ededed80', '#ffffff00']} />
+          <CartesianGrid stroke='#e0e0e0' strokeWidth={0.6} verticalFill={['#ededed80', '#ffffff00']} />
 
           <YAxis
             stroke='#eaebeb'
