@@ -12,7 +12,7 @@ interface GraphProps {
 
 const Graph = ({ stockSymbol }: GraphProps) => {
   const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211108?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211110?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
   const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
   const [liveData] = useFetchArray(liveDataUrl)
   const [yesterdayData] = useFetchArray(yesterdayDataUrl)
@@ -31,11 +31,11 @@ const Graph = ({ stockSymbol }: GraphProps) => {
           <YAxis
             stroke='#eaebeb'
             tickSize={10}
-            tickCount={12}
+            // tickCount={10}
             interval='preserveStartEnd'
             allowDecimals={false}
             domain={['dataMin-1', 'auto']}
-            padding={{ top: 18 }}
+            padding={{ top: 20 }}
             dx={-5}
             tick={<CustomizedAxisTick />}
           />

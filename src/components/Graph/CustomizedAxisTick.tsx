@@ -18,8 +18,8 @@ const CustomizedAxisTick = ({ x, y, payload }: TickType) => {
     return null
   }
 
-  if (payload.value % 2 === 0) {
-    tickValue = payload.value
+  if (Math.floor(payload.value) % 2 === 0) {
+    tickValue = Math.floor(payload.value)
   }
 
   return (
