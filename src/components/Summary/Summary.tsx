@@ -24,7 +24,7 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string }) => {
     <div className='summary-container'>
       <h2 className='summary-title'>Company Summary</h2>
       <h3 className='company-name'>
-        {summary?.companyName} ({summary?.symbol})
+        {summary?.companyName ?? 'Error fetching name'} ({summary?.symbol ?? ''})
       </h3>
       <a className='company-link' href='/'>
         {summary?.website}

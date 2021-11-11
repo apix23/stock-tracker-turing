@@ -30,10 +30,9 @@ it('should render Key Statistics', async () => {
   screen.findByText('Key Statistics')
   screen.findByText('100.00 B')
 
-  const title = screen.findByRole('heading')
-  title.then((res) => {
-    expect(res).toHaveClass('stats-title')
-  })
+  const titleElement = screen.findByRole('heading')
+  titleElement.then((res) => expect(res).toHaveClass('stats-title'))
+
   const dividendYield = screen.findByText('0.23%')
   dividendYield.then((res) => expect(res).toEqual('0.23%'))
 })

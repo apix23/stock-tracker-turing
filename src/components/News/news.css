@@ -10,13 +10,15 @@
   padding: 0 15px 20px 15px;
 }
 
-.news-headline {
+.news-headline,
+.news-headline > a {
   font-family: 'Merriweather', serif;
   font-size: 13px;
   font-weight: normal;
   color: var(--core-primary-2);
   line-height: 1.54;
   padding: 0 15px 20px 15px;
+  text-decoration: none;
 }
 
 .news-container {
