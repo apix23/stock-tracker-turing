@@ -3,16 +3,17 @@ import './App.css'
 import SplashScreen from './components/SplashScreen/SplashScreen'
 import SearchScreen from './components/SearchScreen/SearchScreen'
 import Dashboard from './components/Dashboard/Dashboard'
-import { SetSymbolContext } from './context/SetSymbolContext'
+import { SetSymbolContext, SymbolType } from './context/SetSymbolContext'
+
 
 function App() {
-  const [selectedResult, setSelectedResult] = useState('')
+  const [selectedResult, setSelectedResult] = useState<SymbolType>()
   const [completed, setCompleted] = useState(0)
 
   useEffect(() => {
     if (completed < 100) {
       const intervalId = setInterval(() => {
-        setCompleted((prevState) => prevState + 1)
+        setCompleted((prevState: number) => prevState + 1)
       }, 10)
       return () => {
         clearInterval(intervalId)
@@ -25,7 +26,7 @@ function App() {
 
       <SetSymbolContext.Provider value={{ setSelectedResult }}>
         {completed === 100 && !selectedResult && <SearchScreen />}
-        {selectedResult && <Dashboard symbol={selectedResult} />}
+        {selectedResult && <Dashboard symbol={selectedResult.symbol} stockName={selectedResult.stockName}/>}
       </SetSymbolContext.Provider>
     </div>
   )

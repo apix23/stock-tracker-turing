@@ -3,10 +3,25 @@ import SuggestionPanel from './SuggestionPanel/SuggestionPanel'
 import { queryFetch, QueryMarket } from '../services/queryService'
 import { QueryContext } from '../context/QueryContext'
 
-const SearchBar = ({ style = {} }: { style: React.CSSProperties }) => {
-  const [stocks, setStocks] = useState<QueryMarket[] | null>(null)
-  const [stockSearch, setStockSearch] = useState('')
+interface SearchBarProps {
+  style: React.CSSProperties
+  currentResult: string
+}
 
+const SearchBar = ({ style = {} , currentResult}: SearchBarProps) => {
+  const [stocks, setStocks] = useState<QueryMarket[] | null>(null)
+  const [stockSearch, setStockSearch] = useState(currentResult)
+  const [isFocus, setIsFocus] = useState(false)
+  
+  useEffect(() => {
+      if (isFocus) {
+        setStockSearch('')
+      }else{ 
+        setStockSearch(currentResult)
+      }
+  
+    }, [isFocus])
+    
   useEffect(() => {
     if (!stockSearch) {
       setStocks(null)
@@ -14,16 +29,28 @@ const SearchBar = ({ style = {} }: { style: React.CSSProperties }) => {
       queryFetch(setStocks, stockSearch)
     }
   }, [stockSearch])
+  
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStockSearch(e.target.value)
   }
-
+  const handleFocus = () => {
+    setIsFocus(true)
+  }
+  const handleBlur = () => {
+    setTimeout(() => {
+      setIsFocus(false)
+    }, 150);
+  }
+  
+  
   return (
     <div className='search-wrapper' style={{ ...style }}>
-      <input type='text' onChange={handleInput} placeholder='Enter a stock, symbol or currency' />
-      <QueryContext.Provider value={{ stocks, stockSearch, setStockSearch }}>
-        {stocks && stockSearch && <SuggestionPanel></SuggestionPanel>}
-      </QueryContext.Provider>
+      {/* {!isFocus && <div onClick={()=> setIsFocus(true)}>{currentResult}</div>} */}
+      
+      <><input type='text' onFocus={handleFocus}  onBlur={handleBlur} onChange={handleInput} value={stockSearch} placeholder='Enter a stock, symbol or currency' />
+      <QueryContext.Provider value={{ stocks, stockSearch, setStockSearch}}>
+        {stocks && stockSearch && isFocus && <SuggestionPanel></SuggestionPanel>}
+      </QueryContext.Provider></>
     </div>
   )
 }
