@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { realData } from '../../services/livePriceService'
 import LivePriceLoading from './LivePriceLoading'
+import LivePriceLoadingError from './LivePriceError'
 import './LivePrice.css'
 
 interface LivePriceProps {
@@ -11,6 +12,7 @@ const LivePrice = ({ stockSymbol }: LivePriceProps) => {
   const [livePrice, setLivePrice] = useState<number>()
   const [change, setChange] = useState<number>()
   const [changePercent, setChangePercent] = useState<number>()
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const sse = new EventSource(
@@ -24,10 +26,13 @@ const LivePrice = ({ stockSymbol }: LivePriceProps) => {
       setChangePercent(liveData.changePercent)
     }
 
-    sse.onmessage = (e) => getRealtimeData(JSON.parse(e.data))
+    sse.onmessage = (e) => {
+      setError(false)
+      getRealtimeData(JSON.parse(e.data))
+    }
 
     sse.onerror = () => {
-      console.log('Error retrieving live price.')
+      setError(true)
       sse.close()
     }
 
@@ -36,14 +41,18 @@ const LivePrice = ({ stockSymbol }: LivePriceProps) => {
     }
   }, [stockSymbol])
 
+  if (error) {
+    return <LivePriceLoadingError />
+  }
+
   if (!livePrice || !change) {
     return <LivePriceLoading />
   }
 
   return (
-    <div className='liveContainer'>
-      <div className='livePrice'>${livePrice?.toFixed(2)}</div>
-      <div className={change > 0 ? 'priceChangePositive' : 'priceChangeNegative'}>
+    <div className='live-container'>
+      <div className='live-price'>${livePrice?.toFixed(2)}</div>
+      <div className={change > 0 ? 'price-change-positive' : 'price-change-negative'}>
         {change > 0 ? '↑' : '↓'} {change?.toFixed(2)} | {changePercent?.toFixed(2)}%
       </div>
     </div>

@@ -1,23 +1,51 @@
 import React, { useEffect, useState } from 'react'
 import { IndexTypes, fetchSpyData, fetchDiaData, fetchIwmData } from '../../services/indexService'
 import FteLoading from './FteLoading'
+import FteError from './FteError'
 import './Fte.css'
 
 const Fte = () => {
   const [spy, setSpy] = useState<IndexTypes>()
   const [dia, setDia] = useState<IndexTypes>()
   const [iwm, setIwm] = useState<IndexTypes>()
+  const [spyError, setSpyError] = useState(false)
+  const [diaError, setDiaError] = useState(false)
+  const [iwmError, setIwmError] = useState(false)
 
   useEffect(() => {
-    fetchSpyData().then((data) => setSpy(data))
-    fetchDiaData().then((data) => setDia(data))
-    fetchIwmData().then((data) => setIwm(data))
+    fetchSpyData().then((data) => {
+      if (data.error) {
+        setSpyError(true)
+      } else {
+        setSpyError(false)
+        setSpy(data)
+      }
+    })
+    fetchDiaData().then((data) => {
+      if (data.error) {
+        setDiaError(true)
+      } else {
+        setDiaError(false)
+        setDia(data)
+      }
+    })
+    fetchIwmData().then((data) => {
+      if (data.error) {
+        setIwmError(true)
+      } else {
+        setIwmError(false)
+        setIwm(data)
+      }
+    })
   }, [])
+
+  if (spyError || diaError || iwmError) {
+    return <FteError />
+  }
 
   if (!spy || !dia || !iwm) {
     return <FteLoading />
   }
-
   return (
     <div className='fte'>
       <table>
