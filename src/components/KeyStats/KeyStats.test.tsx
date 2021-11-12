@@ -18,7 +18,7 @@ const mockData = {
   marketCap: 6,
   peRatio: 7,
   dividendYield: 0.2333333,
-  incomeNetPerWabsoSplitAdjusted: 9,
+  ttmEPS: 9,
   isUSMarketOpen: false,
   volume: 100000000000,
   avgTotalVolume: 11,
