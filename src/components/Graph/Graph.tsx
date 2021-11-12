@@ -11,10 +11,12 @@ interface GraphProps {
   stockSymbol: string
 }
 
+const token = import.meta.env.VITE_API_TOKEN
+
 const Graph = ({ stockSymbol }: GraphProps) => {
-  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211110?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
+  const liveDataUrl = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/${token}&chartInterval=5`
+  const yesterdayDataUrl = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211111${token}&chartInterval=5`
+  const yesterdayCloseUrl = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/previous/${token}`
   const [liveData, liveDataError] = useFetchArray(liveDataUrl)
   const [yesterdayData, yesterdayDataError] = useFetchArray(yesterdayDataUrl)
   const [yesterdayClose] = useFetchObject(yesterdayCloseUrl)

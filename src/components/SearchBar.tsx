@@ -19,7 +19,7 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
     } else {
       setStockSearch(currentResult)
     }
-  }, [isFocus])
+  }, [isFocus, currentResult])
 
   useEffect(() => {
     if (!stockSearch) {
