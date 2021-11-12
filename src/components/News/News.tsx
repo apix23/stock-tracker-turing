@@ -32,7 +32,7 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
   return (
     <div className='news-wrapper'>
       <h3 className='news-title'>Latest News</h3>
-      {news &&
+      {news ? (
         news.map((element, i) => {
           return (
             <div className='news-container' key={i}>
@@ -44,7 +44,10 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
               </div>
             </div>
           )
-        })}
+        })
+      ) : (
+        <div className='news-container'>Error fetching news</div>
+      )}
     </div>
   )
 }

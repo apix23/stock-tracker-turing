@@ -1,13 +1,13 @@
 .news-wrapper {
   width: 95%;
-  padding: 40px 10px 0 10px;
+  padding: 40px 33px 0 30px;
 }
 
 .news-title {
   font-family: 'Merriweather', serif;
   font-size: 16px;
   font-weight: normal;
-  padding: 0 15px 20px 15px;
+  padding-bottom: 10px;
 }
 
 .news-headline,
@@ -17,7 +17,7 @@
   font-weight: normal;
   color: var(--core-primary-2);
   line-height: 1.54;
-  padding: 0 15px 20px 15px;
+  padding-bottom: 10px;
   text-decoration: none;
 }
 
@@ -25,6 +25,7 @@
   width: 100%;
   border-bottom: 1px solid var(--core-secondary-4);
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .news-date {
@@ -33,5 +34,5 @@
   font-weight: 400;
   font-style: italic;
   color: #7f7f7f;
-  padding: 0 15px 20px 15px;
+  /* padding: 0 15px 20px 15px; */
 }
