@@ -24,12 +24,12 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string }) => {
     <div className='summary-container'>
       <h2 className='summary-title'>Company Summary</h2>
       <h3 className='company-name'>
-        {summary?.companyName ?? 'Error fetching name'} ({summary?.symbol ?? ''})
+        {summary?.companyName ?? 'Error fetching name'} ({summary?.symbol ?? 'Error fetching symbol'})
       </h3>
       <a className='company-link' href='/'>
-        {summary?.website}
+        {summary?.website ?? 'Error fetching link'}
       </a>
-      <p className='company-summary'>{summary?.description ?? 'Description is not available'}</p>
+      <p className='company-summary'>{summary?.description.substring(0, 500) ?? 'Description is not available'}</p>
     </div>
   )
 }
