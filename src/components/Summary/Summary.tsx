@@ -26,7 +26,7 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string }) => {
       <h3 className='company-name'>
         {summary?.companyName ?? 'Error fetching name'} ({summary?.symbol ?? 'Error fetching symbol'})
       </h3>
-      <a className='company-link' href='/'>
+      <a className='company-link' target='_blank' rel='noreferrer' href={summary?.website}>
         {summary?.website ?? 'Error fetching link'}
       </a>
       <p className='company-summary'>{summary?.description.substring(0, 500) ?? 'Description is not available'}</p>
