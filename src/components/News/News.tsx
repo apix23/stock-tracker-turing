@@ -37,7 +37,9 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
           return (
             <div className='news-container' key={i}>
               <div className='news-headline'>
-                <a href={element.url}>{element.headline}</a>
+                <a href={element.url} target='_blank' rel='noreferrer'>
+                  {element.headline}
+                </a>
               </div>
               <div className='news-date' data-testid='days-ago'>
                 {dayjs(element.datetime).toNow(true)} ago - {element.source}
