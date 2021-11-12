@@ -26,11 +26,7 @@ export const Peers = ({ stockSymbol }: { stockSymbol: string }) => {
       <div className='peers-container'>
         {peers?.map((peer, i) => {
           return (
-            <button
-              onClick={() => setSelectedResult({ symbol: peer, stockName: 'Apple Inc.' })}
-              className='peer'
-              key={i}
-            >
+            <button onClick={() => setSelectedResult({ symbol: peer, stockName: '' })} className='peer' key={i}>
               {peer}
             </button>
           )
