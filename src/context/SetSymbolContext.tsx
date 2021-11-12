@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 export interface SymbolType {
   symbol: string
-  stockName?: string
+  stockName: string
 }
 
 interface SetSymbolState {
