@@ -8,6 +8,7 @@
   font-size: 16px;
   font-weight: normal;
   padding-bottom: 10px;
+  color: var(--core-primary-2);
 }
 
 .news-headline,
@@ -31,7 +32,7 @@
 .news-date {
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
   color: #7f7f7f;
   /* padding: 0 15px 20px 15px; */

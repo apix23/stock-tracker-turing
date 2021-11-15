@@ -1,7 +1,7 @@
-export const token = import.meta.env.VITE_API_TOKEN
-const spyUrl = `https://cloud.iexapis.com/stable/stock/SPY/quote/${token}`
-const diaUrl = `https://cloud.iexapis.com/stable/stock/DIA/quote/${token}`
-const iwmUrl = `https://cloud.iexapis.com/stable/stock/IWM/quote/${token}`
+export const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
+const spyUrl = `https://sandbox.iexapis.com/stable/stock/SPY/quote/${token}`
+const diaUrl = `https://sandbox.iexapis.com/stable/stock/DIA/quote/${token}`
+const iwmUrl = `https://sandbox.iexapis.com/stable/stock/IWM/quote/${token}`
 
 export interface IndexTypes {
   error: boolean

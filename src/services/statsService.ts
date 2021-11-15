@@ -1,5 +1,5 @@
 import 'regenerator-runtime/runtime'
-export const token = import.meta.env.VITE_API_TOKEN
+export const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
 
 export interface StatsType {
   high: number
@@ -18,8 +18,8 @@ export interface StatsType {
 }
 
 export const fetchStats = async (stockSymbol: string) => {
-  const quoteUrl = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/quote/${token}`
-  const epsUrl = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/stats/${token}`
+  const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote/${token}`
+  const epsUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/stats/${token}`
   try {
     const quoteData = await fetch(quoteUrl).then((res) => res.json())
     const epsData = await fetch(epsUrl).then((res) => res.json())
