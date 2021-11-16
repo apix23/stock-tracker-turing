@@ -31,7 +31,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
     <div className='chart'>
       <ResponsiveContainer width='100%' height='100%'>
         <LineChart>
-          <CartesianGrid stroke='#d1d1d1' strokeWidth={0.5} verticalFill={['#ffffff00', '#ededed80']} />
+          <CartesianGrid stroke='#d1d1d1' strokeWidth={0.4} verticalFill={['#ffffff00', '#ededed80']} />
 
           <YAxis
             stroke='#eaebeb'
@@ -48,8 +48,9 @@ const Graph = ({ stockSymbol }: GraphProps) => {
           <XAxis
             stroke='#eaebeb'
             tickSize={10}
+            tickCount={12}
             tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
-            interval={4}
+            interval={5}
             allowDuplicatedCategory={false}
             dataKey='label'
             dy={5}
@@ -62,9 +63,9 @@ const Graph = ({ stockSymbol }: GraphProps) => {
 
           <Line
             hide={false}
-            name='Open'
+            name='Close'
             data={liveData}
-            dataKey='open'
+            dataKey='close'
             stroke='#aaabd1'
             strokeWidth={2}
             dot={false}
@@ -73,9 +74,9 @@ const Graph = ({ stockSymbol }: GraphProps) => {
 
           <Line
             hide={true}
-            name='Yesterday Open'
+            name='Yesterday Close'
             data={yesterdayData}
-            dataKey='open'
+            dataKey='close'
             stroke='grey'
             strokeWidth={2}
             dot={false}

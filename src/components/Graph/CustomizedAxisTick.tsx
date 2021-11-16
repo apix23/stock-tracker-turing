@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Text } from 'recharts'
 
 interface PayloadType {
@@ -13,11 +13,11 @@ export interface TickType {
 }
 
 const CustomizedAxisTick = ({ x, y, payload, index }: TickType) => {
-  let tickValue = payload?.value.toFixed(2)
-
   if (!payload || !y || !x || index === undefined) {
     return null
   }
+
+  let tickValue: number | string = Math.floor(payload.value)
 
   switch (index) {
     case 1:
