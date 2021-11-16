@@ -32,13 +32,15 @@ it('should render Company Summary', async () => {
   mockFetch.mockResolvedValue(mockData)
   render(<News stockSymbol={'AAPL'} />)
   screen.findByText('News')
-  screen.findByText('nowhere.com')
+  screen.findByText('Nowhere')
 
   const title = screen.findByRole('heading')
-  title.then((res) => {
-    expect(res).toHaveClass('news-title')
-  })
+  title
+    .then((res) => {
+      expect(res).toHaveClass('news-title')
+    })
+    .catch((err) => console.error(err))
 
   const timePassed = screen.findByTestId('days-ago')
-  timePassed.then((res) => expect(res).toHaveLength(3))
+  timePassed.then((res) => expect(res).toHaveLength(3)).catch((err) => console.error(err))
 })

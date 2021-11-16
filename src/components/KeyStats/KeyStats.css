@@ -1,7 +1,7 @@
 .stats-wrapper {
-  width: 90%;
+  width: 100%;
   height: 31%;
-  padding-top: 30px;
+  padding: 33px 0px 0px 5px;
 }
 
 .stats-container {
@@ -14,24 +14,17 @@
   display: block;
   font-family: 'Merriweather', serif;
   color: var(--core-primary-2);
-  font-size: 1em;
-  padding-bottom: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  padding-bottom: 19px;
 }
 
 .stats-section {
   width: 100%;
 }
 
-/* .stats-section:first-of-type {
-  margin-left: 32px;
-} */
-
-.stats-section:last-of-type {
-  margin-right: 12px;
-}
-
 .stats-section:nth-of-type(2) {
-  margin: 0 38px 0 38px;
+  margin: 0 49px 0 49px;
 }
 
 .stats-row {

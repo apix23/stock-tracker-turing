@@ -13,7 +13,7 @@ interface GraphProps {
 
 const Graph = ({ stockSymbol }: GraphProps) => {
   const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211110?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211115?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
   const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
   const [liveData, liveDataError] = useFetchArray(liveDataUrl)
   const [yesterdayData, yesterdayDataError] = useFetchArray(yesterdayDataUrl)
@@ -31,16 +31,16 @@ const Graph = ({ stockSymbol }: GraphProps) => {
     <div className='chart'>
       <ResponsiveContainer width='100%' height='100%'>
         <LineChart>
-          <CartesianGrid stroke='#e0e0e0' strokeWidth={0.6} verticalFill={['#ffffff00', '#ededed80']} />
+          <CartesianGrid stroke='#d1d1d1' strokeWidth={0.5} verticalFill={['#ffffff00', '#ededed80']} />
 
           <YAxis
             stroke='#eaebeb'
             tickSize={10}
-            // tickCount={10}
+            tickCount={12}
             interval='preserveStartEnd'
-            allowDecimals={false}
-            domain={['dataMin-1', 'auto']}
-            padding={{ top: 20 }}
+            allowDecimals={true}
+            domain={['auto', 'auto']}
+            padding={{ top: 18 }}
             dx={-5}
             tick={<CustomizedAxisTick />}
           />

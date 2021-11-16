@@ -6,9 +6,9 @@
 
 .chart {
   display: flex;
-  width: 95%;
+  width: 99%;
+  min-width: 980px;
   height: 55%;
-  margin-right: 50px;
 }
 
 .loading-fail {

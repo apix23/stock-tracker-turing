@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text } from 'recharts'
 
 interface PayloadType {
@@ -9,19 +9,32 @@ export interface TickType {
   x?: number
   y?: number
   payload?: PayloadType
+  index?: number
 }
 
-const CustomizedAxisTick = ({ x, y, payload }: TickType) => {
-  let tickValue: number | string = '-'
+const CustomizedAxisTick = ({ x, y, payload, index }: TickType) => {
+  let tickValue = payload?.value.toFixed(2)
 
-  if (!payload || !y || !x) {
+  if (!payload || !y || !x || index === undefined) {
     return null
   }
 
-  if (Math.floor(payload.value) % 2 === 0) {
-    tickValue = Math.floor(payload.value)
+  switch (index) {
+    case 1:
+    case 2:
+    case 3:
+      tickValue = '-'
+      break
+    case 5:
+    case 6:
+    case 7:
+      tickValue = '-'
+      break
+    case 9:
+    case 10:
+      tickValue = '-'
+      break
   }
-
   return (
     <Text y={y + 3.5} x={x} textAnchor='end' fill='#7f7f7f' fontSize={12} fontFamily='Roboto' dx={-2}>
       {tickValue}

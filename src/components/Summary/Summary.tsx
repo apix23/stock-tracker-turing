@@ -30,6 +30,7 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string }) => {
         {summary?.website ?? 'Error fetching link'}
       </a>
       <p className='company-summary'>{summary?.description.substring(0, 500) ?? 'Description is not available'}</p>
+      <div className='summary-line'></div>
     </div>
   )
 }

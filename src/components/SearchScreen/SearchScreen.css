@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
 .search {
   display: flex;
   flex-direction: column;
@@ -11,19 +13,18 @@
 input {
   border: none;
   width: 100%;
-  border-bottom: 1px solid var(--core-secondary-3);
+  border-bottom: 2px solid var(--core-secondary-3);
   padding-bottom: 14px;
   appearance: none;
   background-color: var(--core-secondary-1);
   font-size: 32px;
-  color: var(--core-primary-2);
-  font-family: 'Merriweather-Regular';
-  margin-bottom: 30px;
+  color: #2b2b2b;
+  font-family: 'Merriweather';
 }
 
 input:focus-visible {
   outline: none;
-  border-bottom: 1px solid var(--accent-primary);
+  border-bottom: 2px solid var(--accent-primary);
 }
 
 .search-wrapper {
