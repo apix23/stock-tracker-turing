@@ -4,6 +4,10 @@ import SplashScreen from './components/SplashScreen/SplashScreen'
 import SearchScreen from './components/SearchScreen/SearchScreen'
 import Dashboard from './components/Dashboard/Dashboard'
 import { SetSymbolContext, SymbolType } from './context/SetSymbolContext'
+import { BrowserRouter as Router,
+        Routes,
+        Route } from "react-router-dom";
+
 
 function App() {
   const [selectedResult, setSelectedResult] = useState<SymbolType>()
@@ -20,14 +24,25 @@ function App() {
     }
   }, [completed])
   return (
-    <div className='app'>
-      <SplashScreen completed={completed} />
+    <Router>
+      <div className='app'>
 
-      <SetSymbolContext.Provider value={{ setSelectedResult }}>
-        {completed === 100 && !selectedResult && <SearchScreen />}
-        {selectedResult && <Dashboard symbol={selectedResult.symbol} stockName={selectedResult.stockName} />}
-      </SetSymbolContext.Provider>
-    </div>
+        {/* <SplashScreen completed={completed} /> */}
+
+        <SetSymbolContext.Provider value={{ setSelectedResult }}>
+          <Routes>
+            <Route path='/:stock' element={selectedResult && <Dashboard symbol={selectedResult.symbol} stockName={selectedResult.stockName} />} />
+              {/* {selectedResult && <Dashboard symbol={selectedResult.symbol} stockName={selectedResult.stockName} />}
+
+            </Route> */}
+          
+            <Route path='/' element={<SearchScreen/>}/>
+              
+
+          </Routes>
+        </SetSymbolContext.Provider>
+      </div>
+    </Router>
   )
 }
 
