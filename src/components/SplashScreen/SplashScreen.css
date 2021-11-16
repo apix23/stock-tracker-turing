@@ -9,17 +9,13 @@
   background-color: var(--core-secondary-2);
 }
 
-.logo {
-  margin-bottom: 35px;
-}
-
 .splash-screen-short {
   padding-top: 4vh;
   background-color: var(--core-secondary-2);
-  min-width: 180px;
+  width: 129px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }

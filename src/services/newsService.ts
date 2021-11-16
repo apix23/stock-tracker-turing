@@ -8,7 +8,7 @@ export interface NewsData {
   url: string
 }
 
-export const fetchNews = async (stockSymbol: string) => {
+export const fetchNews = async (stockSymbol: string | undefined) => {
   const newsURL = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/news/last/3${token}`
   try {
     const newsData: NewsData[] = await fetch(newsURL).then((res) => res.json())

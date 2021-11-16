@@ -4,7 +4,7 @@ import { fetchStats, StatsType } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
 import KeyStatsLoading from './KeyStatsLoading'
 
-export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
+export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
   const [stats, setStats] = useState<StatsType>()
 
   useEffect(() => {

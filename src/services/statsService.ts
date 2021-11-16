@@ -17,7 +17,7 @@ export interface StatsType {
   avgTotalVolume: number
 }
 
-export const fetchStats = async (stockSymbol: string) => {
+export const fetchStats = async (stockSymbol: string | undefined) => {
   const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote/${token}`
   const epsUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/stats/${token}`
   try {

@@ -7,7 +7,7 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
 interface NewsProps {
-  stockSymbol: string
+  stockSymbol?: string
 }
 
 export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
