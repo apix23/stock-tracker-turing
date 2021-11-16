@@ -5,7 +5,7 @@ import LivePriceLoadingError from './LivePriceError'
 import './LivePrice.css'
 
 interface LivePriceProps {
-  stockSymbol: string
+  stockSymbol?: string
 }
 
 const LivePrice = ({ stockSymbol }: LivePriceProps) => {

@@ -8,7 +8,7 @@ export interface SummaryType {
   description: string
 }
 
-export const fetchSummary = async (stockSymbol: string) => {
+export const fetchSummary = async (stockSymbol: string | undefined) => {
   const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/company${token}`
   try {
     const summaryData: SummaryType = await fetch(quoteUrl).then((res) => res.json())

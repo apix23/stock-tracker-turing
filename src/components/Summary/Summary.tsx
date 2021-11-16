@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './summary.css'
 import { fetchSummary, SummaryType } from '../../services/summaryService'
 
-export const Summary = ({ stockSymbol }: { stockSymbol: string }) => {
+export const Summary = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
   const [summary, setSummary] = useState<SummaryType>()
 
   useEffect(() => {
