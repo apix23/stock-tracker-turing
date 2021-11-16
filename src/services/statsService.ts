@@ -1,5 +1,5 @@
 import 'regenerator-runtime/runtime'
-const umitToken = `?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504`
+export const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
 
 export interface StatsType {
   high: number
@@ -11,19 +11,19 @@ export interface StatsType {
   marketCap: number
   peRatio: number
   dividendYield: number
-  incomeNetPerWabsoSplitAdjusted: number
+  ttmEPS: number
   isUSMarketOpen: boolean
   volume: number
   avgTotalVolume: number
 }
 
-export const fetchStats = async (stockSymbol: string) => {
-  const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote/${umitToken}`
-  const epsUrl = `https://sandbox.iexapis.com/stable/time-series/FUNDAMENTAL_VALUATIONS/${stockSymbol}/${umitToken}`
+export const fetchStats = async (stockSymbol: string | undefined) => {
+  const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote/${token}`
+  const epsUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/stats/${token}`
   try {
     const quoteData = await fetch(quoteUrl).then((res) => res.json())
     const epsData = await fetch(epsUrl).then((res) => res.json())
-    const statsData: StatsType = { ...epsData[0], ...quoteData }
+    const statsData: StatsType = { ...epsData, ...quoteData }
     return statsData
   } catch (err) {
     console.error(err)

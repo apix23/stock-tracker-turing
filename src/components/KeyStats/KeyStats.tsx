@@ -4,7 +4,7 @@ import { fetchStats, StatsType } from '../../services/statsService'
 import { formatNumber } from '../../utils/formatNumber'
 import KeyStatsLoading from './KeyStatsLoading'
 
-export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
+export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
   const [stats, setStats] = useState<StatsType>()
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
     marketCap,
     peRatio,
     dividendYield,
-    incomeNetPerWabsoSplitAdjusted,
+    ttmEPS,
     isUSMarketOpen,
     volume,
     avgTotalVolume,
@@ -90,7 +90,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol: string }) => {
           </div>
           <div className='stats-row'>
             Earnings Per Share
-            <span>{incomeNetPerWabsoSplitAdjusted ? `${incomeNetPerWabsoSplitAdjusted?.toFixed(2)}` : '-'}</span>
+            <span>{ttmEPS ? `${ttmEPS?.toFixed(2)}` : '-'}</span>
           </div>
           <div className='stats-row'>
             Volume

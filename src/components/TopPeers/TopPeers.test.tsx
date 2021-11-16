@@ -22,7 +22,7 @@ it('should render Top Peers', async () => {
   //     expect(res).toHaveClass('peers-title')
   //   })
   //   .catch((err) => console.error(err))
-  const allPeers = await screen.findAllByRole('button')
+  const allPeers = await screen.findAllByTestId('button-peer')
   expect(allPeers).toHaveLength(10)
   // })
 })

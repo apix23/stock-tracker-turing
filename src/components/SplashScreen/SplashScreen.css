@@ -9,10 +9,6 @@
   background-color: var(--core-secondary-2);
 }
 
-.logo {
-  margin-bottom: 35px;
-}
-
 .splash-screen-short {
   padding-top: 37px;
   background-color: var(--core-secondary-2);
@@ -20,6 +16,6 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }

@@ -8,8 +8,10 @@ import GraphFailedToLoad from './GraphError'
 import './Graph.css'
 
 interface GraphProps {
-  stockSymbol: string
+  stockSymbol?: string
 }
+
+const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
 
 const Graph = ({ stockSymbol }: GraphProps) => {
   const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`

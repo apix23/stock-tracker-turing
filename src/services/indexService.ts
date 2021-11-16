@@ -1,7 +1,7 @@
-const token = 'Tpk_095b8e5990924d0c8c41c2209556da53'
-const spyUrl = `https://sandbox.iexapis.com/stable/stock/SPY/quote/?token=${token}`
-const diaUrl = `https://sandbox.iexapis.com/stable/stock/DIA/quote/?token=${token}`
-const iwmUrl = `https://sandbox.iexapis.com/stable/stock/IWM/quote/?token=${token}`
+export const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
+const spyUrl = `https://sandbox.iexapis.com/stable/stock/SPY/quote/${token}`
+const diaUrl = `https://sandbox.iexapis.com/stable/stock/DIA/quote/${token}`
+const iwmUrl = `https://sandbox.iexapis.com/stable/stock/IWM/quote/${token}`
 
 export interface IndexTypes {
   error: boolean
