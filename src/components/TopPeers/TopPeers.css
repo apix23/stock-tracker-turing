@@ -1,13 +1,14 @@
 .peers-wrapper {
-  width: 95%;
-  padding: 30px 30px 0 30px;
+  width: 317px;
 }
 
 .peers-title {
   display: block;
   font-family: 'Merriweather', serif;
   color: var(--core-primary-2);
-  font-size: 1em;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 16px 15px 16px;
 }
 
 .peers-container {
@@ -15,7 +16,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
 }
 
 .peer {
@@ -25,8 +25,8 @@
   font-weight: 500;
   font-size: 11px;
   color: #6b6b6b;
-  padding: 3px 4px 3px 4px;
-  margin: 2px;
+  padding: 3px 4px;
+  margin: 3px;
   border: 2px solid var(--core-secondary-4);
   border-radius: 43px;
   text-decoration: none;

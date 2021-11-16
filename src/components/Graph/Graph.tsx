@@ -14,9 +14,9 @@ interface GraphProps {
 const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
 
 const Graph = ({ stockSymbol }: GraphProps) => {
-  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/${token}&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211111${token}&chartInterval=5`
-  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/${token}`
+  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211115?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
   const [liveData, liveDataError] = useFetchArray(liveDataUrl)
   const [yesterdayData, yesterdayDataError] = useFetchArray(yesterdayDataUrl)
   const [yesterdayClose] = useFetchObject(yesterdayCloseUrl)
@@ -33,16 +33,16 @@ const Graph = ({ stockSymbol }: GraphProps) => {
     <div className='chart'>
       <ResponsiveContainer width='100%' height='100%'>
         <LineChart>
-          <CartesianGrid stroke='#e0e0e0' strokeWidth={0.6} verticalFill={['#ffffff00', '#ededed80']} />
+          <CartesianGrid stroke='#d1d1d1' strokeWidth={0.4} verticalFill={['#ffffff00', '#ededed80']} />
 
           <YAxis
             stroke='#eaebeb'
             tickSize={10}
-            // tickCount={10}
+            tickCount={12}
             interval='preserveStartEnd'
-            allowDecimals={false}
-            domain={['dataMin-1', 'auto']}
-            padding={{ top: 20 }}
+            allowDecimals={true}
+            domain={['auto', 'auto']}
+            padding={{ top: 18 }}
             dx={-5}
             tick={<CustomizedAxisTick />}
           />
@@ -50,8 +50,9 @@ const Graph = ({ stockSymbol }: GraphProps) => {
           <XAxis
             stroke='#eaebeb'
             tickSize={10}
+            tickCount={12}
             tick={{ fill: '#7f7f7f', fontSize: 12, fontFamily: 'Roboto' }}
-            interval={4}
+            interval={5}
             allowDuplicatedCategory={false}
             dataKey='label'
             dy={5}
@@ -64,9 +65,9 @@ const Graph = ({ stockSymbol }: GraphProps) => {
 
           <Line
             hide={false}
-            name='Open'
+            name='Close'
             data={liveData}
-            dataKey='open'
+            dataKey='close'
             stroke='#aaabd1'
             strokeWidth={2}
             dot={false}
@@ -75,9 +76,9 @@ const Graph = ({ stockSymbol }: GraphProps) => {
 
           <Line
             hide={true}
-            name='Yesterday Open'
+            name='Yesterday Close'
             data={yesterdayData}
-            dataKey='open'
+            dataKey='close'
             stroke='grey'
             strokeWidth={2}
             dot={false}

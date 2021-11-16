@@ -2,12 +2,12 @@
 
 .live-container {
   display: flex;
-  align-items: center;
-  font-variant-numeric: tabular-nums;
+  align-items: flex-end;
+  justify-content: end;
   width: 265px;
-  margin-top: 4vh;
-  margin-bottom: 30px;
-  border-bottom: 1px solid var(--core-secondary-3);
+  padding-bottom: 7px;
+  margin-top: 43px;
+  border-bottom: 2px solid var(--core-secondary-3);
 }
 
 .live-price {
@@ -21,23 +21,23 @@
   font-size: 16px;
   font-family: Roboto;
   font-weight: 500;
-  color: #00ff00;
+  color: #00d800;
+  padding-bottom: 3px;
 }
 
 .price-change-negative {
   font-size: 16px;
   font-family: Roboto;
   font-weight: 500;
-  color: #ff0000;
+  color: #ff3542;
 }
 
 .live-price-error {
   display: flex;
   justify-content: center;
   width: 265px;
-  margin-top: 4vh;
-  margin-bottom: 30px;
-  border-bottom: 1px solid var(--core-secondary-3);
+  margin-top: 43px;
+  border-bottom: 2px solid var(--core-secondary-3);
   font-family: Roboto;
   font-size: 1vw;
 }

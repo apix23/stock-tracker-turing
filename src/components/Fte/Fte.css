@@ -6,7 +6,7 @@
   align-items: center;
   border-top: 1px solid var(--core-secondary-3);
   width: 100%;
-  padding: 8px 0px;
+  padding: 7px 0px;
 }
 
 td {
@@ -25,7 +25,7 @@ td:last-child {
 
 .positiveChange {
   font-weight: 500;
-  color: #00f200;
+  color: #00d800;
   border-right: 1px solid var(--core-secondary-3);
 }
 

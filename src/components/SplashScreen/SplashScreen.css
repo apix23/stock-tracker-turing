@@ -10,9 +10,9 @@
 }
 
 .splash-screen-short {
-  padding-top: 4vh;
+  padding-top: 37px;
   background-color: var(--core-secondary-2);
-  width: 129px;
+  min-width: 129px;
   height: 100vh;
   display: flex;
   flex-direction: column;

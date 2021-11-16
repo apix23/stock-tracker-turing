@@ -35,16 +35,17 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
       {news ? (
         news.map((element, i) => {
           return (
-            <div className='news-container' key={i}>
-              <div className='news-headline'>
-                <a href={element.url} target='_blank' rel='noreferrer'>
-                  {element.headline}
-                </a>
+            <>
+              <div className='news-container' key={i}>
+                <div className='news-headline'>
+                  <a href={element.url}>{element.headline}</a>
+                </div>
+                <div className='news-date' data-testid='days-ago'>
+                  {dayjs(element.datetime).toNow(true)} ago - {element.source}
+                </div>
               </div>
-              <div className='news-date' data-testid='days-ago'>
-                {dayjs(element.datetime).toNow(true)} ago - {element.source}
-              </div>
-            </div>
+              <div className='lines'></div>
+            </>
           )
         })
       ) : (

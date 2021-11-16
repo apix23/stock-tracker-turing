@@ -3,12 +3,15 @@
 .recharts-wrapper .recharts-cartesian-grid-horizontal line:last-child {
   stroke-opacity: 0;
 }
+.recharts-wrapper .recharts-cartesian-grid-vertical line:last-child {
+  stroke-opacity: 0;
+}
 
 .chart {
   display: flex;
-  width: 95%;
-  height: 55%;
-  margin-right: 50px;
+  width: 99%;
+  min-width: 980px;
+  height: 50%;
 }
 
 .loading-fail {
