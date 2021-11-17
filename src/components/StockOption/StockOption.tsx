@@ -29,12 +29,13 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
     setSelectedResult({ symbol, stockName })
     setStockSearch(`${symbol} - ${stockName}`)
   }
+
   return (
     <div>
-      <a href={`/${symbol}`}>
-      <div className='stock-suggested' onClick={handleClick}>
-        {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
-      </div>
+      <a href={`/${symbol}`} style={{ textDecoration: 'none' }}>
+        <div className='stock-suggested' onClick={handleClick}>
+          {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
+        </div>
       </a>
     </div>
   )
