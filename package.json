@@ -1,6 +1,7 @@
 {
   "name": "stock-tracker-turing",
   "version": "0.0.0",
+  "homepage": "https://adaptiveconsulting.github.io/stock-tracker-turing",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
