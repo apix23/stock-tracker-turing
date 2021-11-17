@@ -8,8 +8,8 @@ function App() {
   return (
     <div className='app'>
       <Routes>
-        <Route path='/stock-tracker-turing' element={<Homepage />} />
-        <Route path='/stock-tracker-turing/:stock' element={<Dashboard symbol={'AAPL'} stockName={''} />} />
+        <Route path='/' element={<Homepage />} />
+        <Route path='/:stock' element={<Dashboard symbol={'AAPL'} stockName={''} />} />
       </Routes>
     </div>
   )

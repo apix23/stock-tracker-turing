@@ -32,7 +32,7 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
 
   return (
     <div>
-      <a href={`/${symbol}`} style={{ textDecoration: 'none' }}>
+      <a href={`/stock-tracker-turing/${symbol}`} style={{ textDecoration: 'none' }}>
         <div className='stock-suggested' onClick={handleClick}>
           {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
         </div>
