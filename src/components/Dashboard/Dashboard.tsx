@@ -17,7 +17,6 @@ interface DashboardProps {
 
 const Dashboard: FC<DashboardProps> = ({ symbol, stockName }) => {
   const { stock } = useParams()
-  console.log(stock)
 
   return (
     <div className='dashboard'>

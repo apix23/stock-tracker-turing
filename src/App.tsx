@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path=':stock' element={<Dashboard symbol={'AAPL'} stockName={''} />} />
-
       </Routes>
     </div>
   )

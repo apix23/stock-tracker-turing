@@ -34,7 +34,7 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
   return (
     <div>
       <Link to={`/${symbol}`}>
-        <div className='stock-suggested' onClick={handleClick}>
+        <div className='stock-suggested' onMouseDown={(event) => event.preventDefault()} onClick={handleClick}>
           {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
         </div>
       </Link>

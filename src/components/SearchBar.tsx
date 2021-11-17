@@ -10,16 +10,14 @@ interface SearchBarProps {
 
 const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
   const [stocks, setStocks] = useState<QueryMarket[] | null>(null)
-  const [stockSearch, setStockSearch] = useState(currentResult)
+  const [stockSearch, setStockSearch] = useState('')
   const [isFocus, setIsFocus] = useState(false)
 
   useEffect(() => {
-    if (isFocus) {
+    if (!isFocus) {
       setStockSearch('')
-    } else {
-      setStockSearch(currentResult)
     }
-  }, [isFocus, currentResult])
+  }, [isFocus])
 
   useEffect(() => {
     if (!stockSearch) {
@@ -36,26 +34,22 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
     setIsFocus(true)
   }
   const handleBlur = () => {
-    setTimeout(() => {
-      setIsFocus(false)
-    }, 150)
+    setIsFocus(false)
   }
 
   return (
     <div className='search-wrapper' style={{ ...style }}>
-      <>
-        <input
-          type='text'
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleInput}
-          value={stockSearch}
-          placeholder='Enter a stock, symbol or currency'
-        />
-        <QueryContext.Provider value={{ stocks, stockSearch, setStockSearch }}>
-          {stocks && stockSearch && isFocus && <SuggestionPanel></SuggestionPanel>}
-        </QueryContext.Provider>
-      </>
+      <input
+        type='text'
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChange={handleInput}
+        value={isFocus ? stockSearch : currentResult}
+        placeholder='Enter a stock, symbol or currency'
+      />
+      <QueryContext.Provider value={{ stocks, stockSearch, setStockSearch }}>
+        {stocks && stockSearch && isFocus && <SuggestionPanel></SuggestionPanel>}
+      </QueryContext.Provider>
     </div>
   )
 }
