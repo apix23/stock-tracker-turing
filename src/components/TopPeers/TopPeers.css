@@ -30,6 +30,7 @@
   border: 2px solid var(--core-secondary-4);
   border-radius: 43px;
   text-decoration: none;
+  text-align: center;
 }
 
 .peer:hover {
