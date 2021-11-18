@@ -25,3 +25,7 @@
   color: #2b2b2b;
   font-weight: 500;
 }
+
+a {
+  text-decoration: none;
+}

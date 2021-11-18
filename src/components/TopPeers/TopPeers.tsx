@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { SetSymbolContext } from '../../context/SetSymbolContext'
+import React from 'react'
 import useFetchTopPeers from '../../hooks/useFetchTopPerrs'
 import { Link } from 'react-router-dom'
 import './TopPeers.css'
@@ -9,7 +8,6 @@ export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
   const peersURL = `https://finnhub.io/api/v1/stock/peers?symbol=${stockSymbol}&token=${token}`
 
   const [peers, error] = useFetchTopPeers(peersURL)
-  const { setSelectedResult } = useContext(SetSymbolContext)
 
   if (!peers) {
     return <div>Loading...</div>
@@ -25,15 +23,9 @@ export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
       <div className='peers-container'>
         {peers?.map((peer, i) => {
           return (
-            <a
-              data-testid='button-peer'
-              href={`/${peer}`}
-              onClick={() => setSelectedResult({ symbol: peer, stockName: '' })}
-              className='peer'
-              key={i}
-            >
-              {peer}
-            </a>
+            <Link to={`/${peer}`} key={i}>
+              <button className='peer'>{peer}</button>
+            </Link>
           )
         })}
       </div>

@@ -2,6 +2,7 @@ import React, { FC, useContext } from 'react'
 import './StockOption.css'
 import { SetSymbolContext } from '../../context/SetSymbolContext'
 import { QueryContext } from '../../context/QueryContext'
+import { Link } from 'react-router-dom'
 
 interface StockProps {
   symbol: string
@@ -26,17 +27,17 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
     )
   }
   const handleClick = () => {
-    setSelectedResult({ symbol, stockName })
-    setStockSearch(`${symbol} - ${stockName}`)
+    setSelectedResult(stockName)
+    setStockSearch('')
   }
 
   return (
     <div>
-      <a href={`/${symbol}`} style={{ textDecoration: 'none' }}>
+      <Link to={`/${symbol}`} onMouseDown={(event) => event.preventDefault()}>
         <div className='stock-suggested' onClick={handleClick}>
           {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
         </div>
-      </a>
+      </Link>
     </div>
   )
 }
