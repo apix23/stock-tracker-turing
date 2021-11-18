@@ -1,30 +1,43 @@
 import { useEffect, useState } from 'react'
 
-interface dataType {
+export interface DataType {
   close: number
   indexPrice: number
   indexChange: number
   indexPercentChange: number
+  companyName: string
+  symbol: string
+  website: string
+  description: string
 }
 
 const useFetchObject = (url: string) => {
-  const [data, setData] = useState<dataType>()
-  const [error, setError] = useState<number>()
+  const [data, setData] = useState<DataType>()
+  const [error, setError] = useState<boolean>()
+  const [loading, setLoading] = useState<boolean>()
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(url)
-      if (!response.ok) {
-        setError(response.status)
-      }
-      const data = await response.json()
-      setData(data)
-    }
+    setTimeout(() => {
+      const fetchData = async () => {
+        setLoading(true)
+        const response = await fetch(url)
 
-    fetchData()
+        if (!response.ok) {
+          setLoading(false)
+          setError(true)
+          console.error(response)
+        }
+
+        const data = await response.json()
+        setError(false)
+        setLoading(false)
+        setData(data)
+      }
+      fetchData()
+    }, 400)
   }, [url])
 
-  return [data, error] as const
+  return [data, error, loading] as const
 }
 
 export default useFetchObject

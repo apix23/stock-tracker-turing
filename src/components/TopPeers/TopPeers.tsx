@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { fetchPeers } from '../../services/peersService'
-import './TopPeers.css'
+import React from 'react'
+import useFetchTopPeers from '../../hooks/useFetchTopPerrs'
 import { Link } from 'react-router-dom'
+import './TopPeers.css'
 
 export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
-  const [peers, setPeers] = useState<string[] | undefined>([])
+  const token = 'sandbox_c5rtke2ad3ibf61ruc9g'
+  const peersURL = `https://finnhub.io/api/v1/stock/peers?symbol=${stockSymbol}&token=${token}`
 
-  useEffect(() => {
-    let mounted = true
+  const [peers, error] = useFetchTopPeers(peersURL)
 
-    fetchPeers(stockSymbol).then((data) => {
-      if (mounted) {
-        setPeers(data)
-      }
-    })
-    return () => {
-      mounted = false
-    }
-  }, [stockSymbol])
+  if (!peers) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error...</div>
+  }
 
   return (
     <div className='peers-wrapper'>

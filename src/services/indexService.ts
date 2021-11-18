@@ -4,7 +4,6 @@ const diaUrl = `https://sandbox.iexapis.com/stable/stock/DIA/quote/${token}`
 const iwmUrl = `https://sandbox.iexapis.com/stable/stock/IWM/quote/${token}`
 
 export interface IndexTypes {
-  error: boolean
   indexPrice: number
   indexChange: number
   indexPercentChange: number

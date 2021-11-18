@@ -1,30 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import './KeyStats.css'
-import { fetchStats, StatsType } from '../../services/statsService'
+import React from 'react'
 import { formatNumber } from '../../utils/formatNumber'
 import KeyStatsLoading from './KeyStatsLoading'
+import useFetchKeyStatsData from '../../hooks/useFetchKeyStatsData'
+import './KeyStats.css'
 
 export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
-  const [stats, setStats] = useState<StatsType>()
+  const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
+  const quoteUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/quote/${token}`
+  const epsUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/stats/${token}`
 
-  useEffect(() => {
-    let mounted = true
-
-    setTimeout(() => {
-      fetchStats(stockSymbol).then((data) => {
-        if (mounted) {
-          setStats(data)
-        }
-      })
-    }, 200)
-
-    return () => {
-      mounted = false
-    }
-  }, [stockSymbol])
+  const [stats, error] = useFetchKeyStatsData(quoteUrl, epsUrl)
 
   if (!stats) {
     return <KeyStatsLoading />
+  }
+
+  if (error) {
+    return <div>Stats not available</div>
   }
 
   const {
@@ -38,7 +30,6 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
     peRatio,
     dividendYield,
     ttmEPS,
-    isUSMarketOpen,
     volume,
     avgTotalVolume,
   } = stats

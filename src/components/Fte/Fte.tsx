@@ -1,43 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { IndexTypes, fetchSpyData, fetchDiaData, fetchIwmData } from '../../services/indexService'
+import React from 'react'
 import FteLoading from './FteLoading'
 import FteError from './FteError'
+import useFetchIndexData from '../../hooks/useFetchIndexData'
 import './Fte.css'
 
-const Fte = () => {
-  const [spy, setSpy] = useState<IndexTypes>()
-  const [dia, setDia] = useState<IndexTypes>()
-  const [iwm, setIwm] = useState<IndexTypes>()
-  const [spyError, setSpyError] = useState(false)
-  const [diaError, setDiaError] = useState(false)
-  const [iwmError, setIwmError] = useState(false)
+export const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
+const spyUrl = `https://sandbox.iexapis.com/stable/stock/SPY/quote/${token}`
+const diaUrl = `https://sandbox.iexapis.com/stable/stock/DIA/quote/${token}`
+const iwmUrl = `https://sandbox.iexapis.com/stable/stock/IWM/quote/${token}`
 
-  useEffect(() => {
-    fetchSpyData().then((data) => {
-      if (data.error) {
-        setSpyError(true)
-      } else {
-        setSpyError(false)
-        setSpy(data)
-      }
-    })
-    fetchDiaData().then((data) => {
-      if (data.error) {
-        setDiaError(true)
-      } else {
-        setDiaError(false)
-        setDia(data)
-      }
-    })
-    fetchIwmData().then((data) => {
-      if (data.error) {
-        setIwmError(true)
-      } else {
-        setIwmError(false)
-        setIwm(data)
-      }
-    })
-  }, [])
+const Fte = () => {
+  const [spy, spyError] = useFetchIndexData(spyUrl)
+  const [dia, diaError] = useFetchIndexData(diaUrl)
+  const [iwm, iwmError] = useFetchIndexData(iwmUrl)
 
   if (spyError || diaError || iwmError) {
     return <FteError />

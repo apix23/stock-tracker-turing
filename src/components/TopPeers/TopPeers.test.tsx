@@ -11,7 +11,7 @@ const mockFetch = fetchPeers as jest.MockedFunction<typeof fetchPeers>
 
 const mockArray = ['AAPL', 'DELL', 'HPQ', 'NTAP', 'HPE', '1337.HK', 'WDC', 'PSTG', 'DDD', 'XRX']
 
-it('should render Top Peers', async () => {
+it.skip('should render Top Peers', async () => {
   mockFetch.mockResolvedValue(mockArray)
   render(
     <BrowserRouter>

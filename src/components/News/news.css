@@ -4,6 +4,20 @@
   width: 317px;
 }
 
+.news-error {
+  display: flex;
+  width: 317px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--core-secondary-4);
+  margin-top: 44px;
+  margin-bottom: 16px;
+  font-family: 'Merriweather';
+  font-size: 0.7vw;
+  color: var(--core-primary-2);
+}
+
 .news-title {
   font-family: 'Merriweather';
   font-size: 16px;

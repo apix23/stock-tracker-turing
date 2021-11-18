@@ -2,6 +2,20 @@
   width: 317px;
 }
 
+.summary-error {
+  display: flex;
+  width: 317px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--core-secondary-4);
+  margin-top: 8px;
+  margin-bottom: 9px;
+  font-family: 'Merriweather';
+  font-size: 0.7vw;
+  color: var(--core-primary-2);
+}
+
 .summary-title {
   font-family: 'Merriweather', serif;
   font-weight: 700;
