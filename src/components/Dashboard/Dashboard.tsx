@@ -11,19 +11,18 @@ import LivePrice from '../LivePrice/LivePrice'
 import { useParams } from 'react-router-dom'
 
 interface DashboardProps {
-  symbol: string
   stockName: string
 }
 
-const Dashboard: FC<DashboardProps> = ({ symbol, stockName }) => {
+const Dashboard: FC<DashboardProps> = ({ stockName }) => {
   const { stock } = useParams()
 
   return (
     <div className='dashboard'>
       <div className='main-section'>
         <div className='search-live'>
-          <SearchBar currentResult={`${symbol} - ${stockName}`} style={{ marginTop: '40px' }} />
-          <LivePrice stockSymbol={symbol} />
+          <SearchBar currentResult={`${stock} - ${stockName}`} style={{ marginTop: '40px' }} />
+          <LivePrice stockSymbol={stock} />
         </div>
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />

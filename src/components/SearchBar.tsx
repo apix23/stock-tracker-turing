@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SuggestionPanel from './SuggestionPanel/SuggestionPanel'
 import { queryFetch, QueryMarket } from '../services/queryService'
 import { QueryContext } from '../context/QueryContext'
@@ -12,6 +12,11 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
   const [stocks, setStocks] = useState<QueryMarket[] | null>(null)
   const [stockSearch, setStockSearch] = useState('')
   const [isFocus, setIsFocus] = useState(false)
+  const ref = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    ref.current?.blur()
+  }, [currentResult])
 
   useEffect(() => {
     if (!isFocus) {
@@ -41,6 +46,7 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
     <div className='search-wrapper' style={{ ...style }}>
       <input
         type='text'
+        ref={ref}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleInput}
