@@ -2,21 +2,21 @@ import { Summary } from './Summary'
 import React from 'react'
 import 'regenerator-runtime/runtime.js'
 import { render, screen } from '@testing-library/react'
-import { fetchSummary } from '../../services/summaryService'
+// import { fetchSummary } from '../../services/summaryService'
 
 jest.mock('../../services/summaryService')
 
-const mockFetch = fetchSummary as jest.MockedFunction<typeof fetchSummary>
+// const mockFetch = fetchSummary as jest.MockedFunction<typeof fetchSummary>
 
-const mockData = {
-  companyName: 'Apple Inc.',
-  symbol: 'AAPL',
-  website: 'apple.com',
-  description: 'Lorem ipsum dolor et amet',
-}
+// const mockData = {
+//   companyName: 'Apple Inc.',
+//   symbol: 'AAPL',
+//   website: 'apple.com',
+//   description: 'Lorem ipsum dolor et amet',
+// }
 
 it.skip('should render Company Summary', async () => {
-  mockFetch.mockResolvedValue(mockData)
+  // mockFetch.mockResolvedValue(mockData)
   render(<Summary stockSymbol={'AAPL'} />)
   screen.findByText('Company Summary')
   screen.findByText('apple.com')
