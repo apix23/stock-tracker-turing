@@ -72,7 +72,7 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
           </div>
           <div className='stats-row'>
             P/E Ratio
-            <span>{peRatio}</span>
+            <span>{peRatio.toFixed(2) ?? '-'}</span>
           </div>
         </div>
         <div className='stats-section'>
