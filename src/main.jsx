@@ -4,8 +4,6 @@ import './index.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 
-console.log(import.meta.env.BASE_URL)
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
