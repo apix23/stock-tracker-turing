@@ -30,6 +30,7 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
     setSelectedResult({ symbol, stockName })
     setStockSearch(`${symbol} - ${stockName}`)
   }
+
   return (
     <div>
       <Link to={`/${symbol}`}>

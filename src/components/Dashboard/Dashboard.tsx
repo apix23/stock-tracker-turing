@@ -8,7 +8,7 @@ import { Summary } from '../Summary/Summary'
 import Fte from '../Fte/Fte'
 import SearchBar from '../SearchBar'
 import LivePrice from '../LivePrice/LivePrice'
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom'
 
 interface DashboardProps {
   symbol: string
@@ -16,9 +16,8 @@ interface DashboardProps {
 }
 
 const Dashboard: FC<DashboardProps> = ({ symbol, stockName }) => {
-  const {stock} = useParams();
-  console.log(stock);
-  
+  const { stock } = useParams()
+  console.log(stock)
 
   return (
     <div className='dashboard'>
