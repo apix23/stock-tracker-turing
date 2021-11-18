@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { fetchPeers } from '../../services/peersService'
 import './TopPeers.css'
-import { SetSymbolContext } from '../../context/SetSymbolContext'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
   const [peers, setPeers] = useState<string[] | undefined>([])
-  const { setSelectedResult } = useContext(SetSymbolContext)
 
   useEffect(() => {
     let mounted = true
@@ -27,9 +25,9 @@ export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
       <div className='peers-container'>
         {peers?.map((peer, i) => {
           return (
-            <a data-testid="button-peer" href={`/${peer}`} onClick={() => setSelectedResult({ symbol: peer, stockName: '' })} className='peer' key={i}>
-              {peer}
-            </a>
+            <Link to={`/${peer}`} key={i}>
+              <button className='peer'>{peer}</button>
+            </Link>
           )
         })}
       </div>
