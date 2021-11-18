@@ -18,11 +18,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Roboto;
-  font-size: 1vw;
   width: 100%;
   min-width: 980px;
   height: 50%;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
   color: var(--core-primary-2);
   border: 2px solid var(--core-secondary-3);
 }

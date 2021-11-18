@@ -29,7 +29,7 @@ const useFetchIndexData = (url: string) => {
         })
       }
       fetchData()
-    }, 200)
+    }, 400)
   }, [url])
 
   return [data, error] as const

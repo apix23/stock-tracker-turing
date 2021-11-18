@@ -2,6 +2,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import NewsError from './NewsError'
+import NewsLoading from './NewsLoading'
 import useFetchNewsData from '../../hooks/useFetchNewsData'
 import './news.css'
 
@@ -18,7 +19,7 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
   const [news, error] = useFetchNewsData(newsURL)
 
   if (!news) {
-    return <div>Loading</div>
+    return <NewsLoading />
   }
 
   if (error) {

@@ -5,7 +5,7 @@ import { KeyStats } from '../KeyStats/KeyStats'
 import { Peers } from '../TopPeers/TopPeers'
 import './dashboard.css'
 import { Summary } from '../Summary/Summary'
-import Fte from '../Fte/Fte'
+import Indexes from '../Indexes/Indexes'
 import SearchBar from '../SearchBar'
 import LivePrice from '../LivePrice/LivePrice'
 import { useParams } from 'react-router-dom'
@@ -26,7 +26,7 @@ const Dashboard: FC<DashboardProps> = ({ stockName }) => {
         </div>
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />
-        <Fte />
+        <Indexes />
       </div>
       <div className='right-sidebar'>
         <News stockSymbol={stock} />
