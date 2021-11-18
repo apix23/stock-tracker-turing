@@ -1,25 +1,23 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { fetchPeers } from '../../services/peersService'
-import './TopPeers.css'
+import React, { useContext } from 'react'
 import { SetSymbolContext } from '../../context/SetSymbolContext'
-import {Link} from 'react-router-dom'
+import useFetchTopPeers from '../../hooks/useFetchTopPerrs'
+import { Link } from 'react-router-dom'
+import './TopPeers.css'
 
 export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
-  const [peers, setPeers] = useState<string[] | undefined>([])
+  const token = 'sandbox_c5rtke2ad3ibf61ruc9g'
+  const peersURL = `https://finnhub.io/api/v1/stock/peers?symbol=${stockSymbol}&token=${token}`
+
+  const [peers, error] = useFetchTopPeers(peersURL)
   const { setSelectedResult } = useContext(SetSymbolContext)
 
-  useEffect(() => {
-    let mounted = true
+  if (!peers) {
+    return <div>Loading...</div>
+  }
 
-    fetchPeers(stockSymbol).then((data) => {
-      if (mounted) {
-        setPeers(data)
-      }
-    })
-    return () => {
-      mounted = false
-    }
-  }, [stockSymbol])
+  if (error) {
+    return <div>Error...</div>
+  }
 
   return (
     <div className='peers-wrapper'>
@@ -27,7 +25,13 @@ export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
       <div className='peers-container'>
         {peers?.map((peer, i) => {
           return (
-            <a data-testid="button-peer" href={`/${peer}`} onClick={() => setSelectedResult({ symbol: peer, stockName: '' })} className='peer' key={i}>
+            <a
+              data-testid='button-peer'
+              href={`/${peer}`}
+              onClick={() => setSelectedResult({ symbol: peer, stockName: '' })}
+              className='peer'
+              key={i}
+            >
               {peer}
             </a>
           )

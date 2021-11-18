@@ -1,10 +1,9 @@
 .fte-loading {
-  width: 100%;
-  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
+  border-top: 1px solid var(--core-secondary-3);
+  width: 100%;
 }
 
 .index-one {
@@ -33,7 +32,7 @@
   }
 
   50% {
-    transform: translate(0px, 25px);
+    transform: translate(0px, 15px);
   }
 
   100% {

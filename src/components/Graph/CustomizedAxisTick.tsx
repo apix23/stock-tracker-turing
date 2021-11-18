@@ -17,7 +17,7 @@ const CustomizedAxisTick = ({ x, y, payload, index }: TickType) => {
     return null
   }
 
-  let tickValue: number | string = payload.value.toFixed(1)
+  let tickValue: number | string = payload.value.toFixed(2)
 
   switch (index) {
     case 1:

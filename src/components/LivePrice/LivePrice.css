@@ -34,9 +34,12 @@
 
 .live-price-error {
   display: flex;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: end;
   width: 265px;
-  margin-top: 43px;
+  padding-top: 40px;
+  padding-bottom: 14px;
+  color: var(--core-primary-2);
   border-bottom: 2px solid var(--core-secondary-3);
   font-family: Roboto;
   font-size: 1vw;

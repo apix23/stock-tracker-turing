@@ -1,32 +1,32 @@
 import React from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts'
 import CustomizedAxisTick from './CustomizedAxisTick'
-import useFetchArray from '../../hooks/useFetchArray'
 import useFetchObject from '../../hooks/useFetchObject'
 import GraphLoading from './GraphLoading'
 import GraphFailedToLoad from './GraphError'
+import useFetchGraphData from '../../hooks/useFetchGraphData'
+import { filterZero } from '../../utils/filterZero'
 import './Graph.css'
 
 interface GraphProps {
   stockSymbol?: string
 }
 
-const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
-
 const Graph = ({ stockSymbol }: GraphProps) => {
   const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211115?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211117?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
   const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
-  const [liveData, liveDataError] = useFetchArray(liveDataUrl)
-  const [yesterdayData, yesterdayDataError] = useFetchArray(yesterdayDataUrl)
+
+  const [liveData, liveDataError] = useFetchGraphData(liveDataUrl)
+  const [yesterdayData, yesterdayDataError] = useFetchGraphData(yesterdayDataUrl)
   const [yesterdayClose] = useFetchObject(yesterdayCloseUrl)
+
+  if (!liveData || !yesterdayData) {
+    return <GraphLoading />
+  }
 
   if (liveDataError || yesterdayDataError) {
     return <GraphFailedToLoad />
-  }
-
-  if (!liveData) {
-    return <GraphLoading />
   }
 
   return (
@@ -39,7 +39,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
             stroke='#eaebeb'
             tickSize={10}
             tickCount={12}
-            interval='preserveStartEnd'
+            interval='preserveEnd'
             allowDecimals={true}
             domain={['auto', 'auto']}
             padding={{ top: 18 }}
@@ -66,7 +66,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
           <Line
             hide={false}
             name='Close'
-            data={liveData}
+            data={filterZero(liveData)}
             dataKey='close'
             stroke='#aaabd1'
             strokeWidth={2}
@@ -77,7 +77,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
           <Line
             hide={true}
             name='Yesterday Close'
-            data={yesterdayData}
+            data={filterZero(yesterdayData)}
             dataKey='close'
             stroke='grey'
             strokeWidth={2}

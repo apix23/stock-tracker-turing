@@ -44,9 +44,10 @@ td:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid var(--core-secondary-3);
   width: 100%;
+  padding: 16px 0px;
   font-family: Roboto;
-  font-size: 0.9vw;
+  font-size: 0.8vw;
+  color: var(--core-primary-2);
+  border-top: 1px solid var(--core-secondary-3);
 }

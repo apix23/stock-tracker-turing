@@ -1,5 +1,6 @@
 :root {
   --core-secondary-1: #f9fafa;
+  --core-primary-1: #383838;
   --core-primary-2: #4d4d4d;
   --core-primary-5: #828282;
   --core-secondary: #ffffff;
@@ -8,7 +9,6 @@
   --core-secondary-4: #d8d9d9;
   --core-secondary-5: #828282;
   --accent-primary: #aaabd1;
-
 }
 
 * {
