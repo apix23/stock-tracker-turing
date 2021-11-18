@@ -1,5 +1,5 @@
 import React from 'react'
-import './keystats.css'
+import './KeyStats.css'
 
 const KeyStatsError = () => {
   return <div className='key-stats-error'>Key Statistics Not Available</div>
