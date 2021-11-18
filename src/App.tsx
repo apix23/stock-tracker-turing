@@ -9,7 +9,8 @@ function App() {
     <div className='app'>
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route path='/:stock' element={<Dashboard symbol={'AAPL'} stockName={''} />} />
+        <Route path=':stock' element={<Dashboard symbol={'AAPL'} stockName={''} />} />
+
       </Routes>
     </div>
   )

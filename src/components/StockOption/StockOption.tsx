@@ -2,6 +2,7 @@ import React, { FC, useContext } from 'react'
 import './StockOption.css'
 import { SetSymbolContext } from '../../context/SetSymbolContext'
 import { QueryContext } from '../../context/QueryContext'
+import { Link } from 'react-router-dom'
 
 interface StockProps {
   symbol: string
@@ -32,11 +33,11 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
 
   return (
     <div>
-      <a href={`/stock-tracker-turing/${symbol}`} style={{ textDecoration: 'none' }}>
+      <Link to={`/${symbol}`}>
         <div className='stock-suggested' onClick={handleClick}>
           {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
         </div>
-      </a>
+      </Link>
     </div>
   )
 }
