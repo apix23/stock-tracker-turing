@@ -1,28 +1,29 @@
 import React from 'react'
-import FteLoading from './FteLoading'
-import FteError from './FteError'
+import IndexLoading from './IndexLoading'
+import IndexError from './IndexError'
 import useFetchIndexData from '../../hooks/useFetchIndexData'
-import './Fte.css'
+import './index.css'
 
 export const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
 const spyUrl = `https://sandbox.iexapis.com/stable/stock/SPY/quote/${token}`
 const diaUrl = `https://sandbox.iexapis.com/stable/stock/DIA/quote/${token}`
 const iwmUrl = `https://sandbox.iexapis.com/stable/stock/IWM/quote/${token}`
 
-const Fte = () => {
+const Indexes = () => {
   const [spy, spyError] = useFetchIndexData(spyUrl)
   const [dia, diaError] = useFetchIndexData(diaUrl)
   const [iwm, iwmError] = useFetchIndexData(iwmUrl)
 
   if (spyError || diaError || iwmError) {
-    return <FteError />
+    return <IndexError />
   }
 
   if (!spy || !dia || !iwm) {
-    return <FteLoading />
+    return <IndexLoading />
   }
+
   return (
-    <div className='fte'>
+    <div className='index'>
       <table>
         <tbody>
           <tr>
@@ -56,4 +57,4 @@ const Fte = () => {
   )
 }
 
-export default Fte
+export default Indexes

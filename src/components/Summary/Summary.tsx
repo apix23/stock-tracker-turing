@@ -1,5 +1,6 @@
 import React from 'react'
 import SummaryError from './SummaryError'
+import SummaryLoading from './SummaryLoading'
 import useFetchCompanyData from '../../hooks/useFetchCompanyData'
 import './summary.css'
 
@@ -10,7 +11,7 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string | undefined }) =>
   const [summary, error] = useFetchCompanyData(quoteUrl)
 
   if (!summary) {
-    return <div>Loading</div>
+    return <SummaryLoading />
   }
 
   if (error) {

@@ -1,5 +1,6 @@
 import React from 'react'
-import useFetchTopPeers from '../../hooks/useFetchTopPerrs'
+import TopPeersLoading from './TopPeersLoading'
+import useFetchTopPeers from '../../hooks/useFetchTopPeers'
 import { Link } from 'react-router-dom'
 import './TopPeers.css'
 
@@ -10,7 +11,7 @@ export const Peers = ({ stockSymbol }: { stockSymbol: string | undefined }) => {
   const [peers, error] = useFetchTopPeers(peersURL)
 
   if (!peers) {
-    return <div>Loading...</div>
+    return <TopPeersLoading />
   }
 
   if (error) {

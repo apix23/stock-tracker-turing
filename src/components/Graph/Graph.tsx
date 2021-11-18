@@ -1,9 +1,9 @@
 import React from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts'
 import CustomizedAxisTick from './CustomizedAxisTick'
-import useFetchObject from '../../hooks/useFetchObject'
 import GraphLoading from './GraphLoading'
 import GraphFailedToLoad from './GraphError'
+import useFetchGraphClose from '../../hooks/useFetchGraphClose'
 import useFetchGraphData from '../../hooks/useFetchGraphData'
 import { filterZero } from '../../utils/filterZero'
 import './Graph.css'
@@ -13,20 +13,21 @@ interface GraphProps {
 }
 
 const Graph = ({ stockSymbol }: GraphProps) => {
-  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211117?token=Tpk_095b8e5990924d0c8c41c2209556da53&chartInterval=5`
-  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/?token=Tpk_095b8e5990924d0c8c41c2209556da53`
+  const token = '?token=Tpk_095b8e5990924d0c8c41c2209556da53'
+  const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/${token}&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211117${token}&chartInterval=5`
+  const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/${token}`
 
   const [liveData, liveDataError] = useFetchGraphData(liveDataUrl)
   const [yesterdayData, yesterdayDataError] = useFetchGraphData(yesterdayDataUrl)
-  const [yesterdayClose] = useFetchObject(yesterdayCloseUrl)
-
-  if (!liveData || !yesterdayData) {
-    return <GraphLoading />
-  }
+  const [yesterdayClose] = useFetchGraphClose(yesterdayCloseUrl)
 
   if (liveDataError || yesterdayDataError) {
     return <GraphFailedToLoad />
+  }
+
+  if (!liveData || !yesterdayData) {
+    return <GraphLoading />
   }
 
   return (

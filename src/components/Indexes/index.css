@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-.fte {
+.index {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,14 +40,14 @@ td:last-child {
   font-weight: 500;
 }
 
-.fte-error {
+.index-error {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 16px 0px;
-  font-family: Roboto;
-  font-size: 0.8vw;
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
   color: var(--core-primary-2);
   border-top: 1px solid var(--core-secondary-3);
 }

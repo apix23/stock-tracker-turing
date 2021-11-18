@@ -2,6 +2,7 @@ import React from 'react'
 import { formatNumber } from '../../utils/formatNumber'
 import KeyStatsLoading from './KeyStatsLoading'
 import useFetchKeyStatsData from '../../hooks/useFetchKeyStatsData'
+import KeyStatsError from './KeyStatsError'
 import './KeyStats.css'
 
 export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
@@ -11,12 +12,12 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
 
   const [stats, error] = useFetchKeyStatsData(quoteUrl, epsUrl)
 
-  if (!stats) {
-    return <KeyStatsLoading />
+  if (error) {
+    return <KeyStatsError />
   }
 
-  if (error) {
-    return <div>Stats not available</div>
+  if (!stats) {
+    return <KeyStatsLoading />
   }
 
   const {
