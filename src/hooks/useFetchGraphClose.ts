@@ -9,21 +9,19 @@ const useFetchGraphClose = (url: string) => {
   const [error, setError] = useState<boolean>()
 
   useEffect(() => {
-    setTimeout(() => {
-      const fetchData = async () => {
-        const response = await fetch(url)
+    const fetchData = async () => {
+      const response = await fetch(url)
 
-        if (!response.ok) {
-          setError(true)
-          console.error(response)
-        }
-
-        const data = await response.json()
-        setError(false)
-        setData(data)
+      if (!response.ok) {
+        setError(true)
+        console.error(response)
       }
-      fetchData()
-    }, 400)
+
+      const data = await response.json()
+      setError(false)
+      setData(data)
+    }
+    fetchData()
   }, [url])
 
   return [data, error] as const
