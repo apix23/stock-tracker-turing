@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom'
 interface StockProps {
   symbol: string
   stockName: string
+  active: boolean
+  position: number
 }
 
-const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
+const StockOption: FC<StockProps> = ({ symbol, stockName, active, position }) => {
   const { setSelectedResult } = useContext(SetSymbolContext)
-  const { stockSearch, setStockSearch } = useContext(QueryContext)
+  const { stockSearch, setStockSearch, setCursor } = useContext(QueryContext)
 
   const highlightMatch = (word: string, i = 0) => {
     const regex = new RegExp(stockSearch, 'gi')
@@ -34,7 +36,11 @@ const StockOption: FC<StockProps> = ({ symbol, stockName }) => {
   return (
     <div>
       <Link to={`/${symbol}`} onMouseDown={(event) => event.preventDefault()}>
-        <div className='stock-suggested' onClick={handleClick}>
+        <div
+          onMouseEnter={() => setCursor(position)}
+          className={`stock-suggested ${active && 'hovered'}`}
+          onClick={handleClick}
+        >
           {highlightMatch(symbol)} - {stockName.split(' ').map(highlightMatch)}
         </div>
       </Link>
