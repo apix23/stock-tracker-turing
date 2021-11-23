@@ -14,6 +14,7 @@ const useFetchNewsData = (url: string) => {
 
   useEffect(() => {
     setTimeout(() => {
+      setData(undefined)
       const fetchData = async () => {
         const response = await fetch(url)
 

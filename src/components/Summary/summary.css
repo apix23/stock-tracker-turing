@@ -8,7 +8,7 @@
   height: 300px;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--core-secondary-4);
+  border-bottom: 1px solid var(--core-secondary-4);
   margin-top: 8px;
   margin-bottom: 9px;
   font-family: 'Merriweather';

@@ -10,12 +10,12 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string | undefined }) =>
 
   const [summary, error] = useFetchCompanyData(quoteUrl)
 
-  if (!summary) {
-    return <SummaryLoading />
+  if (error || summary?.description === null) {
+    return <SummaryError />
   }
 
-  if (error) {
-    return <SummaryError />
+  if (!summary) {
+    return <SummaryLoading />
   }
 
   return (

@@ -13,7 +13,6 @@
   font-family: 'Merriweather', serif;
   font-size: 18px;
   color: var(--core-primary-2);
-  border: solid 2px var(--core-secondary-3);
   border-bottom: solid 1px var(--core-secondary-3);
 }
 

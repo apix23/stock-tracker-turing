@@ -4,6 +4,7 @@
   align-items: center;
   border-top: 1px solid var(--core-secondary-3);
   width: 100%;
+  padding-top: 7px;
 }
 
 .index-one {

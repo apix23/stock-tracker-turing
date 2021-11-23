@@ -18,12 +18,12 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
 
   const [news, error] = useFetchNewsData(newsURL)
 
-  if (!news) {
-    return <NewsLoading />
+  if (error || news?.length === 0) {
+    return <NewsError />
   }
 
-  if (error) {
-    return <NewsError />
+  if (!news) {
+    return <NewsLoading />
   }
 
   return (
@@ -35,7 +35,7 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
             <div className='news-container'>
               <div className='news-headline'>
                 <a href={element.url} target='_blank' rel='noreferrer'>
-                  {element.headline}
+                  {element.headline.substring(0, 100)}
                 </a>
               </div>
               <div className='news-date' data-testid='days-ago'>

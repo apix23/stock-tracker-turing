@@ -9,6 +9,7 @@ const useFetchGraphData = (url: string) => {
   const [error, setError] = useState<boolean>()
 
   useEffect(() => {
+    setData(undefined)
     const fetchData = async () => {
       const response = await fetch(url)
 

@@ -21,6 +21,7 @@ const useFetchKeyStatsData = (url1: string, url2: string) => {
   const [error, setError] = useState<boolean>()
 
   useEffect(() => {
+    setData(undefined)
     setTimeout(() => {
       const fetchData = async () => {
         const response1 = await fetch(url1)

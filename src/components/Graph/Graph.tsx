@@ -15,14 +15,14 @@ interface GraphProps {
 const Graph = ({ stockSymbol }: GraphProps) => {
   const token = '?token=Tpk_095b8e5990924d0c8c41c2209556da53'
   const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/${token}&chartInterval=5`
-  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211117${token}&chartInterval=5`
+  const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211119${token}&chartInterval=5`
   const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/${token}`
 
-  const [liveData, liveDataError] = useFetchGraphData(liveDataUrl)
-  const [yesterdayData, yesterdayDataError] = useFetchGraphData(yesterdayDataUrl)
   const [yesterdayClose] = useFetchGraphClose(yesterdayCloseUrl)
+  const [yesterdayData, yesterdayDataError] = useFetchGraphData(yesterdayDataUrl)
+  const [liveData, liveDataError] = useFetchGraphData(liveDataUrl)
 
-  if (liveDataError || yesterdayDataError) {
+  if (liveDataError || yesterdayDataError || liveData?.length === 0) {
     return <GraphFailedToLoad />
   }
 
@@ -33,14 +33,13 @@ const Graph = ({ stockSymbol }: GraphProps) => {
   return (
     <div className='chart'>
       <ResponsiveContainer width='100%' height='100%'>
-        <LineChart>
+        <LineChart data={yesterdayData}>
           <CartesianGrid stroke='#d1d1d1' strokeWidth={0.4} verticalFill={['#ffffff00', '#ededed80']} />
 
           <YAxis
             stroke='#eaebeb'
             tickSize={10}
             tickCount={12}
-            interval='preserveEnd'
             allowDecimals={true}
             domain={['auto', 'auto']}
             padding={{ top: 18 }}

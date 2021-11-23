@@ -37,3 +37,14 @@
   background-color: var(--core-secondary-4);
   cursor: pointer;
 }
+
+.top-peers-error {
+  width: 317px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Merriweather';
+  font-size: 16px;
+  color: var(--core-primary-2);
+}
