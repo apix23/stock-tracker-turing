@@ -12,6 +12,7 @@
 }
 
 .splash-screen-short {
+  grid-area: leftSidebar;
   padding-top: 37px;
   width: 129px;
 }
