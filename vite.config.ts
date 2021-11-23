@@ -8,6 +8,10 @@ export default defineConfig({
     react(),
     VitePWA({
       strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',
+      outDir: 'dist',
+
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'Turing Stock Tracker',
