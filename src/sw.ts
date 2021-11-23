@@ -6,7 +6,7 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 // Used to limit entries in cache, remove entries after a certain period of time
 import { ExpirationPlugin } from 'workbox-expiration'
 import { precacheAndRoute } from 'workbox-precaching'
-declare var self: WorkerGlobalScope & typeof globalThis
+declare let self: WorkerGlobalScope & typeof globalThis
 precacheAndRoute((self as any).__WB_MANIFEST)
 
 // Cache page navigations (html) with a Network First strategy
