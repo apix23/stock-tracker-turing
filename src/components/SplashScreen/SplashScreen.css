@@ -5,17 +5,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15); */
   background-color: var(--core-secondary-2);
+
+  /* transition: width 1s ease-in; */
 }
 
 .splash-screen-short {
   padding-top: 37px;
-  background-color: var(--core-secondary-2);
-  min-width: 129px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 129px;
 }

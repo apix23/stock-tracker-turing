@@ -1,0 +1,9 @@
+.splash-screen-short {
+  padding-top: 37px;
+  width: 129px;
+}
+
+.left-sidebar {
+  grid-area: leftSidebar;
+  justify-content: flex-start !important;
+}
