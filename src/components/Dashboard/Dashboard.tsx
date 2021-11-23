@@ -9,12 +9,8 @@ import Indexes from '../Indexes/Indexes'
 import SearchBar from '../SearchBar'
 import LivePrice from '../LivePrice/LivePrice'
 import { useParams } from 'react-router-dom'
-<<<<<<< HEAD
-import LeftSidebar from '../LeftSidebar/LeftSidebar'
-=======
-import LeftSidebar from '../LeftSidebar'
->>>>>>> 1c27a86 (feat: initial tests for the search bar)
 
+import LeftSidebar from '../LeftSidebar/LeftSidebar'
 interface DashboardProps {
   stockName: string
 }
