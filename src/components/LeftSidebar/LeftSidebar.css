@@ -1,0 +1,4 @@
+.left-sidebar {
+  grid-area: leftSidebar;
+  justify-content: flex-start !important;
+}

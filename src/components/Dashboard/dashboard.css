@@ -2,9 +2,9 @@
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 351px;
+  grid-template-columns: 129px 1fr 351px;
   grid-template-rows: auto;
-  grid-template-areas: 'mainSection sidebarRight';
+  grid-template-areas: 'leftSidebar mainSection sidebarRight';
   background-color: var(--core-secondary-1);
 }
 

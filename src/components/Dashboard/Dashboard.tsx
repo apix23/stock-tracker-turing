@@ -9,6 +9,7 @@ import Indexes from '../Indexes/Indexes'
 import SearchBar from '../SearchBar'
 import LivePrice from '../LivePrice/LivePrice'
 import { useParams } from 'react-router-dom'
+import LeftSidebar from "../LeftSidebar/LeftSidebar";
 
 interface DashboardProps {
   stockName: string
@@ -19,6 +20,7 @@ const Dashboard: FC<DashboardProps> = ({ stockName }) => {
 
   return (
     <div className='dashboard'>
+      <LeftSidebar />
       <div className='main-section'>
         <div className='search-live'>
           <SearchBar currentResult={`${stock} - ${stockName}`} style={{ marginTop: '40px' }} />
