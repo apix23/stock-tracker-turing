@@ -20,13 +20,15 @@
 
 .peer {
   background-color: transparent;
-  flex-basis: 16%;
+  /* flex-basis: 25%; */
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 11px;
   color: #6b6b6b;
+  width: 51px;
+  height: 25px;
   padding: 3px 4px;
-  margin: 3px;
+  margin: 2px;
   border: 2px solid var(--core-secondary-4);
   border-radius: 43px;
   text-decoration: none;
@@ -36,6 +38,7 @@
 .peer:hover {
   background-color: var(--core-secondary-4);
   cursor: pointer;
+  color: #2b2b2b;
 }
 
 .top-peers-error {
