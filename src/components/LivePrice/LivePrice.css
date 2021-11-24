@@ -6,13 +6,13 @@
   justify-content: end;
   width: 265px;
   padding-bottom: 14px;
-  padding-top: 40px;
   border-bottom: 2px solid var(--core-secondary-3);
 }
 
 .live-price {
   font-size: 32px;
   font-family: Roboto;
+  font-weight: normal;
   color: var(--core-primary-1);
   padding-right: 10px;
 }
@@ -48,4 +48,7 @@
 
 .arrow {
   float: left;
+}
+
+@media only screen and (max-width: 1366px) {
 }

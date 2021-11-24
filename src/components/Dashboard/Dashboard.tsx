@@ -10,6 +10,7 @@ import SearchBar from '../SearchBar'
 import LivePrice from '../LivePrice/LivePrice'
 import { useParams } from 'react-router-dom'
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
+import TopBar from '../TopBar/TopBar'
 
 interface DashboardProps {
   stockName: string
@@ -20,20 +21,27 @@ const Dashboard: FC<DashboardProps> = ({ stockName }) => {
 
   return (
     <div className='dashboard'>
-      <LeftSidebar />
+      <div className='left-sidebar'>
+        <LeftSidebar />
+      </div>
+      <div className='top-bar'>
+        <TopBar />
+      </div>
       <div className='main-section'>
         <div className='search-live'>
-          <SearchBar currentResult={`${stock} - ${stockName}`} style={{ marginTop: '40px' }} />
+          <SearchBar currentResult={`${stock} - ${stockName}`} style={{ marginTop: '0px' }} />
           <LivePrice stockSymbol={stock} />
         </div>
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />
-        <Indexes />
       </div>
       <div className='right-sidebar'>
         <News stockSymbol={stock} />
         <Summary stockSymbol={stock} />
         <Peers stockSymbol={stock} />
+      </div>
+      <div className='footer'>
+        <Indexes />
       </div>
     </div>
   )

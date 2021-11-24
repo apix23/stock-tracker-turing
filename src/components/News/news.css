@@ -57,3 +57,17 @@
   margin-bottom: 16px;
   border-bottom: 1px solid var(--core-secondary-4);
 }
+
+@media only screen and (max-width: 1366px) {
+  .news-title {
+    margin-top: 0px;
+  }
+
+  .news-wrapper {
+    margin-left: 30px;
+  }
+
+  .news-wrapper:last-child {
+    border-bottom: none;
+  }
+}

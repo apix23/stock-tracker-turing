@@ -62,3 +62,9 @@ td:last-child {
 .index-change {
   padding-top: 4px;
 }
+
+@media only screen and (max-width: 1366px) {
+  .index {
+    border: none;
+  }
+}

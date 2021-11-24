@@ -31,7 +31,7 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
       <h3 className='news-title'>Latest News</h3>
       {news.map((element, i) => {
         return (
-          <div key={i}>
+          <div className='news-outer' key={i}>
             <div className='news-container'>
               <div className='news-headline'>
                 <a href={element.url} target='_blank' rel='noreferrer'>

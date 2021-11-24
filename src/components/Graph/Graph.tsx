@@ -66,7 +66,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
           <Line
             hide={false}
             name='Close'
-            data={filterZero(liveData)}
+            data={filterZero(yesterdayData)}
             dataKey='close'
             stroke='#aaabd1'
             strokeWidth={2}

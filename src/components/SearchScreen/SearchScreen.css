@@ -17,7 +17,7 @@ input {
   font-size: 32px;
   color: #2b2b2b;
   font-family: 'Merriweather';
-  font-weight: 700;
+  font-weight: normal;
 }
 
 input:focus-visible {
