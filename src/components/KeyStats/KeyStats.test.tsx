@@ -1,10 +1,10 @@
 import { KeyStats } from './KeyStats'
 import React from 'react'
-import 'regenerator-runtime/runtime.js'
+// import 'regenerator-runtime/runtime.js'
 import { render, screen } from '@testing-library/react'
 // import { fetchStats } from '../../services/statsService'
 
-jest.mock('../../services/statsService')
+// jest.mock('../../services/statsService')
 
 // const mockFetch = fetchStats as jest.MockedFunction<typeof fetchStats>
 
