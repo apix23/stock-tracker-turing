@@ -2,7 +2,6 @@
   display: flex;
   justify-content: end;
   width: 265px;
-  padding-top: 40px;
   border-bottom: 2px solid var(--core-secondary-3);
 }
 
@@ -32,10 +31,16 @@
   }
 
   50% {
-    transform: translate(0px, 20px);
+    transform: translate(0px, 12px);
   }
 
   100% {
     transform: translate(0px, 0px);
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .live-loading {
+    width: 165px;
   }
 }

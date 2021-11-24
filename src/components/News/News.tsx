@@ -42,7 +42,7 @@ export const News: React.FC<NewsProps> = ({ stockSymbol }) => {
                 {dayjs(element.datetime).toNow(true)} ago - {element.source}
               </div>
             </div>
-            <div className='lines' key={i}></div>
+            {i < 2 ? <div className='lines' key={i}></div> : null}
           </div>
         )
       })}

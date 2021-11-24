@@ -66,8 +66,34 @@
   .news-wrapper {
     margin-left: 30px;
   }
+}
 
-  .news-wrapper:last-child {
-    border-bottom: none;
+@media only screen and (max-width: 1024px) {
+  .news-container {
+    width: 340px;
+  }
+
+  .lines {
+    width: 370px;
+  }
+
+  .news-wrapper {
+    width: 370px;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .news-wrapper {
+    width: 410px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .news-container {
+    width: 390px;
+  }
+
+  .lines {
+    width: 410px;
   }
 }

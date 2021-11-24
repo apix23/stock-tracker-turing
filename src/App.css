@@ -32,6 +32,7 @@ a {
 
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -45,5 +46,5 @@ a {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
+  background: var(--core-primary-2);
 }

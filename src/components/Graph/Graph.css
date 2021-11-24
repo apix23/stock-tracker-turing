@@ -24,3 +24,9 @@
   color: var(--core-primary-2);
   border-bottom: 2px solid var(--core-secondary-3);
 }
+
+@media only screen and (max-width: 1366px) {
+  .chart {
+    height: 60%;
+  }
+}

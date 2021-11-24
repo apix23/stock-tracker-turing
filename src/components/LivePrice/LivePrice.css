@@ -38,7 +38,6 @@
   align-items: flex-end;
   justify-content: end;
   width: 265px;
-  padding-top: 40px;
   padding-bottom: 14px;
   color: var(--core-primary-2);
   border-bottom: 2px solid var(--core-secondary-3);
@@ -50,5 +49,32 @@
   float: left;
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 834px) {
+  .live-price {
+    font-size: 16px;
+    padding-bottom: 3px;
+    padding-right: 0px;
+  }
+
+  .price-change-negative {
+    font-size: 13px;
+  }
+
+  .price-change-positive {
+    font-size: 13px;
+  }
+
+  .arrow {
+    float: right;
+  }
+
+  .live-container {
+    width: 165px;
+    padding-bottom: 12px;
+  }
+
+  .live-price-error {
+    width: 165px;
+    font-size: 14px;
+  }
 }
