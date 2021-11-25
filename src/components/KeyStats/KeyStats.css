@@ -1,7 +1,7 @@
 .stats-wrapper {
   width: 100%;
   height: 36%;
-  padding: 30px 18px 0px 18px;
+  padding: 30px 7px 0px 7px;
 }
 
 .key-stats-error {
@@ -27,7 +27,7 @@
   font-family: 'Merriweather', serif;
   color: var(--core-primary-2);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   padding-bottom: 19px;
 }
 
