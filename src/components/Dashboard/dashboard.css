@@ -120,4 +120,8 @@
   .search-live {
     grid-template-columns: 1fr 165px;
   }
+
+  .dashboard {
+    grid-template-rows: 80px 1.8fr 1fr 57px;
+  }
 }
