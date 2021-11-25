@@ -17,3 +17,9 @@
   color: var(--core-primary-5);
   padding: 8px 8px 0px;
 }
+
+@media only screen and (max-width: 834px) {
+  .suggestion-panel {
+    font-size: 16px;
+  }
+}
