@@ -1,9 +1,13 @@
-.splash-screen-short {
+.left-logo {
   padding-top: 37px;
-  width: 129px;
 }
 
-.left-sidebar {
-  grid-area: leftSidebar;
-  justify-content: flex-start !important;
+.left-bar {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--core-secondary-2);
 }

@@ -21,6 +21,7 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string | undefined }) =>
   return (
     <div>
       <div className='summary-container'>
+        <div className='summary-line'></div>
         <h2 className='summary-title'>Company Summary</h2>
         <h3 className='company-name'>
           {summary.companyName} ({summary.symbol})

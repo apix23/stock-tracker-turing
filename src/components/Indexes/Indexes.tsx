@@ -25,44 +25,48 @@ const Indexes = () => {
 
   return (
     <div className='index'>
-      <table>
-        <tbody>
-          <tr>
-            <td className='name'>
-              <span className='index-name'>SPY</span> ${spy.indexPrice}
-            </td>
+      <div className='index-combo'>
+        <div className='name'>
+          <span className='index-name'>SPY</span> ${spy.indexPrice}
+        </div>
 
-            <td className={spy.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
-              <img className='index-arrow' src={spy.indexChange > 0 ? upArrow : downArrow} alt='arrow' />
-              <span className='index-change'>
-                {spy.indexChange} | {spy.indexPercentChange}%
-              </span>
-            </td>
+        <div className={spy.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
+          <img className='index-arrow' src={spy.indexChange > 0 ? upArrow : downArrow} alt='arrow' />
+          <span className='index-change'>
+            {spy.indexChange} | {spy.indexPercentChange}%
+          </span>
+        </div>
+      </div>
 
-            <td className='name'>
-              <span className='index-name'>DIA</span> ${dia.indexPrice}
-            </td>
+      <div className='index-line'></div>
 
-            <td className={dia.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
-              <img className='index-arrow' src={dia.indexChange > 0 ? upArrow : downArrow} alt='arrow' />
-              <span className='index-change'>
-                {dia.indexChange} | {dia.indexPercentChange}%
-              </span>
-            </td>
+      <div className='index-combo'>
+        <div className='name'>
+          <span className='index-name'>DIA</span> ${dia.indexPrice}
+        </div>
 
-            <td className='name'>
-              <span className='index-name'>IWM</span> ${iwm.indexPrice}
-            </td>
+        <div className={dia.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
+          <img className='index-arrow' src={dia.indexChange > 0 ? upArrow : downArrow} alt='arrow' />
+          <span className='index-change'>
+            {dia.indexChange} | {dia.indexPercentChange}%
+          </span>
+        </div>
+      </div>
 
-            <td className={iwm.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
-              <img className='index-arrow' src={iwm.indexChange > 0 ? upArrow : downArrow} alt='arrow' />
-              <span className='index-change'>
-                {iwm.indexChange} | {iwm.indexPercentChange}%
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='index-line'></div>
+
+      <div className='index-combo'>
+        <div className='name'>
+          <span className='index-name'>IWM</span> ${iwm.indexPrice}
+        </div>
+
+        <div className={iwm.indexChange > 0 ? 'positiveChange' : 'negativeChange'}>
+          <img className='index-arrow' src={iwm.indexChange > 0 ? upArrow : downArrow} alt='arrow' />
+          <span className='index-change'>
+            {iwm.indexChange} | {iwm.indexPercentChange}%
+          </span>
+        </div>
+      </div>
     </div>
   )
 }
