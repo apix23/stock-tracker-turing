@@ -19,10 +19,10 @@ const Graph = ({ stockSymbol }: GraphProps) => {
   const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211119${token}&chartInterval=5`
   const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/${token}`
 
+  const [reference, startDrag] = useDrag()
   const [yesterdayClose] = useFetchGraphClose(yesterdayCloseUrl)
   const [yesterdayData, yesterdayDataError] = useFetchGraphData(yesterdayDataUrl)
   const [liveData, liveDataError] = useFetchGraphData(liveDataUrl)
-  const [reference, startDrag] = useDrag()
 
   if (liveDataError || yesterdayDataError || liveData?.length === 0) {
     return <GraphFailedToLoad />
@@ -35,7 +35,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
   return (
     <div className='chart' ref={reference} onMouseDown={startDrag}>
       <div className='chart-inner'>
-        <ResponsiveContainer width='100%' height='100%'>
+        <ResponsiveContainer width='99%' height='100%'>
           <LineChart data={yesterdayData}>
             <CartesianGrid stroke='#d1d1d1' strokeWidth={0.4} verticalFill={['#ffffff00', '#ededed80']} />
 

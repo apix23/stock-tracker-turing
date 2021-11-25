@@ -122,6 +122,6 @@
   }
 
   .dashboard {
-    grid-template-rows: 80px 1.8fr 1fr 57px;
+    grid-template-rows: 80px 2fr 1fr 57px;
   }
 }
