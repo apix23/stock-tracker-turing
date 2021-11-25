@@ -6,6 +6,7 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
   position: absolute;
   z-index: 1;
+  font-family: Roboto;
 }
 .market-name {
   border-bottom: 1px solid var(--core-secondary-3);

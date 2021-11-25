@@ -1,6 +1,8 @@
 .search {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100vh;
   padding: 0 32px;
@@ -27,13 +29,26 @@ input:focus-visible {
 
 .search-wrapper {
   position: relative;
-  margin-top: 48vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-class {
+  flex: 1;
 }
 
 @media only screen and (max-width: 834px) {
+  .search {
+    justify-content: start;
+    margin-top: 16px;
+  }
+
+  .search-wrapper {
+    align-items: flex-start;
+  }
   input {
     font-size: 16px;
-    padding-left: 8px;
   }
 }

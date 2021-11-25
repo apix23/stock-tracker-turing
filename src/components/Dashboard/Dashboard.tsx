@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import Graph from '../Graph/Graph'
 import { News } from '../News/News'
 import { KeyStats } from '../KeyStats/KeyStats'
@@ -30,7 +30,7 @@ const Dashboard: FC<DashboardProps> = ({ stockName }) => {
       <div className='main-section'>
         <div className='search-live'>
           <SearchBar currentResult={`${stock} - ${stockName}`} style={{ marginTop: '0px' }} />
-          <LivePrice stockSymbol={stock} />
+          {/* <LivePrice stockSymbol={stock} /> */}
         </div>
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />
