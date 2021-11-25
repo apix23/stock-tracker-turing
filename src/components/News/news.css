@@ -21,7 +21,7 @@
 .news-title {
   font-family: 'Merriweather';
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--core-primary-2);
   padding-bottom: 9px;
   margin: 44px 16px 0px 16px;
@@ -31,7 +31,7 @@
 .news-headline > a {
   font-family: 'Merriweather';
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--core-primary-2);
   line-height: 1.54;
   padding-bottom: 9px;
