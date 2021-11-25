@@ -4,6 +4,7 @@ import { QueryContext } from '../context/QueryContext'
 
 const MarketOptions = ({ market }: { market: string }) => {
   const { stocks, cursor } = useContext(QueryContext)
+
   return (
     <div>
       <div className='market-name'>{market}</div>

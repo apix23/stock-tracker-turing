@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-interface SetSymbolState {
+export interface SetSymbolState {
   setSelectedResult: (symbol: string) => void
 }
 

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/KeyStats/KeyStatsLoading.tsx</title>
+    <title>Code coverage report for src/components/SuggestionPanel/SuggestionPanel.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/KeyStats</a> KeyStatsLoading.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/SuggestionPanel</a> SuggestionPanel.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
@@ -82,38 +82,38 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
-import './keystatsloading.css'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useContext } from 'react'
+import './SuggestionPanel.css'
+import MarketOptions from '../MarketOptions'
+import { QueryContext } from '../../context/QueryContext'
 &nbsp;
-const KeyStatsLoading = () =&gt; {
+const SuggestionPanel = () =&gt; {
+  const { stocks } = useContext(QueryContext)
   return (
-    &lt;div className='key-loading'&gt;
-      &lt;span&gt;
-        &lt;svg fill='#828282' width='78' height='115' data-qa='adaptive-loader__svg'&gt;
-          &lt;rect type='secondary' height='80' width='15' x='0' order='0' speed='0.8' className='key-one'&gt;&lt;/rect&gt;
-          &lt;rect type='secondary' height='80' width='15' x='20' order='1' speed='0.8' className='key-two'&gt;&lt;/rect&gt;
-          &lt;rect type='secondary' height='80' width='15' x='40' order='2' speed='0.8' className='key-three'&gt;&lt;/rect&gt;
-          &lt;rect type='secondary' height='80' width='15' x='60' order='3' speed='0.8' className='key-four'&gt;&lt;/rect&gt;
-        &lt;/svg&gt;
-      &lt;/span&gt;
+    &lt;div className='suggestion-panel'&gt;
+      {<span class="branch-0 cbranch-no" title="branch not covered" >stocks?</span>.length === 0 ? (
+        &lt;div className='no-result-label'&gt;No results found&lt;/div&gt;
+      ) : (
+        &lt;MarketOptions market='Stocks' /&gt;
+      )}
     &lt;/div&gt;
   )
 }
 &nbsp;
-export default KeyStatsLoading
+export default SuggestionPanel
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

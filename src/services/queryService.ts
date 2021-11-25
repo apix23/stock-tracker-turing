@@ -13,9 +13,10 @@ export const queryFetch = async (stockSearch: string) => {
 
   try {
     const response = await fetch(URL)
+
     const stocks: QueryMarket[] = await response.json()
-    return stocks
-  } catch {
+    return Array.isArray(stocks) ? stocks : []
+  } catch (error) {
     return []
   }
 }
