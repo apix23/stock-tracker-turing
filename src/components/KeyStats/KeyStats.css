@@ -49,6 +49,10 @@
   font-size: 12px;
 }
 
+.stats-row:last-child {
+  border-bottom: none;
+}
+
 .stats-row > span {
   font-weight: normal;
   color: #7f7f7f;

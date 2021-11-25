@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { realData } from '../../services/livePriceService'
+// import { RealData } from '../../services/livePriceService'
 import LivePriceLoading from './LivePriceLoading'
 import LivePriceLoadingError from './LivePriceError'
 import downArrow from '../../assets/images/down-arrow.svg'
 import upArrow from '../../assets/images/up-arrow.svg'
 import './LivePrice.css'
-
+import { Observable } from 'rxjs'
+import { filter, map, retry } from 'rxjs/operators'
 interface LivePriceProps {
   stockSymbol?: string
+}
+
+function fromSSE(url: string): Observable<MessageEvent> {
+  return new Observable<MessageEvent>((subscriber) => {
+    const sse = new EventSource(url)
+    sse.onmessage = (event) => subscriber.next(event)
+    sse.onerror = (err) => subscriber.error(err)
+    return () => sse.close()
+  })
 }
 
 const LivePrice = ({ stockSymbol }: LivePriceProps) => {
@@ -15,31 +25,29 @@ const LivePrice = ({ stockSymbol }: LivePriceProps) => {
   const [change, setChange] = useState<number>()
   const [changePercent, setChangePercent] = useState<number>()
   const [error, setError] = useState(false)
-  const token = '?token=Tpk_095b8e5990924d0c8c41c2209556da53'
 
   useEffect(() => {
-    const sse = new EventSource(`https://sandbox-sse.iexapis.com/stable/stocksUS1second${token}&symbols=${stockSymbol}`)
+    const token = '?token=Tpk_095b8e5990924d0c8c41c2209556da53'
+    const URL = `https://sandbox-sse.iexapis.com/stable/stocksUS1second${token}&symbols=${stockSymbol}`
 
-    const getRealtimeData = (data: realData[]) => {
-      const liveData = data[0]
-      setLivePrice(liveData.latestPrice)
-      setChange(liveData.change)
-      setChangePercent(liveData.changePercent)
-    }
-
-    sse.onmessage = (e) => {
-      setError(false)
-      getRealtimeData(JSON.parse(e.data))
-    }
-
-    sse.onerror = () => {
-      setError(true)
-      sse.close()
-    }
-
-    return () => {
-      sse.close()
-    }
+    fromSSE(URL)
+      .pipe(
+        map((message) => JSON.parse(message.data)),
+        filter((data) => data && data.length > 0),
+        map((data) => data[0]),
+        retry(2),
+      )
+      .subscribe({
+        next: (data) => {
+          setLivePrice(data.latestPrice)
+          setChange(data.change)
+          setChangePercent(data.changePercent)
+        },
+        error: (err) => {
+          console.error(err)
+          setError(true)
+        },
+      })
   }, [stockSymbol])
 
   if (error) {
