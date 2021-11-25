@@ -48,12 +48,9 @@
 }
 
 .search-live {
-  display: grid;
-  grid-template-columns: 5fr 265px;
-  grid-template-rows: auto;
+  display: flex;
   width: 100%;
-  padding-top: 40px;
-  padding-bottom: 31px;
+  margin-top: 43px;
 }
 
 @media only screen and (max-width: 1366px) {
@@ -73,9 +70,6 @@
     padding-bottom: 30px;
   }
 
-  .search-live {
-    padding-top: 25px;
-  }
   .dashboard {
     height: auto;
     grid-template-columns: 1fr;
@@ -115,10 +109,6 @@
 
   .main-section {
     padding: 0px 15px 40px 15px;
-  }
-
-  .search-live {
-    grid-template-columns: 1fr 165px;
   }
 
   .dashboard {

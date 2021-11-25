@@ -4,11 +4,14 @@ import { queryFetch, QueryMarket } from '../services/queryService'
 import { QueryContext } from '../context/QueryContext'
 import { SetSymbolContext } from '../context/SetSymbolContext'
 import { useKeyPress } from '../hooks/useKeyPress'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import LivePrice from './LivePrice/LivePrice'
 
 interface SearchBarProps {
   style: React.CSSProperties
   currentResult: string
+  // isFocus: boolean
+  // setIsFocus: (isFocus: boolean) => void
 }
 
 const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
@@ -16,6 +19,8 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
   const [stockSearch, setStockSearch] = useState('')
   const [isFocus, setIsFocus] = useState(false)
   const ref = useRef<HTMLInputElement>(null)
+
+  const { stock } = useParams()
 
   const navigate = useNavigate()
   const { setSelectedResult } = useContext(SetSymbolContext)
@@ -75,18 +80,21 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
 
   return (
     <div className='search-wrapper' style={{ ...style }}>
-      <input
-        type='text'
-        ref={ref}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={handleInput}
-        value={isFocus ? stockSearch : currentResult}
-        placeholder='Enter a stock, symbol or currency'
-      />
-      <QueryContext.Provider value={{ stocks, stockSearch, cursor, setCursor, setStockSearch }}>
-        {stocks && stockSearch && isFocus && <SuggestionPanel></SuggestionPanel>}
-      </QueryContext.Provider>
+      <div className='input-class'>
+        <input
+          type='text'
+          ref={ref}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={handleInput}
+          value={isFocus ? stockSearch : currentResult}
+          placeholder='Enter a stock, symbol or currency'
+        />
+        <QueryContext.Provider value={{ stocks, stockSearch, cursor, setCursor, setStockSearch }}>
+          {stocks && stockSearch && isFocus && <SuggestionPanel></SuggestionPanel>}
+        </QueryContext.Provider>
+      </div>
+      {!isFocus && currentResult ? <LivePrice stockSymbol={stock} /> : null}
     </div>
   )
 }

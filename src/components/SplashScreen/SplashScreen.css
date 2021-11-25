@@ -11,7 +11,22 @@
   /* transition: width 1s ease-in; */
 }
 
+.logo {
+  margin-bottom: 35px;
+}
+
 .splash-screen-short {
   padding-top: 37px;
   width: 129px;
+}
+
+@media only screen and (max-width: 834px) {
+  .splash-screen-short {
+    width: 100%;
+    height: 50vh;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+    padding-bottom: 33px;
+  }
 }
