@@ -41,12 +41,11 @@ describe('when writing any text in the text bar', () => {
     mockFetch.mockResolvedValue(mockData)
     fireEvent.focus(screen.getByPlaceholderText(/enter/gi))
     fireEvent.change(screen.getByPlaceholderText(/enter/gi), { target: { value: 'aa' } })
-
     await waitFor(async () => expect(await screen.findByText(/Stocks/gi)).toBeDefined())
   })
 
   // it('displays a matching result highlighted with a gray background when there are results for the search', async () => {
-  //   const { getByPlaceholderText, getByText } = render(renderWithBrowser())
+  //   const { getByPlaceholderText } = render(renderWithBrowser())
   //   mockFetch.mockResolvedValue(mockData)
   //   act(() => {
   //     fireEvent.focus(getByPlaceholderText(/enter/gi))
@@ -54,7 +53,7 @@ describe('when writing any text in the text bar', () => {
   //   })
   //   expect(mockFetch).toBeCalledWith('aa')
   //   screen.debug()
-  // expect(screen.findByText(/aapl/gi)).toBeInTheDocument()
+  //   await waitFor(async () => expect(await screen.findByText(/AAPL/gi)).toBeDefined())
   // })
 
   //

@@ -6,15 +6,15 @@ interface HighlightedWordProps {
   searchToCompare: string
 }
 
-const HighLitghtedWord: FC<HighlightedWordProps> = ({ word, searchToCompare }) => {
+const HighLightedWord: FC<HighlightedWordProps> = ({ word, searchToCompare }) => {
   const [strongText, normalText] = highlightMatch(word, searchToCompare)
 
   return (
     <span>
       <strong className='black'>{strongText}</strong>
-      {normalText}{' '}
+      {`${normalText}\u00A0`}
     </span>
   )
 }
 
-export default HighLitghtedWord
+export default HighLightedWord
