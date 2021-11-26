@@ -11,7 +11,7 @@ const SplashScreen = ({ completed }: { completed: number }) => {
 
       <picture>
         <source className={completed === 100 ? '' : 'logo'} media='(max-width: 837px)' srcSet={logoHorizontal} />
-        <img src={logo} className={completed === 100 ? '' : 'logo'} alt='IfItDoesntMatchAnyMedia' />
+        <img src={logo} className={completed === 100 ? '' : 'logo'} alt='deneme' />
       </picture>
 
       {completed === 100 ? null : <ProgressBar completed={completed} />}
