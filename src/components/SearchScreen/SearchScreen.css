@@ -42,7 +42,7 @@ input:focus-visible {
 @media only screen and (max-width: 834px) {
   .search {
     justify-content: start;
-    margin-top: 16px;
+    padding-top: 16px;
   }
 
   .search-wrapper {
