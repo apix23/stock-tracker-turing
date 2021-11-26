@@ -43,6 +43,7 @@
   color: var(--accent-primary);
   padding-bottom: 8px;
   margin: 0px 16px 0px 16px;
+  text-decoration: underline;
 }
 
 .company-summary {

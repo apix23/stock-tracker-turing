@@ -26,7 +26,12 @@ export const Summary = ({ stockSymbol }: { stockSymbol: string | undefined }) =>
         <h3 className='company-name'>
           {summary.companyName} ({summary.symbol})
         </h3>
-        <a className='company-link' target='_blank' rel='noreferrer' href={summary?.website}>
+        <a
+          className='company-link'
+          target='_blank'
+          rel='noreferrer'
+          href={summary.website.startsWith('w') ? `https://${summary?.website}` : `${summary?.website}`}
+        >
           {summary.website}
         </a>
         <p className='company-summary'>{summary.description.substring(0, 500)}...</p>
