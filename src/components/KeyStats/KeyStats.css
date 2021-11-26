@@ -47,9 +47,14 @@
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
+  color: #2b2b2b;
 }
 
-.stats-row:last-child {
+.stats-row > span {
+  color: #7f7f7f;
+}
+
+.stats-row:last-of-type {
   border-bottom: none;
 }
 

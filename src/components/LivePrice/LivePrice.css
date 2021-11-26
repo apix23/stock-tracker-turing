@@ -43,6 +43,7 @@
   border-bottom: 2px solid var(--core-secondary-3);
   font-family: 'Merriweather';
   font-size: 18px;
+  margin-top: 16px;
 }
 
 .arrow {

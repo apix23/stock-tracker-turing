@@ -27,7 +27,7 @@ const LivePrice = ({ stockSymbol }: LivePriceProps) => {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    const token = '?token=Tpk_095b8e5990924d0c8c41c2209556da53'
+    const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
     const URL = `https://sandbox-sse.iexapis.com/stable/stocksUS1second${token}&symbols=${stockSymbol}`
 
     fromSSE(URL)

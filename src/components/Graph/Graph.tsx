@@ -14,7 +14,7 @@ interface GraphProps {
 }
 
 const Graph = ({ stockSymbol }: GraphProps) => {
-  const token = '?token=Tpk_095b8e5990924d0c8c41c2209556da53'
+  const token = '?token=Tpk_9f8a1a489e684df8ad8a935fab4b3504'
   const liveDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/intraday-prices/${token}&chartInterval=5`
   const yesterdayDataUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/chart/date/20211119${token}&chartInterval=5`
   const yesterdayCloseUrl = `https://sandbox.iexapis.com/stable/stock/${stockSymbol}/previous/${token}`
