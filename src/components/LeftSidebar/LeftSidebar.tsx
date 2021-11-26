@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const LeftSidebar = () => {
   return (
-    <div className='splash-screen splash-screen-short left-sidebar'>
+    <div className='left-sidebar'>
       <Link to='/'>
         <img src={logo} className='logo' alt='deneme' />
       </Link>
