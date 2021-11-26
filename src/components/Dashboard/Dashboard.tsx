@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Graph from '../Graph/Graph'
 import { News } from '../News/News'
 import { KeyStats } from '../KeyStats/KeyStats'
@@ -7,19 +7,12 @@ import './dashboard.css'
 import { Summary } from '../Summary/Summary'
 import Indexes from '../Indexes/Indexes'
 import SearchBar from '../SearchBar'
-import LivePrice from '../LivePrice/LivePrice'
 import { useParams } from 'react-router-dom'
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
 import TopBar from '../TopBar/TopBar'
-
-
-import LeftSidebar from '../LeftSidebar/LeftSidebar'
 import { queryFetch } from '../../services/queryService'
-interface DashboardProps {
-  stockName: string
-}
 
-const Dashboard: FC<DashboardProps> = ({ stockName }) => {
+const Dashboard = () => {
   const { stock } = useParams()
   const [stockNameA, setStockNameA] = useState('')
   useEffect(() => {
@@ -43,7 +36,6 @@ const Dashboard: FC<DashboardProps> = ({ stockName }) => {
       <div className='main-section'>
         <div className='search-live'>
           <SearchBar currentResult={`${stock} - ${stockNameA}`} style={{ marginTop: '40px' }} />
-          {/* <LivePrice stockSymbol={stock} /> */}
         </div>
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />

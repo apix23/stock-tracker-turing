@@ -1,6 +1,5 @@
 import React, { FC, useContext } from 'react'
 import './StockOption.css'
-import { SetSymbolContext } from '../../context/SetSymbolContext'
 import { QueryContext } from '../../context/QueryContext'
 import { Link } from 'react-router-dom'
 import HighLightedWord from '../HighLightedWord'
@@ -12,11 +11,9 @@ interface StockProps {
 }
 
 const StockOption: FC<StockProps> = ({ symbol, stockName, active, position }) => {
-  const { setSelectedResult } = useContext(SetSymbolContext)
   const { stockSearch, setStockSearch, setCursor } = useContext(QueryContext)
 
   const handleClick = () => {
-    setSelectedResult(stockName)
     setStockSearch('')
   }
 

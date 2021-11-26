@@ -1,12 +1,9 @@
 import SearchBar from './SearchBar'
 import React from 'react'
-import { fireEvent, getByRole, render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { queryFetch } from '../services/queryService'
 import 'regenerator-runtime/runtime.js'
 import { BrowserRouter } from 'react-router-dom'
-import { act } from 'react-dom/test-utils'
-import { wait } from '@testing-library/user-event/dist/utils'
 
 jest.mock('../services/queryService')
 

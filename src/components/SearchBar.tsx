@@ -10,8 +10,6 @@ import LivePrice from './LivePrice/LivePrice'
 interface SearchBarProps {
   style: React.CSSProperties
   currentResult: string
-  // isFocus: boolean
-  // setIsFocus: (isFocus: boolean) => void
 }
 
 const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
