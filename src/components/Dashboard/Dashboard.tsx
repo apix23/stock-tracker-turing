@@ -9,6 +9,9 @@ import Indexes from '../Indexes/Indexes'
 import SearchBar from '../SearchBar'
 import LivePrice from '../LivePrice/LivePrice'
 import { useParams } from 'react-router-dom'
+import LeftSidebar from '../LeftSidebar/LeftSidebar'
+import TopBar from '../TopBar/TopBar'
+
 
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
 import { queryFetch } from '../../services/queryService'
@@ -31,20 +34,27 @@ const Dashboard: FC<DashboardProps> = ({ stockName }) => {
   }, [stock])
   return (
     <div className='dashboard'>
-      <LeftSidebar />
+      <div className='left-sidebar'>
+        <LeftSidebar />
+      </div>
+      <div className='top-bar'>
+        <TopBar />
+      </div>
       <div className='main-section'>
         <div className='search-live'>
           <SearchBar currentResult={`${stock} - ${stockNameA}`} style={{ marginTop: '40px' }} />
-          <LivePrice stockSymbol={stock} />
+          {/* <LivePrice stockSymbol={stock} /> */}
         </div>
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />
-        <Indexes />
       </div>
       <div className='right-sidebar'>
         <News stockSymbol={stock} />
         <Summary stockSymbol={stock} />
         <Peers stockSymbol={stock} />
+      </div>
+      <div className='footer'>
+        <Indexes />
       </div>
     </div>
   )

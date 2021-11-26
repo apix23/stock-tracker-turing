@@ -8,9 +8,17 @@
 }
 
 .chart {
-  display: flex;
+  height: 60%;
   width: 99%;
-  height: 50%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  user-select: none;
+}
+
+.chart-inner {
+  height: 98%;
+  width: 98%;
+  min-width: 1300px;
 }
 
 .loading-fail {
@@ -23,4 +31,23 @@
   font-size: 18px;
   color: var(--core-primary-2);
   border-bottom: 2px solid var(--core-secondary-3);
+}
+
+@media only screen and (max-width: 1366px) {
+  .chart {
+    width: 970px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .chart {
+    width: 790px;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .chart {
+    height: 45%;
+    width: 410px;
+  }
 }

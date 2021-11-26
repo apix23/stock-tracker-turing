@@ -2,3 +2,10 @@
   width: 100%;
   display: flex;
 }
+
+@media only screen and (max-width: 834px) {
+  .homepage {
+    flex-direction: column;
+    height: 100vh;
+  }
+}

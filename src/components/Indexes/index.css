@@ -8,34 +8,41 @@
   width: 100%;
   padding-top: 8px;
   padding-bottom: 16px;
-}
-
-td {
   font-family: 'Roboto';
   font-size: 12px;
-  padding: 2px 20px;
-}
-
-td:last-child {
-  border: 0;
 }
 
 .name {
   color: #7f7f7f;
+  padding-right: 39px;
+}
+
+.name:first-child {
+  padding-left: 0;
+}
+
+.name:last-child {
+  padding-right: 0;
 }
 
 .positiveChange {
   font-weight: 500;
   color: #01c38d;
-  border-right: 1px solid var(--core-secondary-3);
   display: flex;
 }
 
 .negativeChange {
   font-weight: 500;
   color: #ff274b;
-  border-right: 1px solid var(--core-secondary-3);
   display: flex;
+}
+
+.positiveChange:last-child {
+  padding-right: 0;
+}
+
+.negativeChange:last-child {
+  padding-right: 0;
 }
 
 .index-name {
@@ -61,4 +68,41 @@ td:last-child {
 
 .index-change {
   padding-top: 4px;
+}
+
+.index-line {
+  height: 37px;
+  border-right: 1px solid var(--core-secondary-3);
+}
+
+.index-combo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 15px;
+  padding-left: 24px;
+}
+
+.index-combo:last-child {
+  padding-right: 0px;
+}
+
+.index-combo:first-child {
+  padding-left: 0px;
+}
+
+@media only screen and (max-width: 1366px) {
+  .index {
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .index-combo {
+    flex-direction: column;
+  }
+
+  .name {
+    padding-right: 7px;
+  }
 }

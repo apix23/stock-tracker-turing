@@ -3,24 +3,36 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 129px 1fr 351px;
-  grid-template-rows: auto;
-  grid-template-areas: 'leftSidebar mainSection sidebarRight';
-  background-color: var(--core-secondary-1);
+  grid-template-rows: 1fr 57px;
+  grid-template-areas:
+    'left-sidebar main-section right-sidebar'
+    'left-sidebar footer right-sidebar';
+}
+
+.left-sidebar {
+  grid-area: left-sidebar;
+  width: 100%;
+}
+
+.top-bar {
+  grid-area: top-bar;
+  width: 100%;
+  display: none;
 }
 
 .main-section {
-  grid-area: mainSection;
+  grid-area: main-section;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
   padding: 0px 35px;
+  background-color: var(--core-secondary-1);
 }
 
 .right-sidebar {
-  grid-area: sidebarRight;
-  height: 100vh;
+  grid-area: right-sidebar;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -28,10 +40,78 @@
   background-color: var(--core-secondary-2);
 }
 
-.search-live {
-  display: grid;
-  grid-template-columns: 5fr 265px;
-  grid-template-rows: auto;
+.footer {
+  grid-area: footer;
   width: 100%;
-  margin-bottom: 31px;
+  padding: 0px 35px;
+  background-color: var(--core-secondary-1);
+}
+
+.search-live {
+  display: flex;
+  width: 100%;
+  margin-top: 43px;
+}
+
+@media only screen and (max-width: 1366px) {
+  .left-sidebar {
+    display: none;
+  }
+
+  .top-bar {
+    display: flex;
+  }
+
+  .right-sidebar {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-top: 25px;
+    padding-bottom: 30px;
+  }
+
+  .dashboard {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 2.7fr 1fr 57px;
+    grid-template-areas:
+      'top-bar'
+      'main-section'
+      'right-sidebar'
+      'footer';
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .dashboard {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 2fr 1fr 57px;
+    grid-template-areas:
+      'top-bar'
+      'main-section'
+      'right-sidebar'
+      'footer';
+  }
+  .right-sidebar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .right-sidebar {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-top: 15px;
+  }
+
+  .main-section {
+    padding: 0px 15px 40px 15px;
+  }
+
+  .dashboard {
+    grid-template-rows: 80px 2fr 1fr 57px;
+  }
 }

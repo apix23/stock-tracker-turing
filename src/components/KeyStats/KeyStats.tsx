@@ -42,29 +42,29 @@ export const KeyStats = ({ stockSymbol }: { stockSymbol?: string }) => {
         <div className='stats-section'>
           <div className='stats-row'>
             Open
-            <span>{open ? `$${open}` : '-'}</span>
+            <span>{open ? `$${open?.toFixed(2)}` : '-'}</span>
           </div>
           <div className='stats-row'>
             High
-            <span>{high ? `$${high}` : '-'}</span>
+            <span>{high ? `$${high?.toFixed(2)}` : '-'}</span>
           </div>
           <div className='stats-row'>
             Low
-            <span>{low ? `$${low}` : '-'}</span>
+            <span>{low ? `$${low?.toFixed(2)}` : '-'}</span>
           </div>
           <div className='stats-row'>
             Previous Close
-            <span>{`$${previousClose}`}</span>
+            <span>{`$${previousClose?.toFixed(2)}`}</span>
           </div>
         </div>
         <div className='stats-section'>
           <div className='stats-row'>
             Day Range
-            <span>{high ? `$${high} - ${low}` : '-'}</span>
+            <span>{high ? `$${high?.toFixed(2)} - ${low?.toFixed(2)}` : '-'}</span>
           </div>
           <div className='stats-row'>
             52 Week Range
-            <span>{`$${week52Low} - ${week52High}`}</span>
+            <span>{`$${week52Low?.toFixed(2)} - ${week52High?.toFixed(2)}`}</span>
           </div>
           <div className='stats-row'>
             Market Cap
