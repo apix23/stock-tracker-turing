@@ -12,7 +12,7 @@ const RegisterSW = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter basename={'/'}>
       <RegisterSW />
       <App />
     </HashRouter>
