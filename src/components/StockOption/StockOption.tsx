@@ -3,7 +3,7 @@ import './StockOption.css'
 import { SetSymbolContext } from '../../context/SetSymbolContext'
 import { QueryContext } from '../../context/QueryContext'
 import { Link } from 'react-router-dom'
-import HighLitghtedWord from '../HighLitghtedWord'
+import HighLightedWord from '../HighLightedWord'
 interface StockProps {
   symbol: string
   stockName: string
@@ -28,9 +28,9 @@ const StockOption: FC<StockProps> = ({ symbol, stockName, active, position }) =>
           className={`stock-suggested ${active && 'hovered'}`}
           onClick={handleClick}
         >
-          <HighLitghtedWord word={symbol} searchToCompare={stockSearch} /> -{' '}
+          <HighLightedWord word={symbol} searchToCompare={stockSearch} /> {`-\u00A0`}
           {stockName.split(' ').map((word, i) => (
-            <HighLitghtedWord key={i} word={word} searchToCompare={stockSearch} />
+            <HighLightedWord key={i} word={word} searchToCompare={stockSearch} />
           ))}
         </div>
       </Link>

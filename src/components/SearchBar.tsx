@@ -38,6 +38,7 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
 
   useEffect(() => {
     if (stocks?.length && upPress) {
+      // ref.current?.setSelectionRange(stockSearch.length - 1, stockSearch.length)
       setCursor((prevState) => (prevState > 0 ? prevState - 1 : prevState))
     }
   }, [upPress])
@@ -64,7 +65,7 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
     if (!stockSearch) {
       setStocks(null)
     } else {
-      queryFetch(setStocks, stockSearch)
+      queryFetch(stockSearch).then((stockRequested) => setStocks(stockRequested))
     }
   }, [stockSearch])
 
