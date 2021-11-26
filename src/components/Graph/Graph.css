@@ -8,17 +8,18 @@
 }
 
 .chart {
-  height: 60%;
-  width: 99%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 31px;
   overflow-x: hidden;
   overflow-y: hidden;
   user-select: none;
 }
 
 .chart-inner {
-  height: 98%;
-  width: 98%;
-  min-width: 1300px;
+  display: flex;
+  flex: 1;
+  min-width: 1000px;
 }
 
 .loading-fail {
@@ -35,7 +36,7 @@
 
 @media only screen and (max-width: 1366px) {
   .chart {
-    width: 970px;
+    height: 70%;
   }
 }
 
@@ -47,7 +48,7 @@
 
 @media only screen and (max-width: 834px) {
   .chart {
-    height: 45%;
-    width: 410px;
+    height: 50%;
+    width: 470px;
   }
 }

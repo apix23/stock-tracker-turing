@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 
 const LeftSidebar = () => {
   return (
-    <div className='left-sidebar'>
+    <div className='left-bar'>
       <Link to='/'>
-        <img src={logo} className='logo' alt='deneme' />
+        <img src={logo} className='left-logo' alt='deneme' />
       </Link>
     </div>
   )
