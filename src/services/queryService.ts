@@ -1,5 +1,3 @@
-import { error } from 'console'
-import moduleName from 'module'
 import { filterQueries } from '../utils/filterQueries'
 
 export interface QueryMarket {
