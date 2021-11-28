@@ -14,7 +14,7 @@
 }
 
 .left-logo {
-  animation: moveup 0.75s forwards 1;
+  animation: moveup 0.75s ease-out forwards;
 }
 
 @keyframes moveup {

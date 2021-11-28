@@ -30,13 +30,13 @@
   justify-content: start;
   padding: 0px 35px;
   background-color: var(--core-secondary-1);
-  animation: slide-up 0.75s forwards;
-  -webkit-animation: slide-up 0.75s forwards;
+  animation: slide-up 0.75s ease-out forwards;
+  -webkit-animation: slide-up 0.75s ease-out forwards;
 }
 
 @keyframes slide-up {
   0% {
-    transform: translateY(50%);
+    transform: translateY(45%);
   }
   100% {
     transform: translateY(0%);
@@ -50,8 +50,8 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--core-secondary-2);
-  animation: slide-in-from-right 0.75s forwards;
-  -webkit-animation: slide-in-from-right 0.75s forwards;
+  animation: slide-in-from-right 0.75s ease-out forwards;
+  -webkit-animation: slide-in-from-right 0.75s ease-out forwards;
 }
 
 @keyframes slide-in-from-right {
