@@ -1,4 +1,5 @@
 .left-bar {
+  grid-area: left-sidebar;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -13,10 +14,7 @@
 }
 
 .left-logo {
-  animation-name: moveup;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  animation: moveup 0.75s forwards 1;
 }
 
 @keyframes moveup {
