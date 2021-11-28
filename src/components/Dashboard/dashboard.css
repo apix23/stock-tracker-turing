@@ -7,6 +7,7 @@
   grid-template-areas:
     'left-sidebar main-section right-sidebar'
     'left-sidebar footer right-sidebar';
+  background-color: var(--core-secondary-1);
 }
 
 .left-sidebar {

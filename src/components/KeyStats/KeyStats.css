@@ -76,4 +76,8 @@
   .stats-row:last-of-type {
     border-bottom: 1px solid var(--core-secondary-3);
   }
+
+  .stats-section:last-of-type > .stats-row:last-of-type {
+    border-bottom: none;
+  }
 }
