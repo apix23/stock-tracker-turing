@@ -1,7 +1,3 @@
-.left-logo {
-  padding-top: 37px;
-}
-
 .left-bar {
   width: 100%;
   height: 100vh;
@@ -10,4 +6,25 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--core-secondary-2);
+}
+
+.left-logo {
+  padding-top: 37px;
+}
+
+.left-logo {
+  animation-name: moveup;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveup {
+  0% {
+    transform: translateY(363px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
