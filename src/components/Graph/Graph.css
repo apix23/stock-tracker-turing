@@ -51,6 +51,6 @@
 @media only screen and (max-width: 834px) {
   .chart {
     height: 50%;
-    width: 470px;
+    width: 90vw;
   }
 }

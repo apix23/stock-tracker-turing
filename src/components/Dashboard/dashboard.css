@@ -125,11 +125,11 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    padding-top: 15px;
+    /* padding-top: 15px; */
   }
 
   .main-section {
-    padding: 0px 15px 0px 15px;
+    /* padding: 0px 15px 0px 15px; */
     justify-content: stretch;
   }
 
