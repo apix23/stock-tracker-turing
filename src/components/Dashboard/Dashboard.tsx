@@ -35,7 +35,7 @@ const Dashboard = () => {
       </div>
       <div className='main-section'>
         <div className='search-live'>
-          <SearchBar currentResult={`${stock} - ${stockNameA}`} style={{ marginTop: '40px' }} />
+          <SearchBar currentResult={`${stock} - ${stockNameA}`} classProp={'margin'} />
         </div>
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />

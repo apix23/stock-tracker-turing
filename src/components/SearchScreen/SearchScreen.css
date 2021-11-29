@@ -36,6 +36,10 @@ input:focus-visible {
   justify-content: center;
 }
 
+.margin {
+  margin-top: 40px;
+}
+
 .input-class {
   flex: 1;
 }
@@ -48,6 +52,9 @@ input:focus-visible {
 
   .search-wrapper {
     align-items: flex-start;
+  }
+  .margin {
+    margin-top: 20px;
   }
   input {
     font-size: 16px;

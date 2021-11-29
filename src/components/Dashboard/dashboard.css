@@ -129,10 +129,11 @@
   }
 
   .main-section {
-    padding: 0px 15px 40px 15px;
+    padding: 0px 15px 0px 15px;
+    justify-content: stretch;
   }
 
   .dashboard {
-    grid-template-rows: 80px 2fr 1fr 57px;
+    grid-template-rows: 80px 1.6fr 1fr 57px;
   }
 }

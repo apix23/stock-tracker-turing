@@ -8,11 +8,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 import LivePrice from './LivePrice/LivePrice'
 
 interface SearchBarProps {
-  style: React.CSSProperties
+  classProp: string
   currentResult: string
 }
 
-const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
+const SearchBar = ({ classProp, currentResult }: SearchBarProps) => {
   const [stocks, setStocks] = useState<QueryMarket[] | null>(null)
   const [stockSearch, setStockSearch] = useState('')
   const [isFocus, setIsFocus] = useState(false)
@@ -78,7 +78,7 @@ const SearchBar = ({ style = {}, currentResult }: SearchBarProps) => {
   }
 
   return (
-    <div className='search-wrapper' style={{ ...style }}>
+    <div className={`search-wrapper ${classProp}`}>
       <div className='input-class'>
         <input
           type='text'
