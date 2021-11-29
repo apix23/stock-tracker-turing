@@ -1,8 +1,5 @@
-.left-logo {
-  padding-top: 37px;
-}
-
 .left-bar {
+  grid-area: left-sidebar;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -10,4 +7,22 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--core-secondary-2);
+}
+
+.left-logo {
+  padding-top: 37px;
+}
+
+.left-logo {
+  animation: moveup 0.75s ease-out forwards;
+}
+
+@keyframes moveup {
+  0% {
+    transform: translateY(40vh);
+  }
+
+  100% {
+    transform: translateY(0vh);
+  }
 }

@@ -19,7 +19,7 @@ const useFetchTopPeers = (url: string) => {
         setData(data)
       }
       fetchData()
-    }, 200)
+    }, 300)
   }, [url])
 
   return [data, error] as const

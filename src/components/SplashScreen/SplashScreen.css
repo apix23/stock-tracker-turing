@@ -16,9 +16,8 @@
 }
 
 .splash-screen-short {
-  grid-area: leftSidebar;
   padding-top: 37px;
-  width: 129px;
+  width: 142px;
 }
 
 @media only screen and (max-width: 834px) {

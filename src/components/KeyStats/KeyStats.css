@@ -28,6 +28,7 @@
   color: var(--core-primary-2);
   font-size: 16px;
   font-weight: 500;
+  padding-left: 7px;
   padding-bottom: 19px;
 }
 
@@ -43,7 +44,7 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--core-secondary-3);
-  padding: 8px 0px;
+  padding: 8px 2px 8px 7px;
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
@@ -71,5 +72,13 @@
 
   .stats-section:nth-of-type(2) {
     margin: 0px;
+  }
+
+  .stats-row:last-of-type {
+    border-bottom: 1px solid var(--core-secondary-3);
+  }
+
+  .stats-section:last-of-type > .stats-row:last-of-type {
+    border-bottom: none;
   }
 }
