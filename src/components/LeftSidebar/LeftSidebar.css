@@ -19,10 +19,10 @@
 
 @keyframes moveup {
   0% {
-    transform: translateY(363px);
+    transform: translateY(40vh);
   }
 
   100% {
-    transform: translateY(0px);
+    transform: translateY(0vh);
   }
 }
