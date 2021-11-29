@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--core-secondary-3);
-  padding: 8px 7px;
+  padding: 8px 2px 8px 7px;
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
