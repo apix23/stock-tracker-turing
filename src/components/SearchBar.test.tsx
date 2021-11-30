@@ -18,7 +18,7 @@ const mockData = [
 
 const renderWithBrowser = () => (
   <BrowserRouter>
-    <SearchBar style={{}} currentResult='' />
+    <SearchBar classProp='' currentResult='' />
   </BrowserRouter>
 )
 
