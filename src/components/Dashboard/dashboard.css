@@ -137,7 +137,7 @@
   }
 
   .dashboard {
-    grid-template-rows: 80px 1.2fr 1fr 57px;
+    grid-template-rows: 80px 1.4fr 1fr 57px;
   }
   .footer {
     padding: 0;
