@@ -100,10 +100,12 @@
     width: 100%;
     margin-top: 30px;
     margin-right: 0px;
+    padding: 0 26px;
   }
 
   .summary-title {
     margin: 0;
+    margin-left: -4px;
   }
   .company-name {
     margin: 0;

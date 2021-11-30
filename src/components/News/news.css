@@ -92,6 +92,8 @@
     /* width: 95vw; */
     /* flex-basis: 1; */
     margin: 0;
+    width: 100vw;
+    padding: 0 22px;
   }
 
   .news-title {
@@ -101,9 +103,10 @@
   .news-container {
     width: 100%;
     margin: 0;
+    padding: 0 4px;
   }
 
   .lines {
-    width: 90%;
+    width: 100%;
   }
 }
