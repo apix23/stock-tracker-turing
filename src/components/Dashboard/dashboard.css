@@ -125,14 +125,21 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    padding-top: 15px;
+    /* padding: 0 22px; */
+    /* padding-top: 15px; */
   }
 
   .main-section {
-    padding: 0px 15px 40px 15px;
+    /* padding: 0px 15px 0px 15px; */
+    width: 100%;
+    padding: 0;
+    justify-content: stretch;
   }
 
   .dashboard {
-    grid-template-rows: 80px 2fr 1fr 57px;
+    grid-template-rows: 80px 1.2fr 1fr 57px;
+  }
+  .footer {
+    padding: 0;
   }
 }

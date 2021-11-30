@@ -90,14 +90,15 @@
 
 @media only screen and (max-width: 834px) {
   .peers-wrapper {
-    width: 410px;
+    width: 100vw;
     border: none;
     margin: 0;
     margin-top: 10px;
+    padding-left: 0;
   }
 
   .peers-container {
-    margin-right: 32px;
+    padding: 0 26px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
@@ -105,5 +106,6 @@
 
   .peers-title {
     padding-top: 0px;
+    padding-left: 22px;
   }
 }

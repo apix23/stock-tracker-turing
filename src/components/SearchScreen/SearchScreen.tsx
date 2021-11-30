@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar'
 const SearchScreen = () => {
   return (
     <div className='search'>
-      <SearchBar currentResult='' style={{}} />
+      <SearchBar currentResult='' classProp='' />
     </div>
   )
 }

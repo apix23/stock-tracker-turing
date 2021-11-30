@@ -3,7 +3,7 @@
 }
 
 .top-bar {
-  width: 100%;
+  width: 100vw;
   height: 80px;
   background-color: var(--core-secondary-2);
   justify-content: center;
