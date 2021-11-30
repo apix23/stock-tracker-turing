@@ -71,10 +71,8 @@
 
   .live-container {
     width: auto;
-    flex: 5;
-    padding-bottom: 10px;
+    padding: 0 6px 10px 6px;
     border: none;
-    padding-right: 6px;
   }
 
   .live-price-error {

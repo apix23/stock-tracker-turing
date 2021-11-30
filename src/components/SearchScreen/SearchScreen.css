@@ -65,7 +65,6 @@ input:focus-visible {
 
   .input-class {
     width: auto;
-    flex: 5;
     padding-left: 8px;
   }
   input {
