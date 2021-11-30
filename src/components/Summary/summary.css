@@ -97,9 +97,24 @@
 
 @media only screen and (max-width: 834px) {
   .summary-container {
-    width: 410px;
+    width: 100%;
     margin-top: 30px;
     margin-right: 0px;
+  }
+
+  .summary-title {
+    margin: 0;
+  }
+  .company-name {
+    margin: 0;
+  }
+
+  .company-link {
+    margin: 0;
+  }
+  .company-summary {
+    width: 80vw;
+    margin: 0;
   }
 
   /* .company-name {

@@ -50,13 +50,26 @@ input:focus-visible {
     padding-top: 16px;
   }
 
+  .search-live {
+    width: 100vw;
+    padding: 0 14px;
+  }
+
   .search-wrapper {
     align-items: flex-start;
+    border-bottom: 2px solid var(--core-secondary-3);
   }
   .margin {
     margin-top: 20px;
   }
+
+  .input-class {
+    width: auto;
+    flex: 5;
+    padding-left: 8px;
+  }
   input {
     font-size: 16px;
+    border: none;
   }
 }

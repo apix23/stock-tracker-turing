@@ -89,16 +89,21 @@
 
 @media only screen and (max-width: 834px) {
   .news-wrapper {
-    width: 410px;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* width: 95vw; */
+    /* flex-basis: 1; */
+    margin: 0;
+  }
+
+  .news-title {
+    margin: 0;
   }
 
   .news-container {
-    width: 390px;
+    width: 100%;
+    margin: 0;
   }
 
   .lines {
-    width: 410px;
+    width: 90%;
   }
 }

@@ -30,9 +30,7 @@ const Dashboard = () => {
       <div className='left-sidebar'>
         <LeftSidebar />
       </div>
-      <div className='top-bar'>
-        <TopBar />
-      </div>
+      <TopBar />
       <div className='main-section'>
         <div className='search-live'>
           <SearchBar currentResult={`${stock} - ${stockNameA}`} classProp={'margin'} />
