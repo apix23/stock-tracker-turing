@@ -115,8 +115,8 @@
     margin: 0;
   }
   .company-summary {
-    width: 80vw;
     margin: 0;
+    word-break: break-all;
   }
 
   /* .company-name {
