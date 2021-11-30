@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: end;
-  width: 265px;
+  width: 290px;
   padding-bottom: 17px;
   border-bottom: 2px solid var(--core-secondary-3);
 }
