@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   color: var(--core-primary-5);
+  overflow: hidden;
 }
 
 .hovered {
