@@ -61,9 +61,11 @@ const LivePrice = ({ stockSymbol }: LivePriceProps) => {
   return (
     <div className='live-container'>
       <div className='live-price'>${livePrice?.toFixed(2)}</div>
-      <img className='arrow' src={change > 0 ? upArrow : downArrow} alt='down arrow' />
-      <div className={change > 0 ? 'price-change-positive' : 'price-change-negative'}>
-        {change?.toFixed(2)} | {changePercent?.toFixed(2)}%
+      <div className='price-change'>
+        <img className='arrow' src={change > 0 ? upArrow : downArrow} alt='down arrow' />
+        <div className={change > 0 ? 'price-change-positive' : 'price-change-negative'}>
+          {change?.toFixed(2)} | {changePercent?.toFixed(2)}%
+        </div>
       </div>
     </div>
   )

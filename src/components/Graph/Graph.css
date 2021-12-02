@@ -8,20 +8,17 @@
 }
 
 .chart {
+  height: 600px;
   display: flex;
-  flex-direction: row;
-  width: 99%;
-  height: 50%;
-  padding-top: 31px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: auto;
   user-select: none;
+  padding-top: 31px;
 }
 
 .chart-inner {
-  display: flex;
   flex: 1;
-  min-width: 1000px;
+  display: flex;
+  min-width: 1100px;
 }
 
 .loading-fail {
@@ -34,24 +31,4 @@
   font-size: 18px;
   color: var(--core-primary-2);
   border-bottom: 2px solid var(--core-secondary-3);
-}
-
-@media only screen and (max-width: 1366px) {
-  .chart {
-    height: 70%;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .chart {
-    width: 790px;
-  }
-}
-
-@media only screen and (max-width: 834px) {
-  .chart {
-    height: 50%;
-    width: 100vw;
-    padding-top: 10px;
-  }
 }

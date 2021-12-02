@@ -32,9 +32,7 @@ const Dashboard = () => {
       </div>
       <TopBar />
       <div className='main-section'>
-        <div className='search-live'>
-          <SearchBar currentResult={`${stock} - ${stockNameA}`} classProp={'margin'} />
-        </div>
+        <SearchBar currentResult={`${stock} - ${stockNameA}`} classProp={'margin'} />
         <Graph stockSymbol={stock} />
         <KeyStats stockSymbol={stock} />
       </div>
