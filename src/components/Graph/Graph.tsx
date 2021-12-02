@@ -35,7 +35,7 @@ const Graph = ({ stockSymbol }: GraphProps) => {
   return (
     <div className='chart' ref={reference} onMouseDown={startDrag}>
       <div className='chart-inner'>
-        <ResponsiveContainer width='99%' height='100%'>
+        <ResponsiveContainer width='99%'>
           <LineChart data={yesterdayData}>
             <CartesianGrid stroke='#d1d1d1' strokeWidth={0.4} verticalFill={['#ffffff00', '#ededed80']} />
 

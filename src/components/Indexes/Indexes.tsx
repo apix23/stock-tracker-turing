@@ -2,8 +2,8 @@ import React from 'react'
 import IndexLoading from './IndexLoading'
 import IndexError from './IndexError'
 import useFetchIndexData from '../../hooks/useFetchIndexData'
-import upArrow from '../../assets/images/up-arrow-small.svg'
-import downArrow from '../../assets/images/down-arrow-small.svg'
+import upArrow from '../../assets/images/up-arrow.svg'
+import downArrow from '../../assets/images/down-arrow.svg'
 import './index.css'
 
 const Indexes = () => {
