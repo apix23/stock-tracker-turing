@@ -14,6 +14,7 @@ import { queryFetch } from '../../services/queryService'
 
 const Dashboard = () => {
   const { stock } = useParams()
+  //agregue un comentario
   const [stockNameA, setStockNameA] = useState('')
   useEffect(() => {
     queryFetch(stock).then((data) => {
